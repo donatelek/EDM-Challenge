@@ -1,0 +1,130 @@
+div.quiz {
+    /* background-color: blue; */
+    height: 670px;
+    position: relative;
+    animation: scale-in-hor-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+
+}
+
+@keyframes scale-in-hor-center {
+    0% {
+
+        opacity: 0;
+    }
+
+    100% {
+
+        opacity: 1;
+    }
+}
+
+div.quiz .questionNumber {
+    /* background-color: green; */
+    text-align: center;
+    font-size: 40px;
+    /* animation: fade 1s ease; */
+
+}
+
+
+div.quiz .questionNumber span.fadeNumber {
+
+
+    animation: fadeNumber 4s ease;
+
+}
+
+div.quiz h2.category.fadeNumber {
+
+
+    animation: fadeNumber 4s ease;
+
+}
+
+div.quiz div.points span.fadePoints {
+
+
+    animation: fadePoints 1s ease;
+
+}
+
+@keyframes fadePoints {
+    0% {
+        opacity: 1
+    }
+
+    5% {
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeNumber {
+    0% {
+
+        opacity: 1;
+    }
+
+    40% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+
+
+    65% {
+        opacity: 0;
+    }
+
+    85% {
+        opacity: 1;
+    }
+
+    100% {
+
+        opacity: 1;
+    }
+}
+
+div.quiz .category {
+    /* background-color: pink; */
+    text-align: center;
+    font-size: 30px;
+    margin-top: 20px;
+}
+
+@media screen and (max-width:635px) {
+    div.quiz .questionNumber {
+        font-size: 27px;
+    }
+
+    div.quiz .category {
+        margin-top: 5px;
+        font-size: 22px;
+    }
+}
+
+@media screen and (max-width: 374px) {
+    div.quiz .questionNumber {
+        font-size: 20px;
+    }
+
+    div.quiz .category {
+        margin-top: 2px;
+        font-size: 17px;
+    }
+}

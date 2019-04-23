@@ -1,0 +1,130 @@
+div.contact {
+    /* opacity: 1; */
+    /* background-color: green; */
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    height: 580px;
+    animation: scale-in-center 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    /* box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22); */
+
+}
+
+@keyframes scale-in-center {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+div.contact .messageBox {
+    /* background-color: pink; */
+    height: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+div.contact .contactTitle {
+    font-size: 50px;
+    margin-bottom: 30px;
+}
+
+div.contact .ideas {
+    font-size: 15px;
+    margin-bottom: 30px;
+}
+
+div.contact input {
+    background-color: transparent;
+    /* background-color: green; */
+    height: 30px;
+    width: 200px;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    border: 1px solid black;
+    color: white;
+    background-color: rgb(12, 12, 12, 0.5);
+}
+
+div.contact textarea {
+    margin-top: 10px;
+    background-color: transparent;
+    width: 500px;
+    height: 250px;
+    border: 1px solid black;
+    text-align: center;
+    color: white;
+    resize: none;
+    margin-bottom: 20px;
+    background-color: rgb(12, 12, 12, 0.5);
+}
+
+
+::placeholder {
+    color: white;
+    opacity: 0.5;
+}
+
+div.contact button.submitContact {
+    background-color: green;
+    width: 200px;
+    height: 35px;
+    border: 1px solid black;
+    background-color: transparent;
+    position: relative;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+div.contact button.submitContact::before {
+    content: '';
+    background-color: black;
+    opacity: 0.3;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+@media screen and (max-width: 560px) {
+    div.contact textarea {
+        width: 90%;
+    }
+
+    div.contact input {
+        width: 180px;
+    }
+}
+
+@media screen and (max-width: 448px) {
+    div.contact textarea {
+        height: 200px;
+        margin-bottom: 15px;
+    }
+
+    div.contact .contactTitle {
+        font-size: 40px;
+        margin-bottom: 10px;
+    }
+
+    div.contact .ideas {
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+}
+
+@media screen and (max-width: 358px) {
+    div.contact textarea {
+        height: 150px;
+        margin-bottom: 15px;
+    }
+}

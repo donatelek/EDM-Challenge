@@ -1,0 +1,234 @@
+.register {
+    /* position: relative;
+    background-color: white;
+    text-align: center;
+    padding: 50px 0 0 0;
+    height: 400px;
+    width: 500px;
+    margin: 0 auto;
+    border-radius: 10px; */
+    position: relative;
+    background-color: transparent;
+    text-align: center;
+    /* padding: 30px 0 0 0; */
+    height: 500px;
+    width: 500px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+    box-shadow: 0px 0px 25px -3px rgba(0, 0, 0, 0.75);
+    /* background-color: green; */
+    margin-top: 80px;
+    animation: fade 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@keyframes fade {
+    0% {
+
+        opacity: 0;
+    }
+
+    100% {
+
+        opacity: 1;
+    }
+}
+
+div.register button.loginButton {
+    /* outline: none !important;
+    border: none;
+    background: linear-gradient(to right, rgb(252, 92, 125), rgb(106, 130, 251));
+    margin-top: 50px;
+    width: 200px;
+    height: 35px;
+    border-radius: 30px; */
+    outline: none !important;
+    border: none;
+    position: absolute;
+    /* background: linear-gradient(to right, rgb(252, 92, 125), rgb(106, 130, 251)); */
+    background: transparent;
+
+    border: 2px solid black;
+    /* opacity: 0.7; */
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 50px;
+    width: 230px;
+    height: 45px;
+    border-radius: 30px;
+    line-height: 45px;
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    box-shadow: 9px 9px 25px -3px rgba(0, 0, 0, 0.75);
+}
+
+.register h1 {
+    /* font-size: 40px; */
+    font-size: 40px;
+    color: rgb(7, 38, 39);
+    /* font-weight: bold; */
+    border-bottom: 1px solid black;
+    /* background-color: green; */
+    padding: 29px 0;
+}
+
+.register div.username,
+.register div.password {
+    margin-top: 20px;
+    position: relative;
+}
+
+.register div.username input,
+.register div.password input {
+
+    background-color: transparent;
+    width: 300px;
+    height: 50px;
+    border: none;
+    border-bottom: 1px solid #0A3B3D;
+    outline: none !important;
+    color: white;
+
+
+}
+
+.register div.username i,
+.register div.password i {
+    font-size: 25px;
+    line-height: 25px;
+    height: 25px;
+    /* background-color: pink; */
+    /* line-height: 20px;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    bottom: 0; */
+    /* margin: 20px 20px 0 0; */
+    /* padding: 15px 20px 0 0; */
+    /* margin-right: 50px; */
+    left: 70px;
+    margin-top: 12px;
+    /* background-color: green; */
+    position: absolute;
+}
+
+@media screen and (max-height: 920px) and (max-width:1275px) {
+
+
+    .register {
+        position: relative;
+        height: 380px;
+    }
+
+    div.register button.loginButton {
+        margin-top: 5%;
+    }
+
+    .register h1 {
+        padding: 15px 0;
+    }
+
+    .register div.username,
+    .register div.password {
+        margin-top: 15px;
+
+    }
+
+    .register div.username input,
+    .register div.password input {
+
+
+        width: 300px;
+        height: 40px;
+
+
+    }
+
+    .register div.username i,
+    .register div.password i {
+        font-size: 25px;
+        line-height: 15px;
+
+        /* margin-top: 12px; */
+
+
+    }
+
+    .register {
+        /* margin-top: 10px; */
+    }
+
+
+}
+
+@media screen and (max-width: 560px) {
+    .register {
+        width: 400px;
+    }
+
+    .register div.username input,
+    .register div.password input {
+        width: 260px;
+
+    }
+
+    div.register button.loginButton {
+        /* background-color: green; */
+        width: 170px;
+        height: 38px;
+        line-height: 10px;
+    }
+
+    .register h1 {
+        padding: 10px 0;
+
+    }
+
+    .register div.username i,
+    .register div.password i {
+        font-size: 25px;
+        line-height: 25px;
+
+        left: 50px;
+        margin-top: 12px;
+
+        position: absolute;
+
+
+    }
+}
+
+@media screen and (max-width: 448px) {
+    .register {
+        width: 330px;
+        margin-top: 50px;
+        height: 350px;
+    }
+
+    .register div.username i,
+    .register div.password i {
+        font-size: 25px;
+        line-height: 25px;
+
+        left: 10px;
+        margin-top: 12px;
+
+        position: absolute;
+        display: none;
+
+    }
+}
+
+@media screen and (max-width: 358px) {
+    .register {
+        width: 290px;
+    }
+
+    .register div.username input,
+    .register div.password input {
+        width: 210px;
+
+    }
+}

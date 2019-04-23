@@ -1,0 +1,119 @@
+div.scoreboard {
+    /* background-color: green; */
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 70%;
+    position: relative;
+}
+
+div.scoreboard div.users {
+    display: flex;
+    /* background-color: pink; */
+    width: 100%;
+    height: 60%;
+    flex-wrap: wrap;
+}
+
+div.scoreboard div.users div.username,
+div.scoreboard div.users div.points {
+    /* background-color: red; */
+    font-size: 30px;
+    width: 50%;
+    height: 10%;
+    text-align: center;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+div.scoreboard div.scoreboardTitles {
+    /* background-color: green; */
+    display: flex;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+div.scoreboard div.scoreboardTitles .name,
+div.scoreboard div.scoreboardTitles .points {
+    width: 50%;
+    text-align: center;
+
+}
+
+div.scoreboard h1.titleScoreboard {
+    text-align: center;
+    font-size: 45px;
+}
+
+div.scoreboard h3 {
+    font-size: 30px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+
+@media screen and (max-height: 875px) {
+    div.scoreboard {
+        height: 500px;
+        /* background-color: green; */
+    }
+
+    div.scoreboard div.users div.username,
+    div.scoreboard div.users div.points {
+        font-size: 22px;
+        /* background-color: blue; */
+        height: 30px;
+    }
+
+    div.scoreboard div.scoreboardTitles {
+        margin-bottom: 10px;
+        margin-top: 12px;
+        font-size: 16px;
+    }
+
+    div.scoreboard h1.titleScoreboard {
+
+        font-size: 33px;
+    }
+
+    div.scoreboard h3 {
+        font-size: 25px;
+        margin-top: 12px;
+    }
+}
+
+@media screen and (max-width: 615px) {
+    div.scoreboard {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 448px) {
+    div.scoreboard {
+        width: 95%;
+    }
+
+    div.scoreboard div.users div.username {
+        width: 80%;
+        text-align: left;
+    }
+
+    div.scoreboard div.users div.points {
+        width: 20%;
+        /* background-color: green; */
+        text-align: left;
+    }
+
+    div.scoreboard div.scoreboardTitles .name {
+        width: 65%;
+        font-size: 20px;
+        text-align: left;
+    }
+
+    div.scoreboard div.scoreboardTitles .points {
+        width: 35%;
+        font-size: 20px;
+        /* background-color: green; */
+
+    }
+}

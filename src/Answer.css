@@ -1,0 +1,152 @@
+div.answer {
+    /* background-color: pink; */
+    text-align: center;
+    margin-top: 20px;
+    height: 130px;
+    position: relative;
+
+}
+
+div.answer input.inputAnswer {
+    font-size: 23px;
+    width: 400px;
+    height: 45px;
+    border: none;
+    border-bottom: 2px solid black;
+    background-color: transparent;
+    z-index: 99;
+    outline: none;
+    text-align: center;
+}
+
+div.answer .check {
+    width: 200px;
+    height: 35px;
+    font-size: 22px;
+    /* margin-top: 5px; */
+    /* background-color: green; */
+    position: absolute;
+    border-radius: 50px;
+    border: 1px solid black;
+    background-color: transparent;
+    /* z-index: 3212312123123123123123112332131213213212331231212312332112132; */
+    top: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    outline: none;
+}
+
+div.answer .skip {
+    position: absolute;
+    right: 65px;
+    width: 120px;
+    height: 35px;
+    top: 60px;
+    /* bottom: -30px; */
+    z-index: 2;
+    background-color: transparent;
+    border: none;
+    font-size: 22px;
+    padding: 5px;
+    border-radius: 50px;
+    line-height: 25px;
+    /* border-top-right-radius: 10px;
+    border-top-left-radius: 10px; */
+    border: solid 1px rgb(57, 177, 185);
+    border: solid rgb(165, 92, 92) 2px;
+
+}
+
+div.answer div.points {
+    position: absolute;
+    top: 10px;
+    font-size: 30px;
+    right: 30px;
+}
+
+div.answer div.wrongAnswer {
+    color: rgb(99, 34, 34);
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+@media screen and (max-width:920px) {
+    div.answer div.points {
+        font-size: 22px;
+    }
+
+    div.answer .skip {
+        font-size: 16px;
+        width: 80px;
+        height: 30px;
+        line-height: 15px;
+    }
+}
+
+@media screen and (max-width:790px) {
+    div.answer input.inputAnswer {
+        width: 250px;
+        height: 25px;
+        font-size: 18px;
+        padding-bottom: 5px;
+    }
+
+    div.answer .check {
+        top: 40px;
+        width: 140px;
+        font-size: 20px;
+        height: 30px;
+    }
+
+    div.answer div.wrongAnswer {
+        margin-right: 300px;
+        margin-top: 20px;
+        z-index: 123123312;
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width:635px) {
+    div.answer .skip {
+        left: 50%;
+        top: 80px;
+        transform: translateX(-50%);
+        /* background-color: green; */
+    }
+
+    div.answer div.points {
+        font-size: 18px;
+        /* background-color: green; */
+        right: 10px;
+        width: 130px;
+        top: 45px;
+    }
+
+}
+
+@media screen and (max-width: 448px) {
+    div.answer div.points {
+        font-size: 13px;
+        right: -12px;
+    }
+}
+
+@media screen and (max-width: 358px) {
+    div.answer div.points {
+        font-size: 11px;
+        /* background-color: green; */
+        right: -20px;
+        width: 130px;
+        top: 48px;
+    }
+
+    div.answer div.wrongAnswer {
+        margin-right: 260px;
+        margin-top: 20px;
+        z-index: 123123312;
+        font-size: 11px;
+        width: 90px;
+    }
+}

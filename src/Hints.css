@@ -1,0 +1,285 @@
+div.quizHints {
+
+    display: flex;
+
+    margin: 0 auto;
+    position: relative;
+
+    justify-content: space-around;
+    position: relative;
+    height: 350px;
+    height: 38vh;
+    width: 100%;
+    margin-top: 30px;
+    flex-wrap: wrap;
+    /* background-color: green; */
+    /* width: 1400px; */
+}
+
+.quizHints .hint {
+    /* transform: translateX(1700px); */
+
+}
+
+.quizHints .hint1 {
+    transition: all ease 0.5s;
+    transform: translateX(0px);
+}
+
+.quizHints .hint2 {
+    transition: all ease 0.5s;
+    transform: translateX(0px);
+}
+
+.quizHints .hint3 {
+    transition: all ease 0.5s;
+    transform: translateX(0px);
+}
+
+div.quizHints .hint {
+    /* background-color: red; */
+    position: relative;
+    width: 500px;
+    /* width: 28%; */
+    height: 450px;
+    margin: 0 30px;
+    border: 1px solid black;
+}
+
+.quizHints div.react-card-flip {
+    /* background-color: green; */
+    position: relative;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.quizHints .flip {
+    position: relative;
+    /* background-color: pink; */
+    width: 100%;
+    height: 100%;
+}
+
+.quizHints .react-card-flipper {
+    position: relative;
+    /* background-color: green; */
+    height: 100%;
+}
+
+.quizHints .react-card-front {
+    position: relative;
+    /* background-color: red; */
+    height: 100%;
+}
+
+.quizHints .react-card-back {
+    position: relative;
+    /* background-color: red; */
+    height: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+.quizHints .front2 {
+    height: 100%;
+    width: 100%;
+    background: url('./img/hintfront.png');
+    background-size: 150% 150%;
+    background-position: center;
+    position: absolute;
+    /* height: 100px; */
+
+}
+
+.quizHints .back2 {
+    height: 100%;
+    width: 100%;
+    /* background: url('chooselvl.png'); */
+    /* background-size: 100% 100%; */
+    /* background-position: center; */
+    position: absolute;
+    /* height: 100px; */
+
+}
+
+.quizHints .back2 .back2img {
+    width: auto;
+    height: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+
+    /* background-color: green; */
+}
+
+.quizHints .front1 {
+    height: 100%;
+    width: 100%;
+    background: url('./img/hintfront.png');
+    background-size: 100% 100%;
+    background-position: center;
+    position: absolute;
+    /* height: 100px; */
+
+}
+
+.quizHints .back1 {
+    height: 100%;
+    width: 100%;
+    background: url('ffc.jpeg') center center no-repeat;
+    /* background-size: 100% 100%; */
+    background-size: cover;
+    /* background-position: center; */
+    position: absolute;
+    /* height: 100px; */
+
+}
+
+.quizHints .front3 {
+    height: 100%;
+    width: 100%;
+    /* box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75); */
+    /* background-color: green; */
+    /* opacity: 0.7; */
+    background: url('./img/fiesta-01.jpg') center center no-repeat;
+    /* background-size: 100% 100%; */
+    /* background-position: center; */
+    position: absolute;
+    background-size: cover;
+    /* height: 100px; */
+
+}
+
+.quizHints .back3 {
+    height: 100%;
+    width: 100%;
+    background: url('chooselvl.png');
+    background-size: 100% 100%;
+    background-position: center;
+    position: absolute;
+    /* height: 100px; */
+
+}
+
+
+.addAnimation {
+    animation: hints 4s linear both;
+}
+
+
+@keyframes hints {
+    0% {
+
+        opacity: 1;
+    }
+
+    35% {
+        opacity: 0;
+    }
+
+    65% {
+        opacity: 0;
+    }
+
+    100% {
+
+        opacity: 1;
+    }
+}
+
+
+
+
+
+
+.tess {
+    background-color: green;
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+}
+
+.quizHints button {
+    background-color: pink;
+    z-index: 123123;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+}
+
+.quizHints .flip {
+    border: 1px solid black;
+    width: 24%;
+    height: 100%;
+    /* justify-content: space-around; */
+}
+
+@media screen and (max-width:1150px) {
+    div.quizHints {
+        height: 250px;
+    }
+}
+
+@media screen and (max-width:990px) {
+    .quizHints .flip {
+        width: 30%;
+    }
+}
+
+@media screen and (max-width:830px) {
+    .quizHints .flip {
+        width: 32%;
+    }
+
+    div.quizHints {
+        height: 220px;
+    }
+}
+
+@media screen and (max-width:615px) {
+    div.quizHints {
+        /* background-color: green; */
+        height: 280px;
+        margin-top: 5px;
+    }
+
+    .quizHints .flip {
+        width: 40%;
+        height: 135px;
+    }
+}
+
+@media screen and (max-width:390px) {
+    .quizHints .flip {
+        width: 40%;
+        height: 135px;
+    }
+
+    div.quizHints {
+        /* background-color: green; */
+        height: 280px;
+
+        justify-content: space-around;
+    }
+
+    div.thirdFlip {
+        margin-left: 40%;
+        transform: translateX(-50%);
+    }
+}

@@ -1,0 +1,81 @@
+footer {
+    /* background-color: green; */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    /* overflow: hidden; */
+    z-index: -1;
+}
+
+footer .contact {
+    /* background-color: pink; */
+
+    position: absolute;
+    bottom: 30px;
+    right: 60px;
+    border-radius: 50px;
+    background: transparent;
+    border: 1px dashed black;
+    width: 130px;
+    height: 35px;
+    font-weight: bold;
+    color: rgb(101, 216, 245);
+    text-decoration: none;
+    text-align: center;
+    line-height: 35px;
+    font-size: 15px;
+}
+
+footer .contact:hover {
+    border: 1px solid black;
+}
+
+
+@media screen and (max-width:535px) {
+    footer {
+        background-color: grey;
+        height: 80px;
+        z-index: 9;
+    }
+
+    footer .contact {
+        width: 100px;
+        font-size: 12px;
+        height: 30px;
+        line-height: 30px;
+        top: 12px;
+        right: 5px;
+        /* z-index: 1221121212122111221; */
+    }
+
+}
+
+@media screen and (max-height:720px) {
+    footer {
+        background-color: grey;
+        height: 80px;
+        z-index: 9;
+    }
+
+    footer .contact {
+        width: 100px;
+        font-size: 12px;
+        height: 30px;
+        line-height: 30px;
+        top: 12px;
+        right: 5px;
+        /* z-index: 1221121212122111221; */
+    }
+
+}
+
+@media screen and (max-width: 950px) {
+    footer .contact {
+        right: 8px;
+        top: 20px;
+
+
+    }
+}

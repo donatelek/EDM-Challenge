@@ -1,0 +1,293 @@
+div.quizHints .hint {
+    background-color: rgb(179, 122, 179);
+    position: relative;
+    width: 300px;
+    height: 300px;
+
+}
+
+div.quizHints {
+    display: flex;
+    /* background-color: pink; */
+    max-width: 1300px;
+    margin: 0 auto;
+    position: relative;
+    top: 100px;
+    justify-content: space-between;
+}
+
+#hiddenInput {
+    font-size: 40px;
+    font-family: 'Roboto Condensed', sans-serif;
+    background-color: #808080;
+    position: absolute;
+    opacity: 0.4;
+    margin-top: -22px;
+    margin-left: -125px;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    /* background-color: green; */
+}
+
+#container1 {
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    width: 300px;
+    height: 300px;
+    background-color: green;
+    z-index: 32122111;
+}
+
+#input {
+    /* background-color: green; */
+    position: absolute;
+
+    margin-top: 240px;
+    margin-left: 38%;
+    font-size: 50px;
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.letterContainer {
+    display: inline;
+    white-space: nowrap;
+}
+
+.letterStatic {
+    display: inline;
+}
+
+.letterAnimTop {
+    display: inline;
+    position: absolute;
+    animation: dropTop .1s ease;
+    animation: dropTop .1s ease;
+
+}
+
+.letterAnimBottom {
+    display: inline;
+    position: absolute;
+    animation: dropBottom .1s ease;
+    animation: dropBottom .1s ease;
+}
+
+.blink {
+    position: static;
+    top: -5px;
+    animation: blink 0.3s ease 0 infinite alternate;
+    animation: blink 0.3s ease 0 infinite alternate;
+}
+
+
+
+@keyframes blink {
+    from {
+        opacity: 0
+    }
+
+    to {
+        opactiy: 1
+    }
+}
+
+@keyframes dropTop {
+    from {
+        transform: translateX(0) translateY(-20px) translateZ(20px) rotateX(90deg);
+        transform: translateX(0) translateY(-20px) translateZ(20px) rotateX(90deg);
+    }
+
+    to {
+        transform: translateX(0) translateY(0) translateZ(0) rotateX(0deg);
+        transform: translateX(0) translateY(0) translateZ(0) rotateX(0deg);
+    }
+}
+
+@keyframes dropBottom {
+    from {
+        transform: translateY(20px) translateZ(20px) rotateX(-90deg);
+        transform: translateY(20px) translateZ(20px) rotateX(-90deg);
+    }
+
+    to {
+        transform: rotateX(0deg);
+        transform: rotateX(0deg);
+    }
+}
+
+.quizHints .hint {
+    transform: translateX(1700px);
+
+}
+
+.quizHints .hint1 {
+    transition: all ease 0.5s;
+    transform: translateX(0px);
+}
+
+.quizHints .hint2 {
+    transition: all ease 0.5s;
+    transform: translateX(0px);
+}
+
+.quizHints .hint3 {
+    transition: all ease 0.5s;
+    transform: translateX(0px);
+}
+
+div#input {
+    /* background-color: green;
+    border: 1px solid black;
+    margin: 0 auto; */
+
+}
+
+html {
+    box-sizing: border-box;
+    /* font-size: 10px; */
+}
+
+/* *,
+*:before,
+*:after {
+    box-sizing: inherit;
+} */
+
+body,
+ul,
+li {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+input {
+    /* border-style: none;
+    background: transparent;
+    outline: none; */
+}
+
+/* button {
+    padding: 0;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+h1.demo {
+    text-align: center;
+    font-size: 2.4rem;
+    font-weight: normal;
+    margin-bottom: 1rem;
+    color: #f5f6ff;
+}
+
+a.demo {
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: normal;
+    color: rgba(202, 205, 239, 0.8);
+    margin-bottom: 3rem;
+}
+
+.demo-flex-spacer {
+    flex-grow: 1;
+}
+
+/* .container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    max-width: 1600px;
+    padding: 0 15px;
+    margin: 0 auto;
+} */
+
+/* @keyframes gradient {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 100% 0;
+    }
+}
+
+.webflow-style-input {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    border-radius: 2px;
+    padding: 1.4rem 2rem 1.6rem;
+    background: rgba(57, 63, 84, 0.8);
+}
+
+.webflow-style-input:after {
+    content: "";
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 999;
+    height: 6px;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    background-position: 0% 0%;
+    background: linear-gradient(to right, #b294ff, #57e6e6, #feffb8, #57e6e6, #b294ff, #57e6e6);
+    background-size: 500% auto;
+    animation: gradient 3s linear infinite;
+}
+
+.webflow-style-input input {
+    flex-grow: 1;
+    color: #bfd2ff;
+    font-size: 1.8rem;
+    text-align: center;
+    line-height: 2.4rem;
+    vertical-align: middle;
+}
+
+.webflow-style-input input::-webkit-input-placeholder {
+    color: #7881a1;
+}
+
+.webflow-style-input button {
+    color: #7881a1;
+    font-size: 2.4rem;
+    line-height: 2.4rem;
+    vertical-align: middle;
+    transition: color 0.25s;
+
+}
+
+.webflow-style-input button:hover {
+    color: #bfd2ff;
+} */
+
+
+/* .container {
+    margin-right: 60%;
+
+} */

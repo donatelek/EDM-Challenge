@@ -3,9 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "animated": "^0.2.2",
     "react": "^16.8.5",
+    "react-card-flip": "^0.6.0",
     "react-dom": "^16.8.5",
-    "react-scripts": "2.1.8"
+    "react-image": "^2.1.1",
+    "react-particles-js": "^2.4.0",
+    "react-player": "^1.9.3",
+    "react-router": "^5.0.0",
+    "react-router-dom": "^5.0.0",
+    "react-scripts": "2.1.8",
+    "react-soundcloud": "^0.1.1",
+    "react-soundplayer": "^1.0.4",
+    "react-transition-group": "^2.9.0",
+    "react-youtube": "^7.9.0",
+    "styled-components": "^4.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
