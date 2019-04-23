@@ -6,7 +6,6 @@ class SoundPlayer extends Component {
         playing:false,
         
         volume: 0.1,
-        
         played:0,
         duration: null,
         url:'',
