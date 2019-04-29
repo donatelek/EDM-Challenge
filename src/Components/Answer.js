@@ -57,7 +57,7 @@ class Answer extends Component {
     }
     checkAnswer = () => {
 
-        fetch('http://localhost:3000/password', {
+        fetch('https://pure-dawn-32038.herokuapp.com/password', {
             method: 'post',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({

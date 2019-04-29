@@ -6,7 +6,7 @@ class Scoreboard extends Component {
     }
 
     UNSAFE_componentWillMount() {
-        fetch('https://secure-brook-39660.herokuapp.com/scoreboard', {
+        fetch('https://pure-dawn-32038.herokuapp.com/scoreboard', {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
         }).then(res => res.json()).then(res => {

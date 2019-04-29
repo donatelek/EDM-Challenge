@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import '../Hints.css';
 import ReactCardFlip from 'react-card-flip';
 import Img from 'react-image';
-
+import change from '../img/change.jpg'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 class Hints extends Component {
     state = {
       
@@ -92,7 +93,11 @@ class Hints extends Component {
 
             <div className="firstFlip flip">
   <ReactCardFlip isFlipped={isFlipped1} flipDirection="vertical">
-        <div key='front' className='front1'>aaa</div>
+        <div key='front' className='front1'><LazyLoadImage
+            alt='asdsd'
+            src={change}
+            height='100%'
+            width='100%'/></div>
          <div key='back' className='back1'><img src={require(`../img/change.jpg`)} className='back1img' /></div>
       </ReactCardFlip>
       </div>
@@ -105,7 +110,13 @@ class Hints extends Component {
             setTimeout(() => {
                 updateLocalStorage()
             }, 250)
-        }} ></div>
+        }} >
+            <LazyLoadImage
+            alt='asdsd'
+            src={change}
+            height='100%'
+            width='100%'/>
+        </div>
          <div key='back' className='back2'><img src={require(`../img/change.jpg`)} className='back2img' /></div>
       </ReactCardFlip>
       </div>
@@ -121,7 +132,11 @@ class Hints extends Component {
                     updateLocalStorage()
                 }, 250)
             }
-                }}>aaa</div>
+                }}><LazyLoadImage
+                alt='asdsd'
+                src={change}
+                height='100%'
+                width='100%'/></div>
          <div key='back' className='back3'><img src={require(`../img/change.jpg`)} className='back3img' /></div>
       </ReactCardFlip>
       </div>

@@ -33,7 +33,7 @@ class App extends Component {
   componentWillMount() {
     const storage = localStorage.getItem('currentUser')
     if (!this.state.user && storage) {
-      fetch('https://secure-brook-39660.herokuapp.com/getLocalStorage', {
+      fetch('https://pure-dawn-32038.herokuapp.com/getLocalStorage', {
         method: 'post',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -58,7 +58,7 @@ class App extends Component {
           this.setState({
             user: arrayToObject
           })
-          fetch(`https://secure-brook-39660.herokuapp.com/getlvl/${userId}`, {
+          fetch(`https://pure-dawn-32038.herokuapp.com/getlvl/${userId}`, {
             headers: { 'Content-Type': 'application/json' }
           }).then(res => res.json()).then(res => {
             this.setState({
@@ -116,7 +116,7 @@ setUserIfUserLogged=()=>{
     }
 
   resetUsedHints = () => {
-    fetch('https://secure-brook-39660.herokuapp.com/resethints', {
+    fetch('https://pure-dawn-32038.herokuapp.com/resethints', {
       method: 'put',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -130,7 +130,7 @@ setUserIfUserLogged=()=>{
   }
 
   resetFailedAttempts = () => {
-    fetch('https://secure-brook-39660.herokuapp.com/resetattempts', {
+    fetch('https://pure-dawn-32038.herokuapp.com/resetattempts', {
       method: 'put',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -144,7 +144,7 @@ setUserIfUserLogged=()=>{
   }
 
   updateFailedAttempts = () => {
-    fetch('https://secure-brook-39660.herokuapp.com/updatefailedattempts', {
+    fetch('https://pure-dawn-32038.herokuapp.com/updatefailedattempts', {
       method: 'put',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -158,7 +158,7 @@ setUserIfUserLogged=()=>{
   }
 
   updateUsedHints = () => {
-    fetch('https://secure-brook-39660.herokuapp.com/updatehints', {
+    fetch('https://pure-dawn-32038.herokuapp.com/updatehints', {
       method: 'put',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -190,14 +190,14 @@ setUserIfUserLogged=()=>{
   }
 
   anonymousLogin = () => {
-    fetch('https://secure-brook-39660.herokuapp.com/anonymous', {
+    fetch('https://pure-dawn-32038.herokuapp.com/anonymous', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' }
     })
       .then(response => response.json())
       .then(user => {
         if (user) {
-          fetch('https://secure-brook-39660.herokuapp.com/saveLocalStorage', {
+          fetch('https://pure-dawn-32038.herokuapp.com/saveLocalStorage', {
             method: 'post',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -215,7 +215,7 @@ setUserIfUserLogged=()=>{
   }
 
   updateLocalStorage = () => {
-    fetch('https://secure-brook-39660.herokuapp.com/saveLocalStorage', {
+    fetch('https://pure-dawn-32038.herokuapp.com/saveLocalStorage', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -234,7 +234,7 @@ setUserIfUserLogged=()=>{
   }
 
   handleUserPoints = () => {
-    fetch('https://secure-brook-39660.herokuapp.com/easymodePoints', {
+    fetch('https://pure-dawn-32038.herokuapp.com/easymodePoints', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -256,7 +256,7 @@ setUserIfUserLogged=()=>{
   }
 
   submitRegister = (username, password) => {
-    fetch('https://secure-brook-39660.herokuapp.com/register', {
+    fetch('https://pure-dawn-32038.herokuapp.com/register', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -289,7 +289,7 @@ setUserIfUserLogged=()=>{
   }
 
   submitLogin = (username, password) => {
-    fetch('https://secure-brook-39660.herokuapp.com/signin', {
+    fetch('https://pure-dawn-32038.herokuapp.com/signin', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -306,7 +306,7 @@ setUserIfUserLogged=()=>{
           page:'/introduction',
           showWrongLogin:false
          })
-          fetch('https://secure-brook-39660.herokuapp.com/saveLocalStorage', {
+          fetch('https://pure-dawn-32038.herokuapp.com/saveLocalStorage', {
             method: 'post',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -329,7 +329,7 @@ setUserIfUserLogged=()=>{
   }
 
   handleNextLvl = () => {
-    fetch('https://secure-brook-39660.herokuapp.com/lvl', {
+    fetch('https://pure-dawn-32038.herokuapp.com//lvl', {
       method: 'put',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -342,7 +342,7 @@ setUserIfUserLogged=()=>{
     }).catch(err => console.log(err))
     setTimeout(() => {
       const userLvlNumber = parseInt(this.state.user.id)
-      fetch(`https://secure-brook-39660.herokuapp.com/getlvl/${userLvlNumber}`, {
+      fetch(`https://pure-dawn-32038.herokuapp.com/getlvl/${userLvlNumber}`, {
         headers: { 'Content-Type': 'application/json' }
       }).then(res => res.json()).then(res => {
         this.setState({

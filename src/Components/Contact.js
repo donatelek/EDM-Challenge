@@ -1,11 +1,28 @@
 import React, { Component } from 'react';
 import '../Contact.css';
 class Contact extends Component {
-    state = {}
+    state = {
+        name:'',
+        message:''
+    }
     componentDidMount(){
        
         this.props.pageChange('contact')
     }
+
+    handleContactName=(e)=>{
+        this.setState({
+            name:e.target.value
+        })
+    }
+    handleContactMessage=(e)=>{
+        this.setState({
+            message:e.target.value
+        })
+    }
+handleSubmit=(e)=>{
+e.preventDefault()
+}
     render() {
         return (
             <div className="contact">
@@ -16,14 +33,14 @@ class Contact extends Component {
             <div className="name">
                 <span>Name</span>
                 <br/>
-                <input name='user_name' placeholder='Your name...' type="text"/>
+                <input name='user_name' placeholder='Your name...' type="text" onChange={this.handleContactName} value={this.state.name} />
             </div>
             <div className="message">
                 <span>Message</span>
                 <br/>
-                <textarea name="contact" id="" cols="30" rows="10" placeholder='Your message...'></textarea>
+                <textarea name="contact" id="" cols="30" rows="10" placeholder='Your message...' value={this.state.message} onChange={this.handleContactMessage} ></textarea>
             </div>
-            <input type='submit' value='Send' className="submitContact"/>
+            <input type='submit' value='Send' className="submitContact" onClick={this.handleSubmit} />
             </form>
             </div> 
         );
