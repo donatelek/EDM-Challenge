@@ -44,8 +44,13 @@ div.authentication .anonymous {
     color: black;
     text-align: center;
     line-height: 33px;
+    transition: box-shadow 400ms ease;
     /* background-color: green; */
     /* box-shadow: inset 0px 0px 73px -13px rgba(0, 0, 0, 0.75); */
+}
+
+div.authentication .anonymous:hover {
+    box-shadow: none;
 }
 
 .authentication nav {

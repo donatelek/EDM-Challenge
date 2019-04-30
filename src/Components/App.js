@@ -329,7 +329,7 @@ setUserIfUserLogged=()=>{
   }
 
   handleNextLvl = () => {
-    fetch('https://pure-dawn-32038.herokuapp.com//lvl', {
+    fetch('https://pure-dawn-32038.herokuapp.com/lvl', {
       method: 'put',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -339,6 +339,7 @@ setUserIfUserLogged=()=>{
       this.setState({
         user: res
       })
+      console.log(res)
     }).catch(err => console.log(err))
     setTimeout(() => {
       const userLvlNumber = parseInt(this.state.user.id)
@@ -400,7 +401,7 @@ showFooter=()=>{
           <Route render={({location})=>(
  <div id="wrapper">
  <div className="background1"></div>
- <h1 className='mainTitle'><span>EDM CHALLANGE</span></h1>
+ <h1 className='mainTitle'><span>EDM CHALLENGE</span></h1>
  
 
  {page!=='/'&&<div className="userInfo">
@@ -409,8 +410,8 @@ showFooter=()=>{
  {(user.username==='null'||user.username===null)&&user.id?<div className='userName'>Anonymous{user.id}</div>:null}
  {user&&<Link className='logOut' to='/' exact onClick={handleLogOut}>LOG OUT</Link>}
  <br/>
- {page==='contact'&&!user?<Link to='/' >Back to log in</Link>:null}
- {page==='contact'&&user?<Link to='/lvl' >Back to levels</Link>:null}
+ {page==='contact'&&!user?<Link to='/' className='backToLogIn' >Back to log in</Link>:null}
+ {page==='contact'&&user?<Link to='/lvl' className='goBack'>Back to levels</Link>:null}
  {page==='/quiz'||page==='scoreboard'?<Link className='goBack' to='/lvl'>GO BACK</Link>:null}
  </div>}
 

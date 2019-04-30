@@ -13,7 +13,7 @@ class ChooseLvl extends Component {
 
         return (
             <div className="chooseLvl">
-                <h1 className="lvl">LEVEL</h1>
+                <h1 className="lvl">Choose lvl</h1>
                 <section className="lvls">
                     <Link className="easy" to='/quiz' onClick={() => {
                         pageChange('quiz')

@@ -5,10 +5,18 @@ div.contact {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    height: 580px;
+    height: 581px;
     animation: scale-in-center 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     /* box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22); */
 
+}
+
+.messageSent {
+    position: absolute;
+    bottom: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgb(132, 210, 255);
 }
 
 @keyframes scale-in-center {

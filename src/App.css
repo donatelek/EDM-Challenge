@@ -210,18 +210,24 @@ div.userInfo {
     /* background-color: green; */
     position: absolute;
     /* display: inline; */
-    /* width: 200px; */
-    left: 40px;
+    width: 210px;
+
+    height: 240px;
+    left: 20px;
     top: 10px;
+    top: 0;
+    left: 20px;
     text-align: center;
     z-index: 32;
 }
 
 div.userInfo .face {
     background: url('face.png');
-    /* background-color: green; */
-    width: 150px;
-    height: 150px;
+    /* background-color: red; */
+    width: 140px;
+    height: 140px;
+    margin-left: 50%;
+    transform: translateX(-50%);
     background-position: center;
     background-size: 70% 70%;
     background-repeat: no-repeat;
@@ -229,24 +235,57 @@ div.userInfo .face {
 
 div.userInfo .logOut {
     text-decoration: none;
+    position: absolute;
+    /* left: 15px; */
+    left: 50%;
+    transform: translateX(-50%);
+    top: 170px;
     /* margin-bottom: 100px; */
     /* padding: 10px 0; */
+    font-size: 15px;
     color: black;
-    border-bottom: 1px solid black;
+    /* border-bottom: 1px solid black; */
+    /* background-color: red; */
+    box-shadow: 2px 2px 8px 2px rgba(0, 0, 0, 0.6);
+    border-radius: 40px;
+    padding: 4px;
+    width: 110px;
+    transition: 400ms box-shadow ease;
+}
 
+div.userInfo .logOut:hover {
+    box-shadow: none;
+    border-bottom: 1px solid black;
 }
 
 div.userInfo div.userName {
     font-size: 20px;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
+    /* margin-bottom: 50px; */
 }
 
 div.userInfo .goBack {
-    margin-top: 10px;
+    /* margin-top: 10px; */
+    top: 190px;
+    width: 110px;
+    position: absolute;
+    margin-top: 15px;
     text-decoration: none;
     color: black;
+    font-size: 15px;
+    left: 15px;
+    box-shadow: 2px 2px 8px 2px rgba(0, 0, 0, 0.6);
+    border-radius: 40px;
+    padding: 4px;
+    transition: 400ms box-shadow ease;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
+div.userInfo .goBack:hover {
+    box-shadow: none;
+    border-bottom: 1px solid black;
+}
 
 /* test */
 .fade-appear {
@@ -299,7 +338,8 @@ div.hamburger {
     right: 20px;
     width: 100px;
     height: 40px;
-
+    /* color: rgb(12, 45, 70); */
+    /* color: red; */
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -311,6 +351,7 @@ div.hamburger {
 }
 
 .goBackFooter {
+    /* color: rgb(12, 45, 70); */
     /* background-color: pink; */
     /* position: absolute; */
     /* top: 0; */
@@ -319,7 +360,8 @@ div.hamburger {
     /* height: 100px; */
     /* align-self: center; */
     line-height: 20px;
-    color: rgb(21, 40, 61);
+    /* color: rgb(21, 40, 61); */
+    /* color: red; */
     width: 100%;
     height: 50%;
     font-weight: bold;
@@ -330,11 +372,15 @@ div.hamburger {
     border-bottom: 1px solid rgb(21, 40, 61);
 }
 
+div.userInfo {
+    color: rgb(12, 45, 70);
+}
+
 .logOutFooter {
     width: 100%;
     text-align: center;
     text-decoration: none;
-    color: rgb(21, 40, 61);
+    /* color: rgb(21, 40, 61); */
     font-weight: bold;
     line-height: 20px;
     height: 50%;
@@ -342,13 +388,30 @@ div.hamburger {
     /* background-color: yellow; */
     /* border-right: 2px solid black; */
     cursor: pointer;
+    box-shadow: 2px 2px 8px 2px rgba(0, 0, 0, 0.6);
+    border-radius: 40px;
+    padding: 5px;
+
 }
 
 
 
 
+.backToLogIn {
+    /* background-color: black; */
+    color: black;
+    text-decoration: none;
+    box-shadow: 2px 2px 8px 2px rgba(0, 0, 0, 0.6);
+    border-radius: 40px;
+    padding: 4px;
+    transition: box-shadow 400ms ease;
+}
 
+.backToLogIn:hover {
+    box-shadow: none;
+    border-bottom: 1px solid black;
 
+}
 
 
 @media screen and (max-width: 1060px) {

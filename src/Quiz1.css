@@ -3,7 +3,7 @@ div.quiz {
     height: 670px;
     position: relative;
     animation: scale-in-hor-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-
+    color: rgb(12, 45, 70);
 }
 
 @keyframes scale-in-hor-center {

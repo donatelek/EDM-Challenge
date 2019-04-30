@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'candy';
+    src: url('./') format('truetype');
+}
+
 div.chooseLvl {
     /* background-color: green; */
     height: 650px;
@@ -22,8 +27,10 @@ div.chooseLvl {
 
 div.chooseLvl h1.lvl {
     text-align: center;
-    font-size: 40px;
+    font-size: 50px;
     margin-bottom: 50px;
+    color: rgb(12, 45, 70);
+    font-family: 'candy';
 }
 
 
@@ -62,10 +69,12 @@ div.chooseLvl .lvls .easy {
     /* opacity: 0.6; */
     /* background-color: rgba(0, 0, 255, 0.5); */
     text-decoration: none;
+    opacity: 0.6;
 }
 
 div.chooseLvl .lvls .easy h1 {
     /* position: absolute; */
+    opacity: 0.9999;
     font-size: 100px;
     opacity: 1;
     text-align: center;
@@ -90,6 +99,12 @@ div.chooseLvl .lvls .hard {
 
 }
 
+div.chooseLvl .lvls .hard::before {
+    /* background-color: red; */
+    content: 'hard';
+    /* opacity: .; */
+
+}
 
 
 div.chooseLvl .lvls .hard:hover {

@@ -20,17 +20,72 @@
 
 .soundPlayer input.range {
     position: absolute;
-    top: 70px;
+    top: 80px;
     left: 250px;
+    height: 23px;
+    background: transparent;
+    /* margin-left: 500px; */
+    -webkit-appearance: none;
+    /* background-color: red; */
+    outline: none;
+    /* border-radius: 50px; */
+}
 
-    background-color: red;
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: 2px solid;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    max-width: 80px;
+    position: relative;
+    bottom: 9px;
+    background-color: #1d1c25;
+    cursor: pointer;
+
+    -webkit-transition: border 1000ms ease;
+    transition: border 1000ms ease;
+}
+
+input.range::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+    background: rgba(59, 173, 227, 1);
+    background: -moz-linear-gradient(45deg, rgba(59, 173, 227, 1) 0%, rgba(87, 111, 230, 1) 25%, rgba(152, 68, 183, 1) 51%, rgba(255, 53, 127, 1) 100%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(59, 173, 227, 1)), color-stop(25%, rgba(87, 111, 230, 1)), color-stop(51%, rgba(152, 68, 183, 1)), color-stop(100%, rgba(255, 53, 127, 1)));
+    background: -webkit-linear-gradient(45deg, rgba(59, 173, 227, 1) 0%, rgba(87, 111, 230, 1) 25%, rgba(152, 68, 183, 1) 51%, rgba(255, 53, 127, 1) 100%);
+    background: -o-linear-gradient(45deg, rgba(59, 173, 227, 1) 0%, rgba(87, 111, 230, 1) 25%, rgba(152, 68, 183, 1) 51%, rgba(255, 53, 127, 1) 100%);
+    background: -ms-linear-gradient(45deg, rgba(59, 173, 227, 1) 0%, rgba(87, 111, 230, 1) 25%, rgba(152, 68, 183, 1) 51%, rgba(255, 53, 127, 1) 100%);
+    background: linear-gradient(45deg, rgba(59, 173, 227, 1) 0%, rgba(87, 111, 230, 1) 25%, rgba(152, 68, 183, 1) 51%, rgba(255, 53, 127, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3bade3 ', endColorstr='#ff357f ', GradientType=1);
+    height: 3px;
+
+}
+
+input[type=range]::-moz-range-track {
+    -moz-appearance: none;
+    background: rgba(59, 173, 227, 1);
+    background: -moz-linear-gradient(45deg, rgba(59, 173, 227, 1) 0%, rgba(87, 111, 230, 1) 25%, rgba(152, 68, 183, 1) 51%, rgba(255, 53, 127, 1) 100%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(59, 173, 227, 1)), color-stop(25%, rgba(87, 111, 230, 1)), color-stop(51%, rgba(152, 68, 183, 1)), color-stop(100%, rgba(255, 53, 127, 1)));
+    background: -webkit-linear-gradient(45deg, rgba(59, 173, 227, 1) 0%, rgba(87, 111, 230, 1) 25%, rgba(152, 68, 183, 1) 51%, rgba(255, 53, 127, 1) 100%);
+    background: -o-linear-gradient(45deg, rgba(59, 173, 227, 1) 0%, rgba(87, 111, 230, 1) 25%, rgba(152, 68, 183, 1) 51%, rgba(255, 53, 127, 1) 100%);
+    background: -ms-linear-gradient(45deg, rgba(59, 173, 227, 1) 0%, rgba(87, 111, 230, 1) 25%, rgba(152, 68, 183, 1) 51%, rgba(255, 53, 127, 1) 100%);
+    background: linear-gradient(45deg, rgba(59, 173, 227, 1) 0%, rgba(87, 111, 230, 1) 25%, rgba(152, 68, 183, 1) 51%, rgba(255, 53, 127, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3bade3 ', endColorstr='#ff357f ', GradientType=1);
+    height: 2px;
 }
 
 .soundPlayer .fa-play {
     /* background-color: pink; */
     position: absolute;
     left: 290px;
-    top: 20px;
+    top: 30px;
     font-size: 20px;
     /* border-radius: 50px; */
     width: 50px;
@@ -39,13 +94,14 @@
     line-height: 50px;
     color: lightblue;
     /* border: 1px solid black; */
+    z-index: 100000000000000000000000;
 }
 
 .soundPlayer .fa-pause {
     /* background-color: pink; */
     position: absolute;
     left: 290px;
-    top: 20px;
+    top: 30px;
     font-size: 20px;
     /* border-radius: 50px; */
     width: 50px;
@@ -54,13 +110,14 @@
     line-height: 50px;
     color: lightblue;
     /* border: 1px solid black; */
+    z-index: 100000000000000000000000;
 }
 
 .soundPlayer .front {
     /* background-color: pink; */
     position: absolute;
     left: 340px;
-    top: 20px;
+    top: 30px;
     font-size: 20px;
     /* border-radius: 50px; */
     width: 50px;
@@ -69,15 +126,17 @@
     line-height: 50px;
     color: lightblue;
     /* border: 1px solid black; */
+    z-index: 10;
 }
 
 .soundPlayer .back {
     /* background-color: pink; */
     position: absolute;
     left: 240px;
-    top: 20px;
+    top: 30px;
     font-size: 20px;
     /* border-radius: 50px; */
+    z-index: 10;
     width: 50px;
     height: 50px;
     text-align: center;
@@ -94,6 +153,8 @@
     cursor: pointer;
     z-index: 1231323113;
 }
+
+
 
 @media screen and (max-width:535px) {
 

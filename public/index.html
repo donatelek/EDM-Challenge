@@ -15,21 +15,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-  <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
-  <script type="text/javascript">
-    (function () {
-      emailjs.init("user_i7Fyidz3duBwUrnzyFRxL");
-    })();
-  </script>
-  <script type="text/javascript">
-    window.onload = function () {
-      document.getElementById('contact-form').addEventListener('submit', function (event) {
-        event.preventDefault();
-        this.contact_number.value = Math.random() * 100000 | 0;
-        emailjs.sendForm('contact_service', 'contact_template', this);
-      });
-    }
-  </script>
+
   <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -55,7 +41,12 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-
+  <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.1.0/email.min.js"></script>
+  <script type="text/javascript">
+    (function () {
+      emailjs.init("user_i7Fyidz3duBwUrnzyFRxL");
+    })();
+  </script>
 </body>
 
 </html>
