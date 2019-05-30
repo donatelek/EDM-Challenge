@@ -455,7 +455,7 @@ showFooter=()=>{
  {userLvl==='END' && page!=='contact'&&page!=='chooselvl'&&page!=='/'&&page!=='introduction'&&<Scoreboard pageChange={pageChange}/>}
  
 
- <div className="hamburger" onClick={this.showFooter}><i class="fas fa-bars"></i></div>
+ {this.state.showFooter?<div className="hamburger" onClick={this.showFooter}><i class="fas fa-bars"></i></div>:<div className="hamburger" style={{bottom:'10px'}} onClick={this.showFooter}><i class="fas fa-bars"></i></div>}
  <div className="navInFooter">
  
 

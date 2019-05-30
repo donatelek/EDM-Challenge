@@ -357,9 +357,10 @@ div.userInfo .goBack:hover {
 
 div.hamburger {
     /* background-color: green; */
+    color: rgb(156, 156, 156);
     position: absolute;
     left: 20px;
-    bottom: 5px;
+    bottom: 80px;
     display: none;
     font-size: 30px;
 }

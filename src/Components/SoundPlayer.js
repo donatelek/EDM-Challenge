@@ -143,6 +143,7 @@ class SoundPlayer extends Component {
       const { ref, nextSong, onProgress, onDuration, changeVolume, changePlaying, previousSong, skipMusic } = this
         return (
             <div className="soundPlayer">
+              <div className="blur"></div>
                 <ReactPlayer ref={ref} className='reactPlayer'  url={url} onEnded={nextSong} width={widthOfPlayer} height={heightOfPlayer} onProgress={onProgress}
               onDuration={onDuration} playing={playing} volume={volume} />
                 <input type="range" step="any" min="0" max="1" value={volume} onChange={changeVolume} className='focused range' />

@@ -24,6 +24,7 @@ div.scoreboard ul.users li.points {
     width: 50%;
     height: 10%;
     text-align: center;
+    /* vertical-align: middle; */
     /* border-top: 1px solid black; */
     /* border-bottom: 1px solid black; */
 }
@@ -102,16 +103,25 @@ div.scoreboard h3 {
 
 @media screen and (max-height: 875px) {
     div.scoreboard {
-        height: 500px;
+        height: 480px;
         /* background-color: green; */
+        font-size: 14px;
     }
 
     div.scoreboard div.users div.username,
     div.scoreboard div.users div.points {
-        font-size: 22px;
+        /* font-size: 20px; */
         /* background-color: blue; */
-        height: 30px;
+        /* height: 30px; */
 
+    }
+
+    div.scoreboard ul.users li.username {
+        font-size: 23px;
+    }
+
+    div.scoreboard ul.users li.points {
+        font-size: 23px;
     }
 
     div.scoreboard div.scoreboardTitles {
@@ -142,10 +152,25 @@ div.scoreboard h3 {
         width: 95%;
     }
 
+    div.scoreboard ul.users li.username {
+        text-align: left;
+        /* margin-left: 5px; */
+        padding-left: 5px;
+        width: 65%;
+    }
+
+    div.scoreboard ul.users li.points {
+        width: 35%;
+    }
+
     div.scoreboard div.users div.username {
         width: 80%;
+
         text-align: left;
+        font-size: 14px;
     }
+
+
 
     div.scoreboard div.users div.points {
         width: 20%;
@@ -157,6 +182,8 @@ div.scoreboard h3 {
         width: 65%;
         font-size: 20px;
         text-align: left;
+        padding-left: 5px;
+        /* background-color: red; */
     }
 
     div.scoreboard div.scoreboardTitles .points {
