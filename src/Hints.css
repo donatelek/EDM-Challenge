@@ -137,7 +137,7 @@ div.quizHints .hint {
 .quizHints .back1 {
     height: 100%;
     width: 100%;
-    background: url('ffc.jpeg') center center no-repeat;
+    /* background: url('ffc.jpeg') center center no-repeat; */
     /* background-size: 100% 100%; */
     background-size: cover;
     /* background-position: center; */
@@ -164,7 +164,7 @@ div.quizHints .hint {
 .quizHints .back3 {
     height: 100%;
     width: 100%;
-    background: url('chooselvl.png');
+    /* background: url('chooselvl.png'); */
     background-size: 100% 100%;
     background-position: center;
     position: absolute;

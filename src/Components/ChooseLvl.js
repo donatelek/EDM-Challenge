@@ -16,7 +16,7 @@ class ChooseLvl extends Component {
                 <h1 className="lvl">Choose lvl</h1>
                 <section className="lvls">
                     <Link className="easy" to='/quiz' onClick={() => {
-                        pageChange('quiz')
+                        pageChange('/quiz')
                     }} >
                         <h1>Easy</h1>
                     </Link>

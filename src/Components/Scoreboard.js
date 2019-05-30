@@ -31,8 +31,10 @@ class Scoreboard extends Component {
                 } else {
                     return (
                         <>
-                            <div className='username'>{user.username}</div>
-                            <div className='points'>{user.easylvl}</div>
+                            
+                            <li className='username'>{user.username}</li>
+                            <li className='points'>{user.easylvl}</li>
+                            
                         </>
                     )
                 }
@@ -55,9 +57,9 @@ class Scoreboard extends Component {
                     <h2 className="name">NAME</h2>
                     <h2 className="points">POINTS</h2>
                 </div>
-                <div className="users">
+                <ul className="users">
                     {users}
-                </div>
+                </ul>
             </div>
         );
     }

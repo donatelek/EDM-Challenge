@@ -27,7 +27,8 @@ class App extends Component {
     showLogInBugs:false,
     showFooter:false,
     showSuccessRegister:false,
-    showUserExist:false
+    showUserExist:false,
+    showLoader:false
   }
 
   componentWillMount() {
@@ -190,6 +191,9 @@ setUserIfUserLogged=()=>{
   }
 
   anonymousLogin = () => {
+    this.setState({
+      showLoader:true
+    })
     fetch('https://pure-dawn-32038.herokuapp.com/anonymous', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' }
@@ -197,6 +201,9 @@ setUserIfUserLogged=()=>{
       .then(response => response.json())
       .then(user => {
         if (user) {
+          this.setState({
+            showLoader:false
+          })
           fetch('https://pure-dawn-32038.herokuapp.com/saveLocalStorage', {
             method: 'post',
             headers: { 'Content-Type': 'application/json' },
@@ -289,6 +296,7 @@ setUserIfUserLogged=()=>{
   }
 
   submitLogin = (username, password) => {
+    
     fetch('https://pure-dawn-32038.herokuapp.com/signin', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
@@ -300,6 +308,7 @@ setUserIfUserLogged=()=>{
       .then(response => response.json())
       .then(user => {
         if (user!=='wrong password'&&user) {
+        
          this.setState({
            user,
           userLogged:true,
@@ -455,6 +464,7 @@ showFooter=()=>{
  {page==='/quiz'||page==='scoreboard'?<Link className='goBackFooter' to='/lvl'>GO BACKe</Link>:null}
  <Link className='logOutFooter' to='/' exact onClick={handleLogOut}>LOG OUT</Link>
  </div>
+ {this.state.showLoader&&this.state.page==='introduction'?<div className="loader"></div>:null}
  <Footer showLogInBugs={showLogInBugs} showFooter={showFooter} />
 </div>
           )}/>

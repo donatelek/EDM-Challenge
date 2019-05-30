@@ -14,7 +14,7 @@ class Footer extends Component {
                 <SoundPlayer showFooter={showFooter} />
                 <div className="player">PLAYER MP3</div>
                 <div className="options">OPTIONS</div>
-                <Link to='/contact' className="contact" >Report bugs</Link>
+                <Link to='/contact' className="contact" >Report bug</Link>
             </footer>:<footer>
                 <SoundPlayer showFooter={showFooter} />
                 <div className="player">PLAYER MP3</div>
@@ -23,7 +23,7 @@ class Footer extends Component {
 
                 
 
-                <Link to='/contact' className="contact" >Report bugs</Link>
+                <Link to='/contact' className="contact" >Report bug</Link>
             </footer>}
             </>
         );

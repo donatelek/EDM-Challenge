@@ -49,7 +49,7 @@ class Contact extends Component {
           this.setState({
             showMessageSent:false
           })
-        },2000)
+        },6000)
       }
      
       
