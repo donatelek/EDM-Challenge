@@ -101,14 +101,26 @@
 @media screen and (max-width: 560px) {
     .introduction h1.rules {
         font-size: 30px;
+        /* background-color: red; */
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        transform: translate(-50%, -290%);
+        position: absolute;
     }
 
     .introduction article.rules {
-        font-size: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 16px;
+        /* top: 50%; */
+        position: absolute;
+        /* background-color: #fff; */
     }
 
     .introduction {
         margin-top: 10px;
+        /* background-color: red; */
     }
 
     .introduction .ok {

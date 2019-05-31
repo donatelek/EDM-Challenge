@@ -456,14 +456,17 @@ showFooter=()=>{
  
 
  {this.state.showFooter?<div className="hamburger" onClick={this.showFooter}><i class="fas fa-bars"></i></div>:<div className="hamburger" style={{bottom:'10px'}} onClick={this.showFooter}><i class="fas fa-bars"></i></div>}
- <div className="navInFooter">
- 
 
-{page==='contact'&&user&&<Link to='/lvl' >Back to levels</Link>}
-                
- {page==='/quiz'||page==='scoreboard'?<Link className='goBackFooter' to='/lvl'>GO BACKe</Link>:null}
- <Link className='logOutFooter' to='/' exact onClick={handleLogOut}>LOG OUT</Link>
- </div>
+ {this.state.showFooter?<div className="navInFooter" style={{bottom:'80px'}}>
+{page==='contact'&&user&&<Link to='/lvl' className='goBackFooter' >Back to levels</Link>}          
+ {page==='/quiz'||page==='scoreboard'?<Link className='goBackFooter' to='/lvl'>GO BACK</Link>:null}
+ {this.state.user&&<Link className='logOutFooter' to='/' exact onClick={handleLogOut}>LOG OUT</Link>}
+ </div>:<div className="navInFooter" >
+{page==='contact'&&user&&<Link to='/lvl' className='goBackFooter'>Back to levels</Link>}          
+ {page==='/quiz'||page==='scoreboard'?<Link className='goBackFooter' to='/lvl'>GO BACK</Link>:null}
+ {this.state.user&&<Link className='logOutFooter' to='/' exact onClick={handleLogOut}>LOG OUT</Link>}
+ </div>}
+
  {this.state.showLoader&&this.state.page==='introduction'?<div className="loader"></div>:null}
  <Footer showLogInBugs={showLogInBugs} showFooter={showFooter} />
 </div>
