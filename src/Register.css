@@ -158,14 +158,12 @@ div.register button.loginButton:hover {
         font-size: 25px;
         line-height: 15px;
 
-        /* margin-top: 12px; */
+
 
 
     }
 
-    .register {
-        /* margin-top: 10px; */
-    }
+
 
 
 }
@@ -204,6 +202,15 @@ div.register button.loginButton:hover {
         position: absolute;
 
 
+    }
+}
+
+@media screen and (max-width:560px) and (min-height:920px) {
+
+
+    div.register {
+        height: 450px;
+        /* background-color: red; */
     }
 }
 

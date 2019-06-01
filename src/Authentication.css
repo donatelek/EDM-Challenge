@@ -11,6 +11,12 @@ div.authentication {
     animation: fade1 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
+div.authentication div.accounts {
+    position: absolute;
+    bottom: 0;
+    right: 100px;
+}
+
 @keyframes fade1 {
     0% {
 
@@ -103,6 +109,16 @@ div.authentication .anonymous:hover {
     .authentication div.wrongPassword {
         bottom: 270px;
         font-size: 13px;
+    }
+}
+
+@media screen and (max-width:560px) and (min-height:920px) {
+
+
+    div.authentication .anonymous {
+        /* background-color: green; */
+        bottom: 130px;
+        width: 130px;
     }
 }
 

@@ -177,6 +177,78 @@ div.quizHints .hint {
     animation: hints 4s linear both;
 }
 
+.soundHint {
+    /* background-color: red; */
+    position: absolute;
+    height: 100%;
+    top: 0;
+
+    /* left: 50%; */
+    /* transform: translate(-50%, -50%); */
+    width: 100%;
+    text-align: center;
+}
+
+.soundHint h1.soundHintPlay {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    font-size: 50px;
+    transform: translate(-50%, -50%);
+
+}
+
+.soundHint .fas {
+    /* background-color: blue; */
+    position: absolute;
+    font-size: 80px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.soundHint .volumeChanger {
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 25px;
+    width: 40%;
+    background-color: transparent;
+    -webkit-appearance: none;
+
+    outline: none;
+}
+
+input.volumeChanger::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: 2px solid;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    max-width: 80px;
+    position: relative;
+    bottom: 9px;
+    background-color: #1d1c25;
+    cursor: pointer;
+
+    -webkit-transition: border 1000ms ease;
+    transition: border 1000ms ease;
+}
+
+input.volumeChanger::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+    background: rgba(59, 173, 227, 1);
+    background: -moz-linear-gradient(45deg, rgba(59, 173, 227, 1) 0%, rgba(87, 111, 230, 1) 25%, rgba(152, 68, 183, 1) 51%, rgba(255, 53, 127, 1) 100%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(59, 173, 227, 1)), color-stop(25%, rgba(87, 111, 230, 1)), color-stop(51%, rgba(152, 68, 183, 1)), color-stop(100%, rgba(255, 53, 127, 1)));
+    background: -webkit-linear-gradient(45deg, rgba(59, 173, 227, 1) 0%, rgba(87, 111, 230, 1) 25%, rgba(152, 68, 183, 1) 51%, rgba(255, 53, 127, 1) 100%);
+    background: -o-linear-gradient(45deg, rgba(59, 173, 227, 1) 0%, rgba(87, 111, 230, 1) 25%, rgba(152, 68, 183, 1) 51%, rgba(255, 53, 127, 1) 100%);
+    background: -ms-linear-gradient(45deg, rgba(59, 173, 227, 1) 0%, rgba(87, 111, 230, 1) 25%, rgba(152, 68, 183, 1) 51%, rgba(255, 53, 127, 1) 100%);
+    background: linear-gradient(45deg, rgba(59, 173, 227, 1) 0%, rgba(87, 111, 230, 1) 25%, rgba(152, 68, 183, 1) 51%, rgba(255, 53, 127, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3bade3 ', endColorstr='#ff357f ', GradientType=1);
+    height: 3px;
+
+}
 
 @keyframes hints {
     0% {
@@ -234,6 +306,14 @@ div.quizHints .hint {
     div.quizHints {
         height: 250px;
     }
+
+    .soundHint .fas {
+        font-size: 40px;
+    }
+
+    .soundHint h1.soundHintPlay {
+        font-size: 30px;
+    }
 }
 
 @media screen and (max-width:990px) {
@@ -262,6 +342,11 @@ div.quizHints .hint {
     .quizHints .flip {
         width: 40%;
         height: 135px;
+    }
+
+    .soundHint .volumeChanger {
+        bottom: 10%;
+        width: 100px;
     }
 }
 

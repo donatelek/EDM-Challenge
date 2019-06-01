@@ -615,6 +615,12 @@ div.userInfo {
         width: 70px;
         /* background-color: green; */
         bottom: 0px;
+        right: 5px;
+    }
+
+    .navInFooter .logOutFooter {
+        /* background-color: red; */
+        font-size: 11px;
     }
 
 

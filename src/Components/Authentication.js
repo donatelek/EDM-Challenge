@@ -7,8 +7,19 @@ class Authentication extends Component {
     state = {
         render: 'login',
         isWrongLogin:false,
+        allUsers:null
     }
     UNSAFE_componentWillMount() {
+        fetch('https://pure-dawn-32038.herokuapp.com/scoreboard', {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json' },
+        }).then(res => res.json()).then(res => {
+            console.log(res.length)
+            this.setState({
+                allUsers: res.length
+            })
+        }).catch(err => console.log(err))
+
         const { resetUsers,pageChange}=this.props;
         localStorage.clear()
         resetUsers()
@@ -28,9 +39,9 @@ class Authentication extends Component {
         const { showWrongLogin,submitLogin,submitRegister,showUserExist,showSuccessRegister,pageChange,anonymousLogin } = this.props;
         const { handleAuthChange } = this;
         return (
-
-            <div className="authentication">
                 
+            <div className="authentication">
+                <div className="accounts">Users: {this.state.allUsers}</div>
                 <nav>
                     <div onClick={() => handleAuthChange('login')}>Login</div>
                     <div onClick={() => handleAuthChange('register')}>Register</div>
