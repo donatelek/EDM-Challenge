@@ -1,12 +1,14 @@
 .introduction {
     /* background-color: green; */
     position: relative;
+    /* bottom: 50vh; */
+    /* transform: translateY(100%); */
     max-width: 1200px;
     height: 600px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 40px;
-    animation: slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    /* animation: slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both; */
 
     text-align: center;
 }
@@ -99,22 +101,35 @@
 }
 
 @media screen and (max-width: 560px) {
+    .introduction {
+        /* background-color: red; */
+        height: 50vh;
+        /* margin-top: 50vh; */
+        position: absolute;
+        /* top: calc(50vh - 220.75px); */
+        top: 50vh;
+        left: 50%;
+
+        transform: translate(-50%, -50%);
+    }
+
     .introduction h1.rules {
         font-size: 30px;
         /* background-color: red; */
         top: 50%;
-        left: 50%;
-        width: 100%;
-        transform: translate(-50%, -290%);
-        position: absolute;
+        /* left: 50%; */
+        /* width: 100%; */
+        /* transform: translate(-50%, -50%); */
+        /* position: absolute; */
+
     }
 
     .introduction article.rules {
-        top: 50%;
-        transform: translateY(-50%);
+        /* top: 50%; */
+        /* transform: translateY(-50%); */
         font-size: 16px;
         /* top: 50%; */
-        position: absolute;
+        /* position: absolute; */
         /* background-color: #fff; */
     }
 
@@ -129,6 +144,10 @@
         line-height: 35px;
         font-size: 20px;
     }
+}
+
+@media screen and (max-height:650px) {
+    .introduction {}
 }
 
 @media screen and (max-width: 448px) {
