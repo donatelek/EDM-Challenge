@@ -459,11 +459,13 @@ showFooter=()=>{
 
  {this.state.showFooter?<div className="navInFooter" style={{bottom:'80px'}}>
 {page==='contact'&&user&&<Link to='/lvl' className='goBackFooter' >Back to levels</Link>}          
- {page==='/quiz'||page==='scoreboard'?<Link className='goBackFooter' to='/lvl'>GO BACK</Link>:null}
+{page==='contact'&&!user&&<Link to='/' className='goBackFooter'>Log In</Link>}   
+ {page==='/quiz'||page==='scoreboard'?<Link className='goBackFooter' to='/lvl'>GO Back</Link>:null}
  {this.state.user&&<Link className='logOutFooter' to='/' exact onClick={handleLogOut}>LOG OUT</Link>}
  </div>:<div className="navInFooter" >
-{page==='contact'&&user&&<Link to='/lvl' className='goBackFooter'>Back to levels</Link>}          
- {page==='/quiz'||page==='scoreboard'?<Link className='goBackFooter' to='/lvl'>GO BACK</Link>:null}
+{page==='contact'&&user&&<Link to='/lvl' className='goBackFooter'>Back To levels</Link>}    
+{page==='contact'&&!user&&<Link to='/' className='goBackFooter'>Log In</Link>}         
+ {page==='/quiz'||page==='scoreboard'?<Link className='goBackFooter' to='/lvl'>Go Back</Link>:null}
  {this.state.user&&<Link className='logOutFooter' to='/' exact onClick={handleLogOut}>LOG OUT</Link>}
  </div>}
 

@@ -220,7 +220,7 @@ class Hints extends Component {
 {!this.state.playing3&&this.props.userLvl.sound3?<i class="fas fa-play" onClick={this.changePlaying3}></i>:null}
 {this.props.userLvl.sound3&&<h1 className='soundHintPlay'>PLAY</h1>}
        {this.state.playing3&&this.props.userLvl.sound3?<i class="fas fa-pause" onClick={this.changePlaying3}></i>:null}
-                {this.props.userLvl.backgroundimg3&&<img src={require(`../img/${this.props.userLvl.backgroundimg3}`)} alt="" srcset=""/>}
+                {this.props.userLvl.backgroundimg3&&<img src={require(`../img/${this.props.userLvl.backgroundimg3}`)} alt="" className='backgroundImg3' srcset=""/>}
          </div>
          </div>
       </ReactCardFlip>
