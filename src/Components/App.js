@@ -30,14 +30,13 @@ class App extends Component {
     showSuccessRegister:false,
     showUserExist:false,
     showLoader:false,
-    h:window.innerHeight,
-    w:window.innerWidth
+    w:window.innerWidth,
+    h:window.innerHeight
     
   }
 
   componentWillMount() {
-    const h = window.innerHeight;
-    const w = window.innerWidth;
+   
     
     const storage = localStorage.getItem('currentUser')
     if (!this.state.user && storage) {
@@ -77,7 +76,15 @@ class App extends Component {
     }
   }
   componentDidMount(){
-    
+    window.addEventListener('resize',()=>{
+      const h = window.innerHeight;
+      const w = window.innerWidth;
+      console.log(w,h)
+      this.setState({
+        h,
+        w
+      })
+    })
 
   }
   changingKej=(kej)=>{
