@@ -31,7 +31,7 @@ class App extends Component {
     showUserExist:false,
     showLoader:false,
     w:window.innerWidth,
-    h:window.innerHeight
+    h:window.innerHeight + 100
     
   }
 
@@ -432,7 +432,7 @@ showFooter=()=>{
         <Router>
           <Route render={({location})=>(
  <div id="wrapper" 
-//  style={{width:this.state.w,height:this.state.h}}
+ style={{width:this.state.w,height:this.state.h}}
   >
  <div className="bc">
    <div className="bcc"></div>
