@@ -71,12 +71,12 @@ class App extends Component {
     }
   }
   componentDidMount(){
-    setTimeout(function () {
-      let viewheight = $(window).height();
-      let viewwidth = $(window).width();
-      let viewport = document.querySelector("meta[name=viewport]");
-      viewport.setAttribute("content", "height=" + viewheight + "px, width=" + viewwidth + "px, initial-scale=1.0");
-  }, 300);
+    $(function() {
+      var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+      var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+      $("html").css({"width":w,"height":h});
+      $("body").css({"width":w,"height":h});
+  });
   }
   changingKej=(kej)=>{
     this.setState({
