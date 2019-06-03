@@ -29,10 +29,16 @@ class App extends Component {
     showFooter:false,
     showSuccessRegister:false,
     showUserExist:false,
-    showLoader:false
+    showLoader:false,
+    h:window.innerHeight,
+    w:window.innerWidth
+    
   }
 
   componentWillMount() {
+    const h = window.innerHeight;
+    const w = window.innerWidth;
+    
     const storage = localStorage.getItem('currentUser')
     if (!this.state.user && storage) {
       fetch('https://pure-dawn-32038.herokuapp.com/getLocalStorage', {
@@ -71,12 +77,8 @@ class App extends Component {
     }
   }
   componentDidMount(){
-    $(function() {
-      var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-      var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-      $("html").css({"width":w,"height":h});
-      $("body").css({"width":w,"height":h});
-  });
+    
+
   }
   changingKej=(kej)=>{
     this.setState({
@@ -412,12 +414,13 @@ showFooter=()=>{
 }
 
   render() {
+    
     const { page,user,userLogged,showUserExist,showSuccessRegister,showWrongLogin,userLvl,secondHintClicked,thirdHintClicked,lvl,showFooter }=this.state;
     const { handleLogOut,pageChange,setUserLvl,submitRegister,hideWrongLogin,anonymousLogin,setUserIfUserLogged,resetUsers,changingKej,submitLogin,changeDownloadLvl,mainmain,doubledouble1,doubledouble2,handleUsedHints,handleNextLvl,handleUserPoints,handleAnonymousNextLvl,updateLocalStorage,resetUsedHints,resetFailedAttempts,updateFailedAttempts,showLogInBugs }=this;
     return (
         <Router>
           <Route render={({location})=>(
- <div id="wrapper">
+ <div id="wrapper" style={{width:this.state.w,height:this.state.h}} >
  <div className="background1"></div>
  <h1 className='mainTitle'><span>EDM CHALLENGE</span></h1>
  
