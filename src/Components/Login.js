@@ -30,7 +30,7 @@ class Login extends Component {
                     <span>Username</span>
                     <br />
                     <i class="zmdi zmdi-account-o"></i>
-                    <input value={username} onChange={handleUsername} type="text" />
+                    <input value={username} onChange={handleUsername} type="text" spellcheck="false" />
 
                 </div>
                 <div className="password">

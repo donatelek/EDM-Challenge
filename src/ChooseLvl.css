@@ -30,6 +30,7 @@ div.chooseLvl h1.lvl {
     font-size: 50px;
     margin-bottom: 50px;
     color: rgb(12, 45, 70);
+    letter-spacing: 2px;
     /* font-family: 'candy'; */
 }
 
@@ -58,6 +59,8 @@ div.chooseLvl .lvls .hard {
     width: 40%;
     height: 300px;
     position: relative;
+    box-shadow: 0 10px 26px -6px black;
+    transition: .5s all ease;
 }
 
 div.chooseLvl .lvls .easy {
@@ -70,6 +73,8 @@ div.chooseLvl .lvls .easy {
     /* background-color: rgba(0, 0, 255, 0.5); */
     text-decoration: none;
     opacity: 0.6;
+    transition: .5s all ease;
+    box-shadow: 0 10px 26px -6px black;
 }
 
 div.chooseLvl .lvls .easy h1 {
@@ -84,6 +89,7 @@ div.chooseLvl .lvls .easy h1 {
     /* border-bottom: 1px solid black; */
     color: rgb(106, 131, 201);
     font-weight: bold;
+
 }
 
 div.chooseLvl .lvls .hard {
@@ -113,6 +119,7 @@ div.chooseLvl .lvls .hard:hover {
 
 div.chooseLvl .lvls .easy:hover {
     opacity: 1;
+
 }
 
 .chooseLvl .note {

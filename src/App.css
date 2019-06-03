@@ -24,11 +24,13 @@ button {
 body {
     /* background-image: url('dj1.jpeg'); */
     /* z-index: 123312123; */
+
 }
 
 
 
 #wrapper {
+    overflow-y: inherit;
     /* animation: color-change-2x 5s linear infinite alternate both; */
     /* background-image: linear-gradient(rgb(127, 127, 213), rgb(134, 168, 231), rgb(145, 234, 228)); */
     /* background-image: linear-gradient(to right top, #471562, #004ba3, #0074b0, #00947f, #02ac28), url('dj1.jpeg');
@@ -36,6 +38,10 @@ body {
     width: 100vw;
     height: 100vh; */
     position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     width: 100vw;
     height: 100vh;
     background: url('ffc.jpeg') center center no-repeat;

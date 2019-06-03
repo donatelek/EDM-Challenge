@@ -161,7 +161,7 @@ class Hints extends Component {
          {this.props.userLvl.sound&&<h1 className='soundHintPlay'>PLAY</h1>}
          {!this.state.playing&&this.props.userLvl.sound?<i class="fas fa-play" onClick={this.changePlaying}></i>:null}
                 {this.state.playing&&this.props.userLvl.sound?<i class="fas fa-pause" onClick={this.changePlaying}></i>:null}
-                {this.props.userLvl.backgroundimg&&<img src={require(`../img/${this.props.userLvl.backgroundimg}`)} alt="" srcset=""/>}
+                {this.props.userLvl.backgroundimg&&<img src={require(`../img/${this.props.userLvl.backgroundimg}`)} alt="" srcset="" className='backgroundImg3'  />}
                 </div>
          </div>
       </ReactCardFlip>
@@ -190,7 +190,7 @@ class Hints extends Component {
          {this.props.userLvl.sound2&&<h1 className='soundHintPlay'>PLAY</h1>}
          {!this.state.playing2&&this.props.userLvl.sound2?<i class="fas fa-play" onClick={this.changePlaying2}></i>:null}
                 {this.state.playing2&&this.props.userLvl.sound2?<i class="fas fa-pause" onClick={this.changePlaying2}></i>:null}
-                {this.props.userLvl.backgroundimg2&&<img src={require(`../img/${this.props.userLvl.backgroundimg2}`)} alt="" srcset=""/>}
+                {this.props.userLvl.backgroundimg2&&<img src={require(`../img/${this.props.userLvl.backgroundimg2}`)} alt="" srcset="" className='backgroundImg3' />}
          </div>
          </div>
       </ReactCardFlip>

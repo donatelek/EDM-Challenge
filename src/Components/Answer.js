@@ -105,7 +105,7 @@ class Answer extends Component {
             <>
                 <div class="answer">
                    
-                    <input onChange={handleInputAnswer} type="text" value={answerInput} className='inputAnswer' placeholder='Answer...' />
+                    <input onChange={handleInputAnswer} type="text" value={answerInput} className='inputAnswer' placeholder='Answer...' spellcheck="false" />
                     <br />
                     {isWrongAnswer&&<div className="wrongAnswer">{wrongAnswer}</div>}
                     <br/>

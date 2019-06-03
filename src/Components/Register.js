@@ -28,7 +28,7 @@ class Register extends Component {
                     <span>Username</span>
                     <br />
                     <i class="zmdi zmdi-account-o"></i>
-                    <input type="text" value={username} onChange={handleRegister} />
+                    <input type="text" value={username} onChange={handleRegister} spellcheck="false" />
                 </div>
                 <div className="password">
                     <span>Password</span>
