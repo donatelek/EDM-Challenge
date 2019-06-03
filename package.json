@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "animated": "^0.2.2",
+    "jquery": "^3.4.1",
     "react": "^16.8.5",
     "react-card-flip": "^0.6.0",
     "react-dom": "^16.8.5",

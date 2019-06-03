@@ -8,6 +8,7 @@ import Footer from './Footer';
 import { BrowserRouter as Router, Link, Route, Switch} from 'react-router-dom';
 import Scoreboard from './Scoreboard';
 import Contact from './Contact';
+import $ from "jquery";
 
 
 class App extends Component {
