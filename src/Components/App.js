@@ -76,16 +76,20 @@ class App extends Component {
     }
   }
   componentDidMount(){
-    window.addEventListener('resize',()=>{
-      const h = window.innerHeight;
-      const w = window.innerWidth;
-      console.log(w,h)
-      this.setState({
-        h,
-        w
-      })
-    })
+    // window.addEventListener('resize',()=>{
+    //   const h = window.innerHeight;
+    //   const w = window.innerWidth;
+    //   console.log(w,h)
+    //   this.setState({
+    //     h,
+    //     w
+    //   })
+    // })
+    // const inputs = document.querySelector('input')
+    
+    // inputs.addEventListener('focus',()=>{
 
+    // })
   }
   changingKej=(kej)=>{
     this.setState({
@@ -427,8 +431,12 @@ showFooter=()=>{
     return (
         <Router>
           <Route render={({location})=>(
- <div id="wrapper" style={{width:this.state.w,height:this.state.h}} >
- <div className="background1"></div>
+ <div id="wrapper" 
+//  style={{width:this.state.w,height:this.state.h}}
+  >
+ <div className="bc">
+   <div className="bcc"></div>
+ </div>
  <h1 className='mainTitle'><span>EDM CHALLENGE</span></h1>
  
 
