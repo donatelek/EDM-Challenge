@@ -11,6 +11,7 @@ div.quizHints {
     height: 38vh;
     width: 100%;
     margin-top: 30px;
+
     flex-wrap: wrap;
     /* background-color: green; */
     /* width: 1400px; */
@@ -98,6 +99,7 @@ div.quizHints .hint {
     /* background-position: center; */
     position: absolute;
     /* height: 100px; */
+    overflow-y: hidden;
 
 }
 
@@ -131,6 +133,7 @@ div.quizHints .hint {
     /* background-position: center; */
     position: absolute;
     /* height: 100px; */
+    overflow-y: hidden;
 
 }
 
@@ -157,12 +160,14 @@ div.quizHints .hint {
     /* background-position: center; */
     position: absolute;
     background-size: cover;
+    overflow-y: hidden;
     /* height: 100px; */
 
 }
 
 .quizHints .back3 {
     height: 100%;
+
     width: 100%;
     /* background: url('chooselvl.png'); */
     background-size: 100% 100%;

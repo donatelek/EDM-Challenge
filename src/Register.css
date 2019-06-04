@@ -38,12 +38,14 @@
 div.register button.loginButton {
     /* outline: none !important;
     border: none;
+    
     background: linear-gradient(to right, rgb(252, 92, 125), rgb(106, 130, 251));
     margin-top: 50px;
     width: 200px;
     height: 35px;
     border-radius: 30px; */
     outline: none !important;
+    overflow-y: hidden;
     border: none;
     position: absolute;
     /* background: linear-gradient(to right, rgb(252, 92, 125), rgb(106, 130, 251)); */

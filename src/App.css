@@ -15,13 +15,14 @@
     overflow-x: hidden;
     /* overflow: hidden; */
 
+
 }
 
 button {
     outline: none;
 }
 
-
+/* anonymous lets play hard i cale choose lvl zdjecia report bug caly footer */
 html,
 body {
     /* background-image: url('dj1.jpeg'); */
@@ -334,6 +335,7 @@ div.userInfo .goBack {
     /* margin-top: 10px; */
     top: 190px;
     width: 110px;
+
     position: absolute;
     margin-top: 15px;
     text-decoration: none;
@@ -421,6 +423,7 @@ div.hamburger {
     /* color: rgb(12, 45, 70); */
     /* background-color: pink; */
     /* position: absolute; */
+    overflow-y: hidden;
     /* top: 0; */
     /* right: 0; */
     /* width: 100px; */

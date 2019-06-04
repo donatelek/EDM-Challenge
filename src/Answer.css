@@ -55,6 +55,7 @@ div.answer .skip {
     height: 35px;
     top: 60px;
     /* bottom: -30px; */
+    overflow-y: hidden;
     z-index: 2;
     background-color: transparent;
     border: none;

@@ -32,7 +32,7 @@ div.authentication div.accounts {
 
 div.authentication .anonymous {
     position: absolute;
-
+    overflow-y: hidden;
     /* background-color: pink; */
     bottom: 75px;
     left: 50%;

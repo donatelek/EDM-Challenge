@@ -12,13 +12,13 @@ class Footer extends Component {
             <>
             {showFooter?<footer style={{display:'block'}}>
                 <SoundPlayer showFooter={showFooter} />
-                <div className="player">PLAYER MP3</div>
-                <div className="options">OPTIONS</div>
+                {/* <div className="player">PLAYER MP3</div>
+                <div className="options">OPTIONS</div> */}
                 <Link to='/contact' className="contact" >Report bug</Link>
             </footer>:<footer>
                 <SoundPlayer showFooter={showFooter} />
-                <div className="player">PLAYER MP3</div>
-                <div className="options">OPTIONS</div>
+                {/* <div className="player">PLAYER MP3</div>
+                <div className="options">OPTIONS</div> */}
 
 
                 

@@ -13,6 +13,7 @@
     /* background-color: green; */
     margin-top: 80px;
     /* animation: slide-out-bck-center 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both; */
+
     animation: fade 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
@@ -35,7 +36,7 @@
     position: absolute;
     /* background: linear-gradient(to right, rgb(252, 92, 125), rgb(106, 130, 251)); */
     background: transparent;
-
+    overflow-y: hidden;
     border: 2px solid black;
     /* opacity: 0.7; */
     left: 50%;

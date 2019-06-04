@@ -10,6 +10,7 @@ div.chooseLvl {
     margin-left: auto;
     margin-right: auto;
     position: relative;
+    overflow-y: hidden;
     animation: swing-in-top-fwd 1s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
 }
 
@@ -95,7 +96,7 @@ div.chooseLvl .lvls .easy h1 {
 div.chooseLvl .lvls .hard {
     background-position: center;
     background-size: auto;
-
+    overflow-y: hidden;
     background-repeat: no-repeat;
     background-image: url('../src/img/chooselvlv2.jpeg');
     opacity: 0.6;

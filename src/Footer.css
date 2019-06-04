@@ -9,11 +9,12 @@ footer {
     z-index: 1;
     /* box-shadow: 0px -7px 31px -4px rgba(0, 0, 0, 0.75); */
     /* box-shadow: 0px -7px 54px -1px rgba(0, 0, 0, 0.46); */
+    overflow-y: hidden;
 }
 
 footer .contact {
     /* background-color: pink; */
-
+    overflow-y: hidden;
     position: absolute;
     bottom: 30px;
     right: 60px;

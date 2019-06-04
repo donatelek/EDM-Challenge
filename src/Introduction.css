@@ -49,6 +49,7 @@
     width: 250px;
     text-decoration: none;
     color: black;
+    overflow-y: hidden;
     line-height: 45px;
     height: 45px;
     border-radius: 40px;
