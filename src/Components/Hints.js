@@ -5,7 +5,7 @@ import Img from 'react-image';
 import change from '../img/change.jpg'
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import ReactPlayer from 'react-player'
-import sound1 from '../mp3/1.mp3'
+
 class Hints extends Component {
     state = {
       
@@ -94,16 +94,26 @@ class Hints extends Component {
         })
     }
     changePlaying = () => {
+        if(this.props.soundplayerPlaying&&!this.state.playing){
+            this.props.handleTurningSoundplayer()
+        }
         this.setState({
             playing: !this.state.playing
         })
     }
     changePlaying2 = () => {
+        if(this.props.soundplayerPlaying&&!this.state.playing2){
+            this.props.handleTurningSoundplayer()
+        }
+        
         this.setState({
             playing2: !this.state.playing2
         })
     }
     changePlaying3 = () => {
+        if(this.props.soundplayerPlaying&&!this.state.playing3){
+            this.props.handleTurningSoundplayer()
+        }
         this.setState({
             playing3: !this.state.playing2
         })

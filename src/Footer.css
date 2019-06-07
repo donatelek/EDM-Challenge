@@ -29,6 +29,7 @@ footer .contact {
     text-align: center;
     line-height: 35px;
     font-size: 15px;
+    transition: 3s ease all;
 }
 
 footer .contact:hover {

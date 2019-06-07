@@ -3,7 +3,7 @@ import '../ChooseLvl.css';
 import { Link } from 'react-router-dom';
 class ChooseLvl extends Component {
     state = {}
-    componentDidMount(){
+    componentWillMount(){
         const { pageChange }=this.props;
         pageChange('chooselvl')
     }

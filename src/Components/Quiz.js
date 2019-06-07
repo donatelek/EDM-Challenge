@@ -12,7 +12,7 @@ class Quiz extends Component {
         user: null,
         turnAnimation:false
     }
-    componentDidMount(){
+    componentWillMount(){
         this.props.pageChange('/quiz')
     }
 
@@ -35,10 +35,10 @@ turnAnimation:true
         return (
             <div className="quiz">
 
-                <h1 className="questionNumber">QUESTION NUMBER: {turnAnimation?<span className='fadeNumber'>{userLvl.lvlnumber}</span>:<span>{userLvl.lvlnumber}</span>}</h1>
+                <h1 className="questionNumber">Question number: {turnAnimation?<span className='fadeNumber'>{userLvl.lvlnumber}</span>:<span>{userLvl.lvlnumber}</span>}</h1>
                 {turnAnimation?<h2 className="category fadeNumber">{userLvl.category}</h2>:<h2 className="category">{userLvl.category}</h2>}
 
-                <Hints turnAnimation={turnAnimation} doubledouble2={doubledouble2} doubledouble1={doubledouble1} restartHintsPoints={restartHintsPoints} resetHintsPointsOnLvlChange={resetHintsPointsOnLvlChange} questions={questions} lvl={lvl} lvlPointsCalculator={lvlPointsCalculator} updateLocalStorage={updateLocalStorage} user={user} secondHintClicked={secondHintClicked} thirdHintClicked={thirdHintClicked} userLvl={userLvl}/>
+                <Hints turnAnimation={turnAnimation} doubledouble2={doubledouble2} doubledouble1={doubledouble1} restartHintsPoints={restartHintsPoints} resetHintsPointsOnLvlChange={resetHintsPointsOnLvlChange} questions={questions} lvl={lvl} lvlPointsCalculator={lvlPointsCalculator} updateLocalStorage={updateLocalStorage} user={user} secondHintClicked={secondHintClicked} thirdHintClicked={thirdHintClicked} userLvl={userLvl} handleTurningSoundplayer={this.props.handleTurningSoundplayer}  soundplayerPlaying={this.props.soundplayerPlaying} />
 
                 <Answer turnAnimation={turnAnimation} animationOnGoodAnswer={animationOnGoodAnswer} doubledouble1={doubledouble1} handleUsedHints={handleUsedHints} mainmain={mainmain} resetHintsPointsOnLvlChange={resetHintsPointsOnLvlChange} handleIncrementQuestion={handleIncrementQuestion} handleNextLvl={handleNextLvl} userLvl={userLvl} handleUserPoints={handleUserPoints} user={user} handleAnonymousNextLvl={handleAnonymousNextLvl} updateLocalStorage={updateLocalStorage} resetUsedHints={resetUsedHints} resetFailedAttempts={resetFailedAttempts} updateFailedAttempts={updateFailedAttempts} />
 

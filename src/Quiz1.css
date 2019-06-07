@@ -4,6 +4,7 @@ div.quiz {
     position: relative;
     animation: scale-in-hor-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     color: rgb(12, 45, 70);
+    z-index: 323;
 }
 
 @keyframes scale-in-hor-center {
@@ -109,6 +110,7 @@ div.quiz .category {
 
 @media screen and (max-width:635px) {
     div.quiz .questionNumber {
+        /* margin-top: 5px; */
         font-size: 27px;
     }
 

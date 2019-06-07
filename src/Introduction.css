@@ -59,6 +59,7 @@
     border: 1px solid black;
     /* background: transparent; */
     font-size: 22px;
+    transition: .3s ease background-color;
 }
 
 .introduction .ok::before {
@@ -72,6 +73,9 @@
     height: 100%;
 }
 
+.introduction .ok:hover {
+    background-color: rgba(33, 125, 212, 0.37);
+}
 
 @media screen and (max-height: 864px) and (max-width:1275px) {
     .introduction article.rules {

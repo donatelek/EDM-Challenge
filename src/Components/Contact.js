@@ -8,7 +8,7 @@ class Contact extends Component {
         showMessageSent:false,
         buttonDisabled:false
     }
-    componentDidMount(){
+    componentWillMount(){
        
         this.props.pageChange('contact')
     }

@@ -62,7 +62,7 @@ class Answer extends Component {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 lvl: this.props.userLvl.lvlnumber,
-                password: this.state.answerInput
+                password: this.state.answerInput.toLowerCase()
             })
         }).then(res => res.json()).then(res => {
             const { handleUsedHints,handleNextLvl,animationOnGoodAnswer,handleUserPoints,mainmain,resetUsedHints,resetFailedAttempts,updateLocalStorage,updateFailedAttempts }=this.props;
@@ -123,7 +123,7 @@ class Answer extends Component {
                             updateLocalStorage()
                         }, 250)
                     }} className="skip">SKIP</button>
-                    {turnAnimation?<div className="points" onClick={changeWrongAnswer}>Your points: <span className='fadePoints'>{user.easylvl}</span></div>:<div className="points" onClick={changeWrongAnswer}>Your points: <span>{user.easylvl}</span></div>}
+                    {turnAnimation?<div className="points">Your points: <span className='fadePoints'>{user.easylvl}</span></div>:<div className="points" >Your points: <span>{user.easylvl}</span></div>}
                 </div>
 
             </>

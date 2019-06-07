@@ -13,8 +13,12 @@ div.authentication {
 
 div.authentication div.accounts {
     position: absolute;
-    bottom: 0;
-    right: 100px;
+    bottom: 35px;
+    left: 50%;
+    border-bottom: 1px solid black;
+    font-size: 18px;
+    /* letter-spacing: 1px; */
+    transform: translateX(-50%);
 }
 
 @keyframes fade1 {
@@ -66,8 +70,9 @@ div.authentication .anonymous:hover {
     font-size: 30px;
 
     /* text-align: center; */
-    justify-content: space-around;
+    /* justify-content: space-around; */
     width: 400px;
+    height: 50px;
     margin-bottom: 40px;
     left: 50%;
     transform: translateX(-50%);
@@ -77,16 +82,23 @@ div.authentication .anonymous:hover {
 
 .authentication nav div {
     cursor: pointer;
+    width: 50%;
+    text-align: center;
+    /* margin-top: 50%; */
+    /* transform: translateY(-50%); */
+
     /* border: 1px solid grey; */
     /* position: absolute; */
     /* left: 0; */
     /* border-radius: 30px; */
     /* padding: 15px; */
     /* background-color: red; */
+    transition: 0.5s ease letter-spacing;
 }
 
 .authentication nav div:hover {
-    border-bottom: 1px solid black;
+    /* border-bottom: 1px solid black; */
+    letter-spacing: 3px
 }
 
 .authentication div.wrongPassword {
@@ -110,9 +122,18 @@ div.authentication .anonymous:hover {
         bottom: 270px;
         font-size: 13px;
     }
+
+    div.authentication div.accounts {
+        bottom: 146px;
+        font-size: 14px;
+    }
 }
 
 @media screen and (max-width:560px) and (min-height:920px) {
+    div.authentication div.accounts {
+        bottom: 160px;
+
+    }
 
 
     div.authentication .anonymous {
@@ -147,7 +168,13 @@ div.authentication .anonymous:hover {
         font-size: 10px;
         /* background-color: green; */
     }
+
+    div.authentication div.accounts {
+        bottom: 85px;
+    }
 }
+
+
 
 @media screen and (max-width: 448px) {
     .authentication div.wrongPassword {

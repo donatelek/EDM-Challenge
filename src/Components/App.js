@@ -8,9 +8,11 @@ import Footer from './Footer';
 import { BrowserRouter as Router, Link, Route, Switch} from 'react-router-dom';
 import Scoreboard from './Scoreboard';
 import Contact from './Contact';
-import $ from "jquery";
+import Error404 from './Error404';
 
 
+// moze zmienic kolejnosci w getterze 
+// zrobic responsywne zdjecia najlepiej ten sam size jesli chodzi o wymiary 4:3 itp
 class App extends Component {
   state = {
     sound: '0.3',
@@ -23,6 +25,7 @@ class App extends Component {
     thirdHintClicked: false,
     user: '',
     kej:'123',
+    soundplayerPlaying:false,
     userLogged:false,
     showWrongLogin:false,
     showLogInBugs:false,
@@ -30,52 +33,76 @@ class App extends Component {
     showSuccessRegister:false,
     showUserExist:false,
     showLoader:false,
-    w:window.innerWidth,
-    h:window.innerHeight + 100
-    
+    w:'',
+    h:'',
+    overflow:'hidden'
   }
 
   componentWillMount() {
-   
-    
-    const storage = localStorage.getItem('currentUser')
-    if (!this.state.user && storage) {
-      fetch('https://pure-dawn-32038.herokuapp.com/getLocalStorage', {
-        method: 'post',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          hash: storage
-        })
-      })
-        .then(response => response.json())
-        .then(user => {
-        
-          const array = user.split(",");
-          const arrayToObject = {
-            id: Number(array[0]),
-            easymode: array[1],
-            hardmode: array[2],
-            username: array[3],
-            lvl: array[4],
-            easylvl: array[5],
-            usedhints: Number(array[6]),
-            failedAttempts: Number(array[7])
-          }
-          const userId = arrayToObject.id;
-          this.setState({
-            user: arrayToObject
+   if(window.innerWidth<933){
+    this.setState({
+      h:window.innerHeight + 100,
+      overflow:'hidden'
+    })
+   }
+   setTimeout(()=>{
+    if(this.state.page!=='/'){
+      const storage = localStorage.getItem('currentUser')
+      if (!this.state.user && storage) {
+        fetch('https://pure-dawn-32038.herokuapp.com/getLocalStorage', {
+          method: 'post',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            hash: storage
           })
-          fetch(`https://pure-dawn-32038.herokuapp.com/getlvl/${userId}`, {
-            headers: { 'Content-Type': 'application/json' }
-          }).then(res => res.json()).then(res => {
-            this.setState({
-              userLvl: res
-            })
-          }).catch(err => console.log(err))
         })
+          .then(response => response.json())
+          .then(user => {
+          
+            const array = user.split(",");
+            const arrayToObject = {
+              id: Number(array[0]),
+              easymode: array[1],
+              hardmode: array[2],
+              username: array[3],
+              lvl: array[4],
+              easylvl: array[5],
+              usedhints: Number(array[6]),
+              failedAttempts: Number(array[7])
+            }
+            const userId = arrayToObject.id;
+            this.setState({
+              user: arrayToObject
+            })
+            fetch(`https://pure-dawn-32038.herokuapp.com/getlvl/${userId}`, {
+              headers: { 'Content-Type': 'application/json' }
+            }).then(res => res.json()).then(res => {
+              this.setState({
+                userLvl: res
+              })
+            }).catch(err => console.log(err))
+          })
+      }
     }
+   },100)
+    
+    
   }
   componentDidMount(){
+    // window.addEventListener('resize',()=>{
+    //   console.log('1')
+    //   if(window.innerWidth<933&&this.state.h===window.innerHeight){
+    //     this.setState({
+    //       h:window.innerHeight + 100,
+    //       overflow:'hidden'
+    //     })
+    //    }else if(window.innerWidth>933&&this.state.h===window.innerHeight + 100){
+    //     this.setState({
+    //       h:window.innerHeight
+          
+    //     })
+    //    }
+    // })
     // window.addEventListener('resize',()=>{
     //   const h = window.innerHeight;
     //   const w = window.innerWidth;
@@ -383,6 +410,12 @@ setUserIfUserLogged=()=>{
       }).catch(err => console.log(err))
     }, 2000)
   }
+  handleTurningSoundplayer=()=>{
+    console.log('wywolanie')
+    this.setState({
+      soundplayerPlaying:!this.state.soundplayerPlaying
+    })
+  }
 
   changeDownloadLvl = () => {
     this.setState({
@@ -432,11 +465,13 @@ showFooter=()=>{
         <Router>
           <Route render={({location})=>(
  <div id="wrapper" 
- style={{width:this.state.w,height:this.state.h}}
+ style={{width:this.state.w,height:this.state.h
+  // ,overflow:this.state.overflow
+}}
   >
- <div className="bc">
+ {/* <div className="bc">
    <div className="bcc"></div>
- </div>
+ </div> */}
  <h1 className='mainTitle'><span>EDM CHALLENGE</span></h1>
  
 
@@ -471,11 +506,15 @@ showFooter=()=>{
 
 
 {userLvl!=='END'&&<Route path='/quiz' render={(props) => (
-   <Quiz {...props} mainmain={mainmain} doubledouble1={doubledouble1} doubledouble2={doubledouble2} handleUsedHints={handleUsedHints} lvl={lvl} handleNextLvl={handleNextLvl} userLvl={userLvl} handleUserPoints={handleUserPoints} user={user} handleAnonymousNextLvl={handleAnonymousNextLvl} updateLocalStorage={updateLocalStorage} setUserLvl={setUserLvl} resetUsedHints={resetUsedHints} resetFailedAttempts={resetFailedAttempts} updateFailedAttempts={updateFailedAttempts} secondHintClicked={secondHintClicked} thirdHintClicked={thirdHintClicked} pageChange={pageChange}/>
+   <Quiz {...props} mainmain={mainmain} doubledouble1={doubledouble1} doubledouble2={doubledouble2} handleUsedHints={handleUsedHints} lvl={lvl} handleNextLvl={handleNextLvl} userLvl={userLvl} handleUserPoints={handleUserPoints} user={user} handleAnonymousNextLvl={handleAnonymousNextLvl} updateLocalStorage={updateLocalStorage} setUserLvl={setUserLvl} resetUsedHints={resetUsedHints} resetFailedAttempts={resetFailedAttempts} updateFailedAttempts={updateFailedAttempts} secondHintClicked={secondHintClicked} thirdHintClicked={thirdHintClicked} pageChange={pageChange} handleTurningSoundplayer={this.handleTurningSoundplayer} soundplayerPlaying={this.state.soundplayerPlaying} />
  )} />}
+
+
+
 <Route path='/contact' exact render={(props)=>(
    <Contact {...props} pageChange={pageChange} showLogInBugs={showLogInBugs}/>
  )}/>
+ {!this.state.showLoader&&userLvl!=='END'?<Route component={Error404} />:null}
  {submitLogin}
  </Switch>
 
@@ -497,7 +536,7 @@ showFooter=()=>{
  </div>}
 
  {this.state.showLoader&&this.state.page==='introduction'?<div className="loader"></div>:null}
- <Footer showLogInBugs={showLogInBugs} showFooter={showFooter} />
+ <Footer showLogInBugs={showLogInBugs} showFooter={showFooter} handleTurningSoundplayer={this.handleTurningSoundplayer} soundplayerPlaying={this.state.soundplayerPlaying}/>
 </div>
           )}/>
         </Router>

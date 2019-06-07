@@ -43,8 +43,8 @@ class Authentication extends Component {
             <div className="authentication">
                 <div className="accounts">Users: {this.state.allUsers}</div>
                 <nav>
-                    <div onClick={() => handleAuthChange('login')}>Login</div>
-                    <div onClick={() => handleAuthChange('register')}>Register</div>
+                    <div onClick={() => handleAuthChange('login')}>Sign In</div>
+                    <div onClick={() => handleAuthChange('register')}>Sign Up</div>
                 </nav>
 
                 {render === 'login' && <Login showWrongLogin={showWrongLogin} submitLogin={submitLogin} />}
