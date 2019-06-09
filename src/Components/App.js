@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../App.css';
+import '../Styles/App.css';
 import Introduction from './Introduction';
 import Quiz from './Quiz';
 import ChooseLvl from './ChooseLvl';

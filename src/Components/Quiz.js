@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../Quiz1.css'
+import '../Styles/Quiz.css'
 import Hints from './Hints';
 import Answer from './Answer';
 class Quiz extends Component {

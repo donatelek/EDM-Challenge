@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../Answer.css';
+import '../Styles/Answer.css';
 class Answer extends Component {
     state = {
         passwordInput: '',

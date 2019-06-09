@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
 @font-face {
-    font-family: 'rainbow';
+    font-family: 'tropical';
     src:
-        url('TropicalAsian.ttf') format('truetype');
+        url('../Fonts/TropicalAsian.ttf') format('truetype');
     /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
 }
 
@@ -65,7 +65,7 @@ body {
     overflow: hidden;
     width: 100vw;
     height: 100vh;
-    background: url('ffc.jpeg') center center no-repeat;
+    background: url('../img/ffc.jpeg') center center no-repeat;
     /* background: url('ffc.jpeg'); */
     background-size: cover;
     z-index: 2;
@@ -207,7 +207,7 @@ h1.mainTitle span {
     color: rgb(142, 186, 201); */
     color: lightblue;
     font-size: 120px;
-    font-family: 'rainbow';
+    font-family: 'tropical';
     color: rgba(0, 0, 0, 0.6);
     text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.1);
     /* border-bottom: 3px rgb(34, 34, 34) solid; */
@@ -295,7 +295,7 @@ div.userInfo {
 }
 
 div.userInfo .face {
-    background: url('face.png');
+    background: url('../img/face.png');
     /* background-color: red; */
     width: 140px;
     height: 140px;

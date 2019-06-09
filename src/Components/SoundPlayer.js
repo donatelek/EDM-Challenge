@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactPlayer from 'react-player';
-import '../SoundPlayer.css';
+import '../Styles/SoundPlayer.css';
 class SoundPlayer extends Component {
     state = {
         playing:this.props.soundplayerPlaying,

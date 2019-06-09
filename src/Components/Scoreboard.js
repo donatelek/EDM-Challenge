@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../Scoreboard.css';
+import '../Styles/Scoreboard.css';
 class Scoreboard extends Component {
     state = {
         top10: ''

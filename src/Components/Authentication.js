@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Login from './Login';
 import Register from './Register';
-import '../Authentication.css';
+import '../Styles/Authentication.css';
 import { Link , withRouter} from 'react-router-dom';
 class Authentication extends Component {
     state = {

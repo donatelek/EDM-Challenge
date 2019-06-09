@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../Footer.css'
+import '../Styles/Footer.css'
 import SoundPlayer from './SoundPlayer.js';
 import { Link } from 'react-router-dom';
 class Footer extends Component {

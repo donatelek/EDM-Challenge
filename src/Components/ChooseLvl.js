@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../ChooseLvl.css';
+import '../Styles/ChooseLvl.css';
 import { Link } from 'react-router-dom';
 class ChooseLvl extends Component {
     state = {}

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../Error404.css';
+import '../Styles/Error404.css';
 import { Link } from 'react-router-dom';
 import Error from '../img/Error404.png';
 const Error404 = () => {

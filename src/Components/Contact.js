@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../Contact.css';
+import '../Styles/Contact.css';
 class Contact extends Component {
     state = {
         feedback: '',

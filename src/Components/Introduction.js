@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../Introduction.css';
+import '../Styles/Introduction.css';
 import { Link } from 'react-router-dom';
 
 class Introduction extends Component {

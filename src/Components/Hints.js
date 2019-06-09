@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../Hints.css';
+import '../Styles/Hints.css';
 import ReactCardFlip from 'react-card-flip';
 import Img from 'react-image';
 import change from '../img/change.jpg'
