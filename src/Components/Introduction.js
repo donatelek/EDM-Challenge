@@ -12,6 +12,7 @@ UNSAFE_componentWillMount(){
 }
 
 componentDidMount() {
+    console.log('aaaaaaaaa')
 const { changingKej,changeDownloadLvl,userId,setUserLvl }=this.props;
  changingKej('843');
  changeDownloadLvl();

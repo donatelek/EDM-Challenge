@@ -10,7 +10,7 @@ import Scoreboard from './Scoreboard';
 import Contact from './Contact';
 import Error404 from './Error404';
 
-
+// portfolio contact nawet jak jest puste to wysyla usunac default ostrzezenia
 // moze zmienic kolejnosci w getterze 
 // zrobic responsywne zdjecia najlepiej ten sam size jesli chodzi o wymiary 4:3 itp
 class App extends Component {
@@ -39,6 +39,7 @@ class App extends Component {
   }
 
   componentWillMount() {
+    
    if(window.innerWidth<933){
     this.setState({
       h:window.innerHeight + 100,
@@ -88,36 +89,7 @@ class App extends Component {
     
     
   }
-  componentDidMount(){
-    // window.addEventListener('resize',()=>{
-    //   console.log('1')
-    //   if(window.innerWidth<933&&this.state.h===window.innerHeight){
-    //     this.setState({
-    //       h:window.innerHeight + 100,
-    //       overflow:'hidden'
-    //     })
-    //    }else if(window.innerWidth>933&&this.state.h===window.innerHeight + 100){
-    //     this.setState({
-    //       h:window.innerHeight
-          
-    //     })
-    //    }
-    // })
-    // window.addEventListener('resize',()=>{
-    //   const h = window.innerHeight;
-    //   const w = window.innerWidth;
-    //   console.log(w,h)
-    //   this.setState({
-    //     h,
-    //     w
-    //   })
-    // })
-    // const inputs = document.querySelector('input')
-    
-    // inputs.addEventListener('focus',()=>{
-
-    // })
-  }
+  
   changingKej=(kej)=>{
     this.setState({
       kej
@@ -240,6 +212,7 @@ setUserIfUserLogged=()=>{
   }
 
   anonymousLogin = () => {
+    console.log('anonumous')
     this.setState({
       showLoader:true
     })
@@ -249,6 +222,7 @@ setUserIfUserLogged=()=>{
     })
       .then(response => response.json())
       .then(user => {
+        console.log(user)
         if (user) {
           this.setState({
             showLoader:false
@@ -261,6 +235,7 @@ setUserIfUserLogged=()=>{
             })
           }).then(res => res.json())
             .then(res => {
+              console.log(res)
               localStorage.setItem('currentUser', JSON.stringify(res))
             })
           this.setState({
