@@ -444,7 +444,7 @@ showFooter=()=>{
  <div className="face"></div>
  {user.username && localStorage.getItem('currentUser') && user.username !== 'null' && <div className='userName'>{user.username}</div>}
  {(user.username==='null'||user.username===null)&&user.id?<div className='userName'>Anonymous{user.id}</div>:null}
- {user&&<Link className='logOut' to='/' exact onClick={handleLogOut}>LOG OUT</Link>}
+ {user&&<Link className='logOut'  exact='true' to='/'  onClick={handleLogOut}>LOG OUT</Link>}
  <br/>
  {page==='contact'&&!user?<Link to='/' className='backToLogIn' >Back to log in</Link>:null}
  {page==='contact'&&user?<Link to='/lvl' className='goBack'>Back to levels</Link>:null}
@@ -457,17 +457,17 @@ showFooter=()=>{
      <ChooseLvl {...props} pageChange={pageChange} setUserLvl={setUserLvl} />
    )
  }} />
- {!userLogged&&<Route path='/' exact render={(props) => (
+ {!userLogged&&<Route path='/' exact='true' render={(props) => (
    <Authentication {...props}  showUserExist={showUserExist} showSuccessRegister={showSuccessRegister} pageChange={pageChange} submitLogin={submitLogin} submitRegister={submitRegister} anonymousLogin={anonymousLogin} resetUsers={resetUsers} showWrongLogin={showWrongLogin} hideWrongLogin={hideWrongLogin} setUserIfUserLogged={setUserIfUserLogged} userLogged={userLogged} showWrongLength={showWrongLength}/>
  )} />}
-{userLogged&&<Route path='/' exact render={(props) => (
+{userLogged&&<Route path='/' exact='true' render={(props) => (
   <Introduction {...props} page={page} pageChange={pageChange} changeDownloadLvl={changeDownloadLvl} setUserLvl={setUserLvl} userId={user.id}/>
  )} />}
 {user && <Route path='/introduction' render={(props) => (<Introduction {...props} pageChange={pageChange} changeDownloadLvl={changeDownloadLvl} setUserLvl={setUserLvl} userId={user.id}/>)} />}
 {userLvl!=='END'&&<Route path='/quiz' render={(props) => (
    <Quiz {...props} mainmain={mainmain} doubledouble1={doubledouble1} doubledouble2={doubledouble2} handleUsedHints={handleUsedHints} lvl={lvl} handleNextLvl={handleNextLvl} userLvl={userLvl} handleUserPoints={handleUserPoints} user={user} handleAnonymousNextLvl={handleAnonymousNextLvl} updateLocalStorage={updateLocalStorage} setUserLvl={setUserLvl} resetUsedHints={resetUsedHints} resetFailedAttempts={resetFailedAttempts} updateFailedAttempts={updateFailedAttempts}  pageChange={pageChange} handleTurningSoundplayer={this.handleTurningSoundplayer} soundplayerPlaying={this.state.soundplayerPlaying} />
  )} />}
-<Route path='/contact' exact render={(props)=>(
+<Route path='/contact' exact='true' render={(props)=>(
    <Contact {...props} pageChange={pageChange} showLogInBugs={showLogInBugs}/>
  )}/>
  {!this.state.showLoader&&userLvl!=='END'?<Route component={Error404} />:null}
@@ -475,19 +475,19 @@ showFooter=()=>{
  </Switch>
 
  {userLvl==='END' && page!=='contact'&&page!=='chooselvl'&&page!=='/'&&page!=='introduction'&&<Scoreboard pageChange={pageChange}/>}
- {this.state.showFooter?<div className="hamburger" onClick={this.showFooter}><i class="fas fa-bars"></i></div>:<div className="hamburger" style={{bottom:'10px'}} onClick={this.showFooter}><i class="fas fa-bars"></i></div>}
+ {this.state.showFooter?<div className="hamburger" onClick={this.showFooter}><i className="fas fa-bars"></i></div>:<div className="hamburger" style={{bottom:'10px'}} onClick={this.showFooter}><i className="fas fa-bars"></i></div>}
 
 {/* navigation in footer */}
  {this.state.showFooter?<div className="navInFooter" style={{bottom:'80px'}}>
 {page==='contact'&&user&&<Link to='/lvl' className='goBackFooter' >Back to levels</Link>}          
 {page==='contact'&&!user&&<Link to='/' className='goBackFooter'>Log In</Link>}   
  {page==='/quiz'||page==='scoreboard'?<Link className='goBackFooter' to='/lvl'>GO Back</Link>:null}
- {this.state.user&&<Link className='logOutFooter' to='/' exact onClick={handleLogOut}>LOG OUT</Link>}
+ {this.state.user&&<Link className='logOutFooter' to='/' exact='true' onClick={handleLogOut}>LOG OUT</Link>}
  </div>:<div className="navInFooter" >
 {page==='contact'&&user&&<Link to='/lvl' className='goBackFooter'>Back To levels</Link>}    
 {page==='contact'&&!user&&<Link to='/' className='goBackFooter'>Log In</Link>}         
  {page==='/quiz'||page==='scoreboard'?<Link className='goBackFooter' to='/lvl'>Go Back</Link>:null}
- {this.state.user&&<Link className='logOutFooter' to='/' exact onClick={handleLogOut}>LOG OUT</Link>}
+ {this.state.user&&<Link className='logOutFooter' to='/' exact='true' onClick={handleLogOut}>LOG OUT</Link>}
  </div>}
 
  {this.state.showLoader&&this.state.page==='introduction'?<div className="loader"></div>:null}

@@ -30,10 +30,10 @@ class Scoreboard extends Component {
                     return null
                 } else {
                     return (
-                        <>
-                            <li className='username'>{user.username}</li>
+                        <React.Fragment key={index}>
+                            <li className='username' >{user.username}</li>
                             <li className='points'>{user.easylvl}</li>
-                        </>
+                        </React.Fragment>
                     )
                 }
             })

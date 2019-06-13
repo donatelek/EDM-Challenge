@@ -28,13 +28,13 @@ class Login extends Component {
                 <div className="username">
                     <span>Username</span>
                     <br />
-                    <i class="zmdi zmdi-account-o"></i>
-                    <input value={username} onChange={handleUsername} type="text" spellcheck="false" />
+                    <i className="zmdi zmdi-account-o"></i>
+                    <input value={username} onChange={handleUsername} type="text" spellCheck="false" />
                 </div>
                 <div className="password">
                     <span>Password</span>
                     <br />
-                    <i class="zmdi zmdi-lock-outline"></i>
+                    <i className="zmdi zmdi-lock-outline"></i>
                     <input value={password} onChange={handlePassword} type="password" />
                 </div>
                 <button className='loginButton' onClick={()=>{

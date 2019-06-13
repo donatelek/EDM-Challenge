@@ -91,8 +91,8 @@ class Answer extends Component {
 
         return (
             <>
-                <div class="answer">
-                    <input onChange={handleInputAnswer} type="text" value={answerInput} className='inputAnswer' placeholder='Answer...' spellcheck="false" />
+                <div className="answer">
+                    <input onChange={handleInputAnswer} type="text" value={answerInput} className='inputAnswer' placeholder='Answer...' spellCheck="false" />
                     <br />
                     {isWrongAnswer&&<div className="wrongAnswer">{wrongAnswer}</div>}
                     <br/>

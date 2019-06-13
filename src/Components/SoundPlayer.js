@@ -127,12 +127,12 @@ class SoundPlayer extends Component {
             <div className="soundPlayer">
               <div className="blur"></div>
                 <ReactPlayer ref={ref} className='reactPlayer'  url={url} onEnded={nextSong} width={widthOfPlayer} height={heightOfPlayer} onProgress={onProgress}
-              onDuration={onDuration} playing={soundplayerPlaying} volume={volume} />
+              onDuration={onDuration} playing={soundplayerPlaying} volume={Number(volume)} />
                 <input type="range" step="any" min="0" max="1" value={volume} onChange={changeVolume} className='focused range' />
-                {!soundplayerPlaying&&<i class="fas fa-play" onClick={changePlaying}></i>}
-                {soundplayerPlaying&&<i class="fas fa-pause" onClick={changePlaying}></i>}
-                <i class="fas fa-forward front" onClick={skipMusic}></i>
-               <i class="fas fa-forward back" onClick={previousSong}></i>
+                {!soundplayerPlaying&&<i className="fas fa-play" onClick={changePlaying}></i>}
+                {soundplayerPlaying&&<i className="fas fa-pause" onClick={changePlaying}></i>}
+                <i className="fas fa-forward front" onClick={skipMusic}></i>
+               <i className="fas fa-forward back" onClick={previousSong}></i>
             </div >
         );
     }

@@ -163,13 +163,13 @@ class Hints extends Component {
          <div key='back' className='back1'>
          {this.props.userLvl.sound&&<ReactPlayer url={require(`../mp3/${this.props.userLvl.sound}`)} width='50px' height='70px' 
          // eslint-disable-next-line
-         volume='0.3' controls={false} playing={this.state.playing} volume={this.state.volume} onEnded={this.onEnded} />}
+         volume='0.3' controls={false} playing={this.state.playing} volume={Number(this.state.volume)} onEnded={this.onEnded} />}
          <div className="soundHint">
          {this.props.userLvl.sound&&<input type="range" step="any" min="0" max="1" value={this.state.volume} onChange={this.changeVolume} className='volumeChanger' />}
          {this.props.userLvl.sound&&<h1 className='soundHintPlay'>PLAY</h1>}
-         {!this.state.playing&&this.props.userLvl.sound?<i class="fas fa-play" onClick={this.changePlaying}></i>:null}
-                {this.state.playing&&this.props.userLvl.sound?<i class="fas fa-pause" onClick={this.changePlaying}></i>:null}
-                {this.props.userLvl.backgroundimg&&<img src={require(`../img/${this.props.userLvl.backgroundimg}`)} alt="" srcset="" className='backgroundImg3'  />}
+         {!this.state.playing&&this.props.userLvl.sound?<i className="fas fa-play" onClick={this.changePlaying}></i>:null}
+                {this.state.playing&&this.props.userLvl.sound?<i className="fas fa-pause" onClick={this.changePlaying}></i>:null}
+                {this.props.userLvl.backgroundimg&&<img src={require(`../img/${this.props.userLvl.backgroundimg}`)} alt="" className='backgroundImg3'  />}
                 </div>
          </div>
       </ReactCardFlip>
@@ -193,13 +193,13 @@ class Hints extends Component {
          <div key='back' className='back2'>
          {this.props.userLvl.sound2&&<ReactPlayer url={require(`../mp3/${this.props.userLvl.sound2}`)} width='50px' height='70px' 
          // eslint-disable-next-line
-         volume='0.3' controls={false} playing={this.state.playing2} volume={this.state.volume2} onEnded={this.onEnded2} />}
+         volume='0.3' controls={false} playing={this.state.playing2} volume={Number(this.state.volume2)} onEnded={this.onEnded2} />}
          <div className="soundHint">
          {this.props.userLvl.sound2&&<input type="range" step="any" min="0" max="1" value={this.state.volume2} onChange={this.changeVolume2} className='volumeChanger' />}
          {this.props.userLvl.sound2&&<h1 className='soundHintPlay'>PLAY</h1>}
-         {!this.state.playing2&&this.props.userLvl.sound2?<i class="fas fa-play" onClick={this.changePlaying2}></i>:null}
-                {this.state.playing2&&this.props.userLvl.sound2?<i class="fas fa-pause" onClick={this.changePlaying2}></i>:null}
-                {this.props.userLvl.backgroundimg2&&<img src={require(`../img/${this.props.userLvl.backgroundimg2}`)} alt="" srcset="" className='backgroundImg3' />}
+         {!this.state.playing2&&this.props.userLvl.sound2?<i className="fas fa-play" onClick={this.changePlaying2}></i>:null}
+                {this.state.playing2&&this.props.userLvl.sound2?<i className="fas fa-pause" onClick={this.changePlaying2}></i>:null}
+                {this.props.userLvl.backgroundimg2&&<img src={require(`../img/${this.props.userLvl.backgroundimg2}`)} alt="" className='backgroundImg3' />}
          </div>
          </div>
       </ReactCardFlip>
@@ -223,13 +223,13 @@ class Hints extends Component {
          <div key='back' className='back3'>
 {this.props.userLvl.sound3&&<ReactPlayer url={require(`../mp3/${this.props.userLvl.sound3}`)} width='50px' height='70px' volume='0.3' 
 // eslint-disable-next-line
-controls={false} playing={this.state.playing3} volume={this.state.volume3} onEnded={this.onEnded3} />}
+controls={false} playing={this.state.playing3} volume={Number(this.state.volume3)} onEnded={this.onEnded3} />}
  <div className="soundHint">
 {this.props.userLvl.sound3&&<input type="range" step="any" min="0" max="1" value={this.state.volume3} onChange={this.changeVolume3} className='volumeChanger' />}
-{!this.state.playing3&&this.props.userLvl.sound3?<i class="fas fa-play" onClick={this.changePlaying3}></i>:null}
+{!this.state.playing3&&this.props.userLvl.sound3?<i className="fas fa-play" onClick={this.changePlaying3}></i>:null}
 {this.props.userLvl.sound3&&<h1 className='soundHintPlay'>PLAY</h1>}
-       {this.state.playing3&&this.props.userLvl.sound3?<i class="fas fa-pause" onClick={this.changePlaying3}></i>:null}
-                {this.props.userLvl.backgroundimg3&&<img src={require(`../img/${this.props.userLvl.backgroundimg3}`)} alt="" className='backgroundImg3' srcset=""/>}
+       {this.state.playing3&&this.props.userLvl.sound3?<i className="fas fa-pause" onClick={this.changePlaying3}></i>:null}
+                {this.props.userLvl.backgroundimg3&&<img src={require(`../img/${this.props.userLvl.backgroundimg3}`)} alt="" className='backgroundImg3'/>}
          </div>
          </div>
       </ReactCardFlip>

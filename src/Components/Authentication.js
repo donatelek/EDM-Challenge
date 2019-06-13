@@ -14,7 +14,6 @@ class Authentication extends Component {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
         }).then(res => res.json()).then(res => {
-            console.log(res.length)
             this.setState({
                 allUsers: res.length
             })
