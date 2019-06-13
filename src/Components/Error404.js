@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import '../Styles/Error404.css';
 import { Link } from 'react-router-dom';
 import Error from '../img/Error404.png';

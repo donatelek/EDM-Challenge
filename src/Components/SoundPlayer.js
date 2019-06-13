@@ -119,7 +119,7 @@ class SoundPlayer extends Component {
       }
 
     render() {
-      const { playing, heightOfPlayer, widthOfPlayer, url, volume } = this.state
+      const {  heightOfPlayer, widthOfPlayer, url, volume } = this.state
       const { ref, nextSong, onProgress, onDuration, changeVolume, changePlaying, previousSong, skipMusic } = this;
       const {soundplayerPlaying} = this.props;
 

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import '../Styles/Login.css';
-import { BrowserRouter as Router, Link, Route, Switch,Redirect} from 'react-router-dom';
 class Login extends Component {
     state = {
         username: '',
@@ -21,7 +20,7 @@ class Login extends Component {
     render() {
         const { username,password } = this.state;
         const { handleUsername,handlePassword }=this;
-        const { submitLogin,pageChange }= this.props;
+        const { submitLogin }= this.props;
 
         return (
             <div className="login">

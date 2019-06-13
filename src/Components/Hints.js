@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import '../Styles/Hints.css';
 import ReactCardFlip from 'react-card-flip';
-import Img from 'react-image';
 import change from '../img/change.jpg'
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import ReactPlayer from 'react-player'
@@ -162,7 +161,9 @@ class Hints extends Component {
             height='100%'
             width='100%'/></div>
          <div key='back' className='back1'>
-         {this.props.userLvl.sound&&<ReactPlayer url={require(`../mp3/${this.props.userLvl.sound}`)} width='50px' height='70px' volume='0.3' controls={false} playing={this.state.playing} volume={this.state.volume} onEnded={this.onEnded} />}
+         {this.props.userLvl.sound&&<ReactPlayer url={require(`../mp3/${this.props.userLvl.sound}`)} width='50px' height='70px' 
+         // eslint-disable-next-line
+         volume='0.3' controls={false} playing={this.state.playing} volume={this.state.volume} onEnded={this.onEnded} />}
          <div className="soundHint">
          {this.props.userLvl.sound&&<input type="range" step="any" min="0" max="1" value={this.state.volume} onChange={this.changeVolume} className='volumeChanger' />}
          {this.props.userLvl.sound&&<h1 className='soundHintPlay'>PLAY</h1>}
@@ -190,7 +191,9 @@ class Hints extends Component {
             width='100%'/>
         </div>
          <div key='back' className='back2'>
-         {this.props.userLvl.sound2&&<ReactPlayer url={require(`../mp3/${this.props.userLvl.sound2}`)} width='50px' height='70px' volume='0.3' controls={false} playing={this.state.playing2} volume={this.state.volume2} onEnded={this.onEnded2} />}
+         {this.props.userLvl.sound2&&<ReactPlayer url={require(`../mp3/${this.props.userLvl.sound2}`)} width='50px' height='70px' 
+         // eslint-disable-next-line
+         volume='0.3' controls={false} playing={this.state.playing2} volume={this.state.volume2} onEnded={this.onEnded2} />}
          <div className="soundHint">
          {this.props.userLvl.sound2&&<input type="range" step="any" min="0" max="1" value={this.state.volume2} onChange={this.changeVolume2} className='volumeChanger' />}
          {this.props.userLvl.sound2&&<h1 className='soundHintPlay'>PLAY</h1>}
@@ -218,7 +221,9 @@ class Hints extends Component {
                 height='100%'
                 width='100%'/></div>
          <div key='back' className='back3'>
-{this.props.userLvl.sound3&&<ReactPlayer url={require(`../mp3/${this.props.userLvl.sound3}`)} width='50px' height='70px' volume='0.3' controls={false} playing={this.state.playing3} volume={this.state.volume3} onEnded={this.onEnded3} />}
+{this.props.userLvl.sound3&&<ReactPlayer url={require(`../mp3/${this.props.userLvl.sound3}`)} width='50px' height='70px' volume='0.3' 
+// eslint-disable-next-line
+controls={false} playing={this.state.playing3} volume={this.state.volume3} onEnded={this.onEnded3} />}
  <div className="soundHint">
 {this.props.userLvl.sound3&&<input type="range" step="any" min="0" max="1" value={this.state.volume3} onChange={this.changeVolume3} className='volumeChanger' />}
 {!this.state.playing3&&this.props.userLvl.sound3?<i class="fas fa-play" onClick={this.changePlaying3}></i>:null}
