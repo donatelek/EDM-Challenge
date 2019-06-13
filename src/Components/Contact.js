@@ -8,33 +8,31 @@ class Contact extends Component {
         showMessageSent:false,
         buttonDisabled:false
     }
+
     componentWillMount(){
-       
         this.props.pageChange('contact')
     }
 
-    handleCancel = this.handleCancel.bind(this);
-    handleChange = this.handleChange.bind(this);
-    handleSubmit = this.handleSubmit.bind(this);
-  
     static sender = 'sender@example.com';
-  handleNameChange=(e)=>{
     
+  handleNameChange=(e)=>{
     this.setState({
       name:e.target.value
     })
   }
-    handleCancel() {
+
+    handleCancel=()=> {
       this.setState({
         feedback: ''
       });
     }
   
-    handleChange(event) {
+    handleChange=(event)=>{
       this.setState({
         feedback: event.target.value
       });
     }
+
     handleShowMessageSent=()=>{
       if(!this.state.buttonDisabled){
         this.setState({
@@ -51,41 +49,27 @@ class Contact extends Component {
           })
         },6000)
       }
-     
-      
     }
-    handleSubmit(event) {
+
+    handleSubmit=(event)=>{
       event.preventDefault();
+      if(!this.state.feedback&&!this.state.name){
+        return
+      }
       if(this.state.buttonDisabled){
         return
       }
       this.setState({
         buttonDisabled:true
       })
-      setTimeout(()=>{
-        this.setState({
-          showMessageSent:true
-        })
-      },200)
-      setTimeout(()=>{
-        this.setState({
-          showMessageSent:false
-        })
-      },2000)
       const receiv = 'donatelek92@gmail.com'
       const temp = 'contact_template'
-      
-      console.log('sad')
-      // console.log()
-     
-      console.log(this.state.feedback)
       this.sendFeedback(
         temp,
         this.sender,
         this.state.name,
         this.state.feedback
       );
-  
       this.setState({
         formSubmitted: true
       });
@@ -106,8 +90,17 @@ class Contact extends Component {
           this.setState({
             formEmailSent: true
           });
+          setTimeout(()=>{
+            this.setState({
+              showMessageSent:true
+            })
+          },200)
+          setTimeout(()=>{
+            this.setState({
+              showMessageSent:false
+            })
+          },2000)
         })
-        // Handle errors here however you like
         .catch(err => console.error('Failed to send feedback. Error: ', err));
     }
 
@@ -131,7 +124,6 @@ class Contact extends Component {
       name="feedback-entry"
       onChange={this.handleChange}
       placeholder="Enter your message here"
-      required
       value={this.state.feedback}
     />
         </div>

@@ -1,19 +1,14 @@
 footer {
-    /* background-color: green; */
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
     height: 120px;
-    /* overflow: hidden; */
     z-index: 1;
-    /* box-shadow: 0px -7px 31px -4px rgba(0, 0, 0, 0.75); */
-    /* box-shadow: 0px -7px 54px -1px rgba(0, 0, 0, 0.46); */
     overflow-y: hidden;
 }
 
 footer .contact {
-    /* background-color: pink; */
     overflow-y: hidden;
     position: absolute;
     bottom: 30px;
@@ -39,7 +34,6 @@ footer .contact:hover {
 
 @media screen and (max-width:535px) {
     footer {
-        /* background-color: grey; */
         background-color: rgba(0, 0, 0, 0.212);
         height: 80px;
         z-index: 9;
@@ -52,14 +46,12 @@ footer .contact:hover {
         line-height: 30px;
         top: 12px;
         right: 5px;
-        /* z-index: 1221121212122111221; */
     }
 
 }
 
 @media screen and (max-height:720px) {
     footer {
-        /* background-color: grey; */
         background: linear-gradient(to top, #00004693, #1cb5e091);
         height: 80px;
         z-index: 9;
@@ -72,7 +64,6 @@ footer .contact:hover {
         line-height: 30px;
         top: 12px;
         right: 5px;
-        /* z-index: 1221121212122111221; */
     }
 
 }
@@ -81,7 +72,5 @@ footer .contact:hover {
     footer .contact {
         right: 8px;
         top: 20px;
-
-
     }
 }

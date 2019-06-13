@@ -3,8 +3,7 @@ import ReactPlayer from 'react-player';
 import '../Styles/SoundPlayer.css';
 class SoundPlayer extends Component {
     state = {
-        playing:this.props.soundplayerPlaying,
-        
+        playing:this.props.soundplayerPlaying, 
         volume: 0.1,
         played:0,
         duration: null,
@@ -20,21 +19,16 @@ class SoundPlayer extends Component {
     const numberOfMusic=Math.floor(Math.random()*this.state.musicToPlay.length);
     const array = this.state.indexOfSongsPlayed
     array.push(numberOfMusic)
-   
     this.setState({
         url:this.state.musicToPlay[numberOfMusic],
         indexOfSongsPlayed:array
     })
-    
-   
-    
   }
        componentDidMount(){
          window.addEventListener('resize',this.resize.bind(this))
          this.resize()
        }
        resize(){
-       
          if(window.innerWidth<=535){
            this.setState({
              widthOfPlayer:'100px',
@@ -53,19 +47,13 @@ class SoundPlayer extends Component {
          }
        }
    
-   
-   
-
-    
     changeVolume = (volume) => {
-
         this.setState({
             volume: volume.target.value
         })
     }
     changePlaying = () => {
       this.props.handleTurningSoundplayer()
-      
         this.setState({
             playing: !this.state.playing
         })
@@ -76,59 +64,48 @@ class SoundPlayer extends Component {
         })
     }
     onSeekMouseUp = e => {
-       
         this.setState({ seeking: false })
-       
         this.player.seekTo(parseFloat(e.target.value))
       }
+
       onSeekMouseDown = e => {
-        
         this.setState({ seeking: true })
       }
+
       onProgress = state => {
-      
         if (!this.state.seeking) {
           this.setState(state)
         }
       }
+
       onDuration = (duration) => {
-         
         this.setState({ duration })
       }
 
       skipMusic=()=>{
-        
           this.setState({
-             
               played:this.state.duration-1,
               seeking: true
           })
-          this.player.seekTo(0.9999999999999999)
+          this.player.seekTo(0.9999)
       }
 
       nextSong=()=>{
         const numberOfMusic=Math.floor(Math.random()*this.state.musicToPlay.length);
-        
         const array = this.state.indexOfSongsPlayed
     array.push(numberOfMusic)
-   
         this.setState({
             indexOfSongsPlayed:array,
             url:this.state.musicToPlay[numberOfMusic]
         })
       }
       previousSong=()=>{
-          if(this.state.indexOfSongsPlayed.length>1){
-              
+          if(this.state.indexOfSongsPlayed.length>1){ 
           const array = this.state.indexOfSongsPlayed
           array.splice(-1,1)
-          
-          
-         
           this.setState({
               url:this.state.musicToPlay[this.state.indexOfSongsPlayed[this.state.indexOfSongsPlayed.length-1]]
           })
-          
           setTimeout(()=>{
             this.setState({
                 indexOfSongsPlayed:array
@@ -140,24 +117,22 @@ class SoundPlayer extends Component {
       ref = player => {
         this.player = player
       }
+
     render() {
       const { playing, heightOfPlayer, widthOfPlayer, url, volume } = this.state
       const { ref, nextSong, onProgress, onDuration, changeVolume, changePlaying, previousSong, skipMusic } = this;
       const {soundplayerPlaying} = this.props;
+
         return (
             <div className="soundPlayer">
               <div className="blur"></div>
                 <ReactPlayer ref={ref} className='reactPlayer'  url={url} onEnded={nextSong} width={widthOfPlayer} height={heightOfPlayer} onProgress={onProgress}
               onDuration={onDuration} playing={soundplayerPlaying} volume={volume} />
                 <input type="range" step="any" min="0" max="1" value={volume} onChange={changeVolume} className='focused range' />
-               
                 {!soundplayerPlaying&&<i class="fas fa-play" onClick={changePlaying}></i>}
                 {soundplayerPlaying&&<i class="fas fa-pause" onClick={changePlaying}></i>}
-
                 <i class="fas fa-forward front" onClick={skipMusic}></i>
-                
                <i class="fas fa-forward back" onClick={previousSong}></i>
-               
             </div >
         );
     }

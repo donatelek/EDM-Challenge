@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import '../Styles/Login.css';
+import { BrowserRouter as Router, Link, Route, Switch,Redirect} from 'react-router-dom';
 class Login extends Component {
     state = {
         username: '',
         password: ''
-        
     }
     handleUsername = (e) => {
         this.setState({
             username: e.target.value
         })
     }
+
     handlePassword = (e) => {
         this.setState({
             password: e.target.value
@@ -18,10 +19,9 @@ class Login extends Component {
     }
  
     render() {
-
         const { username,password } = this.state;
         const { handleUsername,handlePassword }=this;
-        const { submitLogin }= this.props;
+        const { submitLogin,pageChange }= this.props;
 
         return (
             <div className="login">
@@ -31,17 +31,16 @@ class Login extends Component {
                     <br />
                     <i class="zmdi zmdi-account-o"></i>
                     <input value={username} onChange={handleUsername} type="text" spellcheck="false" />
-
                 </div>
                 <div className="password">
                     <span>Password</span>
                     <br />
                     <i class="zmdi zmdi-lock-outline"></i>
                     <input value={password} onChange={handlePassword} type="password" />
-
                 </div>
-
-                <button className='loginButton' onClick={() =>submitLogin(username, password)} >Login</button>
+                <button className='loginButton' onClick={()=>{
+                    submitLogin(username, password)
+                    }} >Login</button>
             </div>
         );
     }

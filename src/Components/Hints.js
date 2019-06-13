@@ -8,7 +8,6 @@ import ReactPlayer from 'react-player'
 
 class Hints extends Component {
     state = {
-      
         isFlipped1: false,
         isFlipped2: false,
         isFlipped3: false,
@@ -26,7 +25,6 @@ class Hints extends Component {
                 isFlipped1:true
             })
         },1250)
-
         if(user.usedhints===1){
             this.setState({
                 isFlipped1:true,
@@ -39,15 +37,12 @@ class Hints extends Component {
                 isFlipped3:true
             })
         }
-       
-
     }
     componentDidUpdate(){
-
         const { user,turnAnimation }=this.props;
        const { isFlipped1,isFlipped2,isFlipped3 }=this.state;
+
         if(user.usedhints===1&&isFlipped2===false){
-           
             this.setState({
                 isFlipped1:true,
                 isFlipped2:true
@@ -73,26 +68,25 @@ class Hints extends Component {
                 isFlipped1:true
             })
         }
-       
     }
     changeVolume = (volume) => {
-
         this.setState({
             volume: volume.target.value
         })
     }
-    changeVolume2 = (volume) => {
 
+    changeVolume2 = (volume) => {
         this.setState({
             volume2: volume.target.value
         })
     }
-    changeVolume3 = (volume) => {
 
+    changeVolume3 = (volume) => {
         this.setState({
             volume3: volume.target.value
         })
     }
+
     changePlaying = () => {
         if(this.props.soundplayerPlaying&&!this.state.playing){
             this.props.handleTurningSoundplayer()
@@ -101,15 +95,16 @@ class Hints extends Component {
             playing: !this.state.playing
         })
     }
+    
     changePlaying2 = () => {
         if(this.props.soundplayerPlaying&&!this.state.playing2){
             this.props.handleTurningSoundplayer()
         }
-        
         this.setState({
             playing2: !this.state.playing2
         })
     }
+
     changePlaying3 = () => {
         if(this.props.soundplayerPlaying&&!this.state.playing3){
             this.props.handleTurningSoundplayer()
@@ -118,53 +113,55 @@ class Hints extends Component {
             playing3: !this.state.playing2
         })
     }
+
       handleClick2=()=> {
         this.setState({
             isFlipped2:!this.state.isFlipped2
         })
       }
+
       handleClick3=()=> {
-       
-        
         this.setState({
             isFlipped3:!this.state.isFlipped3
         })
       }
+
       onEnded=()=>{
           this.setState({
               playing:false
           })
       }
+
       onEnded2=()=>{
         this.setState({
             playing2:false
         })
     }
+
     onEnded3=()=>{
         this.setState({
             playing3:false
         })
     }
-    render() {
 
+    render() {
         const { isFlipped1,isFlipped2,isFlipped3 }=this.state;
         const { doubledouble1,updateLocalStorage,turnAnimation,doubledouble2,user }=this.props;
+
         let boxClass = ["quizHints"];
             if(turnAnimation) {
               boxClass.push('addAnimation');
             }
         return (
             <div className={boxClass.join(' ')}>
-
             <div className="firstFlip flip">
   <ReactCardFlip isFlipped={isFlipped1} flipDirection="vertical">
         <div key='front' className='front1'><LazyLoadImage
-            alt='asdsd'
+            alt='image'
             src={change}
             height='100%'
             width='100%'/></div>
          <div key='back' className='back1'>
-         
          {this.props.userLvl.sound&&<ReactPlayer url={require(`../mp3/${this.props.userLvl.sound}`)} width='50px' height='70px' volume='0.3' controls={false} playing={this.state.playing} volume={this.state.volume} onEnded={this.onEnded} />}
          <div className="soundHint">
          {this.props.userLvl.sound&&<input type="range" step="any" min="0" max="1" value={this.state.volume} onChange={this.changeVolume} className='volumeChanger' />}
@@ -187,13 +184,12 @@ class Hints extends Component {
             }, 250)
         }} >
             <LazyLoadImage
-            alt='asdsd'
+            alt='image'
             src={change}
             height='100%'
             width='100%'/>
         </div>
          <div key='back' className='back2'>
-
          {this.props.userLvl.sound2&&<ReactPlayer url={require(`../mp3/${this.props.userLvl.sound2}`)} width='50px' height='70px' volume='0.3' controls={false} playing={this.state.playing2} volume={this.state.volume2} onEnded={this.onEnded2} />}
          <div className="soundHint">
          {this.props.userLvl.sound2&&<input type="range" step="any" min="0" max="1" value={this.state.volume2} onChange={this.changeVolume2} className='volumeChanger' />}
@@ -206,7 +202,6 @@ class Hints extends Component {
       </ReactCardFlip>
       </div>
 
-
       <div className="thirdFlip flip">
   <ReactCardFlip isFlipped={isFlipped3} flipDirection="vertical">
         <div className='front3' key='front' onClick={() => {
@@ -218,12 +213,11 @@ class Hints extends Component {
                 }, 250)
             }
                 }}><LazyLoadImage
-                alt='asdsd'
+                alt='image'
                 src={change}
                 height='100%'
                 width='100%'/></div>
          <div key='back' className='back3'>
-
 {this.props.userLvl.sound3&&<ReactPlayer url={require(`../mp3/${this.props.userLvl.sound3}`)} width='50px' height='70px' volume='0.3' controls={false} playing={this.state.playing3} volume={this.state.volume3} onEnded={this.onEnded3} />}
  <div className="soundHint">
 {this.props.userLvl.sound3&&<input type="range" step="any" min="0" max="1" value={this.state.volume3} onChange={this.changeVolume3} className='volumeChanger' />}

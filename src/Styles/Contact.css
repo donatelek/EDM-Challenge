@@ -1,6 +1,4 @@
 div.contact {
-    /* opacity: 1; */
-    /* background-color: green; */
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
@@ -8,8 +6,6 @@ div.contact {
     height: 581px;
     overflow: hidden;
     animation: scale-in-center 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-    /* box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22); */
-
 }
 
 .messageSent {
@@ -33,7 +29,6 @@ div.contact {
 }
 
 div.contact .messageBox {
-    /* background-color: pink; */
     height: 75%;
     display: flex;
     flex-direction: column;
@@ -43,7 +38,6 @@ div.contact .messageBox {
 div.contact .contactTitle {
     font-size: 50px;
     margin-bottom: 30px;
-    /* background-color: red; */
 }
 
 div.contact .ideas {
@@ -52,8 +46,6 @@ div.contact .ideas {
 }
 
 div.contact input {
-    background-color: transparent;
-    /* background-color: green; */
     height: 30px;
     width: 200px;
     text-align: center;
@@ -66,7 +58,6 @@ div.contact input {
 
 div.contact textarea {
     margin-top: 10px;
-    background-color: transparent;
     width: 500px;
     height: 250px;
     border: 1px solid black;

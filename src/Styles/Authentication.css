@@ -1,13 +1,10 @@
 div.authentication {
     position: relative;
-    /* background-color: green; */
-    /* border: 1px solid black; */
     margin-top: 10px;
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
     height: 600px;
-    /* background-color: pink; */
     animation: fade1 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
@@ -17,18 +14,15 @@ div.authentication div.accounts {
     left: 50%;
     border-bottom: 1px solid black;
     font-size: 18px;
-    /* letter-spacing: 1px; */
     transform: translateX(-50%);
 }
 
 @keyframes fade1 {
     0% {
-
         opacity: 0;
     }
 
     100% {
-
         opacity: 1;
     }
 }
@@ -37,7 +31,6 @@ div.authentication div.accounts {
 div.authentication .anonymous {
     position: absolute;
     overflow-y: hidden;
-    /* background-color: pink; */
     bottom: 75px;
     left: 50%;
     transform: translateX(-50%);
@@ -55,8 +48,6 @@ div.authentication .anonymous {
     text-align: center;
     line-height: 33px;
     transition: box-shadow 400ms ease;
-    /* background-color: green; */
-    /* box-shadow: inset 0px 0px 73px -13px rgba(0, 0, 0, 0.75); */
 }
 
 div.authentication .anonymous:hover {
@@ -65,18 +56,13 @@ div.authentication .anonymous:hover {
 
 .authentication nav {
     position: absolute;
-    /* background-color: green; */
     display: flex;
     font-size: 30px;
-
-    /* text-align: center; */
-    /* justify-content: space-around; */
     width: 400px;
     height: 50px;
     margin-bottom: 40px;
     left: 50%;
     transform: translateX(-50%);
-    /* background-color: green; */
 }
 
 
@@ -84,25 +70,14 @@ div.authentication .anonymous:hover {
     cursor: pointer;
     width: 50%;
     text-align: center;
-    /* margin-top: 50%; */
-    /* transform: translateY(-50%); */
-
-    /* border: 1px solid grey; */
-    /* position: absolute; */
-    /* left: 0; */
-    /* border-radius: 30px; */
-    /* padding: 15px; */
-    /* background-color: red; */
     transition: 0.5s ease letter-spacing;
 }
 
 .authentication nav div:hover {
-    /* border-bottom: 1px solid black; */
     letter-spacing: 3px
 }
 
 .authentication div.wrongPassword {
-    /* background-color: green; */
     text-align: center;
     position: absolute;
     left: 50%;
@@ -114,7 +89,6 @@ div.authentication .anonymous:hover {
 
 @media screen and (max-height: 920px) and (max-width:1275px) {
     div.authentication .anonymous {
-        /* background-color: green; */
         bottom: 175px;
     }
 
@@ -137,7 +111,6 @@ div.authentication .anonymous:hover {
 
 
     div.authentication .anonymous {
-        /* background-color: green; */
         bottom: 130px;
         width: 130px;
     }
@@ -151,7 +124,6 @@ div.authentication .anonymous:hover {
     }
 
     div.authentication .anonymous {
-        /* background-color: green; */
         bottom: 225px;
         width: 120px;
         font-size: 11px;
@@ -166,7 +138,6 @@ div.authentication .anonymous:hover {
     .authentication div.wrongPassword {
         bottom: 285px;
         font-size: 10px;
-        /* background-color: green; */
     }
 
     div.authentication div.accounts {
@@ -180,7 +151,6 @@ div.authentication .anonymous:hover {
     .authentication div.wrongPassword {
         bottom: 318px;
         font-size: 9px;
-        /* background-color: green; */
     }
 }
 
@@ -189,6 +159,5 @@ div.authentication .anonymous:hover {
         bottom: 318px;
         width: 200px;
         font-size: 9px;
-        /* background-color: green; */
     }
 }

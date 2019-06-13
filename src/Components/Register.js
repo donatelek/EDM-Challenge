@@ -21,6 +21,7 @@ class Register extends Component {
         const { password, username } = this.state;
         const { handleRegister } = this;
         const { submitRegister } = this.props;
+        
         return (
             <div className="register">
                 <h1>Register</h1>

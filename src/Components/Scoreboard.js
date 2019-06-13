@@ -31,10 +31,8 @@ class Scoreboard extends Component {
                 } else {
                     return (
                         <>
-                            
                             <li className='username'>{user.username}</li>
                             <li className='points'>{user.easylvl}</li>
-                            
                         </>
                     )
                 }
@@ -47,7 +45,6 @@ class Scoreboard extends Component {
             }
             users.splice(10, users.length)
         }
-
 
         return (
             <div className="scoreboard">

@@ -1,26 +1,13 @@
 div.quizHints {
-
     display: flex;
-
     margin: 0 auto;
     position: relative;
-
     justify-content: space-around;
     position: relative;
     height: 350px;
-    /* height: 38vh; */
     width: 100%;
     margin-top: 30px;
-
     flex-wrap: wrap;
-    /* background-color: green; */
-    /* width: 1400px; */
-
-}
-
-.quizHints .hint {
-    /* transform: translateX(1700px); */
-
 }
 
 .quizHints .hint1 {
@@ -40,10 +27,8 @@ div.quizHints {
 }
 
 div.quizHints .hint {
-    /* background-color: red; */
     position: relative;
     width: 500px;
-    /* width: 28%; */
     height: 450px;
     margin: 0 30px;
 
@@ -51,41 +36,32 @@ div.quizHints .hint {
 }
 
 .quizHints div.react-card-flip {
-    /* background-color: green; */
     position: relative;
     width: 100%;
     height: 100%;
     top: 0;
-
     left: 0;
 }
 
 .quizHints .flip {
     position: relative;
-    /* background-color: pink; */
     width: 100%;
     height: 100%;
-
 }
 
 .quizHints .react-card-flipper {
     position: relative;
-    /* background-color: green; */
     height: 100%;
-
 }
 
 .quizHints .react-card-front {
     position: relative;
-    /* background-color: red; */
     height: 100%;
 }
 
 .quizHints .react-card-back {
     position: relative;
-    /* background-color: red; */
     height: 100%;
-
 }
 
 

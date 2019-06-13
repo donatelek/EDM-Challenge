@@ -1,5 +1,4 @@
 div.scoreboard {
-    /* background-color: green; */
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
@@ -9,29 +8,18 @@ div.scoreboard {
 
 div.scoreboard ul.users {
     display: flex;
-    /* background-color: pink; */
     width: 100%;
     height: 60%;
     flex-wrap: wrap;
 }
 
-
-
 div.scoreboard ul.users li.username,
 div.scoreboard ul.users li.points {
-    /* background-color: red; */
     font-size: 30px;
     width: 50%;
     height: 10%;
     text-align: center;
-    /* vertical-align: middle; */
-    /* border-top: 1px solid black; */
-    /* border-bottom: 1px solid black; */
 }
-
-
-
-
 
 div.scoreboard ul.users li:nth-of-type(3) {
     background-color: rgb(81, 158, 209, 0.3);
@@ -67,7 +55,6 @@ div.scoreboard ul.users li:nth-of-type(16) {
 
 div.scoreboard ul.users li:nth-of-type(19) {
     background-color: rgb(81, 158, 209, 0.3);
-
 }
 
 div.scoreboard ul.users li:nth-of-type(20) {
@@ -75,7 +62,6 @@ div.scoreboard ul.users li:nth-of-type(20) {
 }
 
 div.scoreboard div.scoreboardTitles {
-    /* background-color: green; */
     display: flex;
     margin-top: 30px;
     margin-bottom: 10px;
@@ -104,16 +90,7 @@ div.scoreboard h3 {
 @media screen and (max-height: 875px) {
     div.scoreboard {
         height: 480px;
-        /* background-color: green; */
         font-size: 14px;
-    }
-
-    div.scoreboard div.users div.username,
-    div.scoreboard div.users div.points {
-        /* font-size: 20px; */
-        /* background-color: blue; */
-        /* height: 30px; */
-
     }
 
     div.scoreboard ul.users li.username {
@@ -131,7 +108,6 @@ div.scoreboard h3 {
     }
 
     div.scoreboard h1.titleScoreboard {
-
         font-size: 33px;
     }
 
@@ -154,7 +130,6 @@ div.scoreboard h3 {
 
     div.scoreboard ul.users li.username {
         text-align: left;
-        /* margin-left: 5px; */
         padding-left: 5px;
         width: 65%;
     }
@@ -165,16 +140,12 @@ div.scoreboard h3 {
 
     div.scoreboard div.users div.username {
         width: 80%;
-
         text-align: left;
         font-size: 14px;
     }
 
-
-
     div.scoreboard div.users div.points {
         width: 20%;
-        /* background-color: green; */
         text-align: left;
     }
 
@@ -183,13 +154,10 @@ div.scoreboard h3 {
         font-size: 20px;
         text-align: left;
         padding-left: 5px;
-        /* background-color: red; */
     }
 
     div.scoreboard div.scoreboardTitles .points {
         width: 35%;
         font-size: 20px;
-        /* background-color: green; */
-
     }
 }

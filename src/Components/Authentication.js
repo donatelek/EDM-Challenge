@@ -19,7 +19,6 @@ class Authentication extends Component {
                 allUsers: res.length
             })
         }).catch(err => console.log(err))
-
         const { resetUsers,pageChange}=this.props;
         localStorage.clear()
         resetUsers()
@@ -33,13 +32,18 @@ class Authentication extends Component {
             render: page
         })
     }
+
+    handleChangeUserLoginRoute=()=>{
+        this.props.history.push('/introduction')
+    }
+
     render() {
 
         const { render }=this.state;
-        const { showWrongLogin,submitLogin,submitRegister,showUserExist,showSuccessRegister,pageChange,anonymousLogin } = this.props;
+        const { showWrongLogin,submitLogin,submitRegister,showUserExist,showSuccessRegister,pageChange,anonymousLogin,user,showWrongLength } = this.props;
         const { handleAuthChange } = this;
+
         return (
-                
             <div className="authentication">
                 <div className="accounts">Users: {this.state.allUsers}</div>
                 <nav>
@@ -47,14 +51,11 @@ class Authentication extends Component {
                     <div onClick={() => handleAuthChange('register')}>Sign Up</div>
                 </nav>
 
-                {render === 'login' && <Login showWrongLogin={showWrongLogin} submitLogin={submitLogin} />}
-
+                {render === 'login' && <Login handleChangeUserLoginRoute={this.handleChangeUserLoginRoute} showWrongLogin={showWrongLogin} submitLogin={submitLogin} pageChange={pageChange} user={user}/>}
                 {render === 'register' && <Register submitRegister={submitRegister} handleAuthChange={handleAuthChange} />}
-
+                {showWrongLength&&render==='register'&&<div className="wrongPassword">Your password should be at least 6 characters</div>}
                 {showUserExist&&render==='register'&&<div className="wrongPassword">User with this username already exist</div>}
-
                 {showSuccessRegister&&render==='register'&&<div className="wrongPassword">Successfull register. Now log in</div>}
-
                 {showWrongLogin&&render==='login'&&<div className="wrongPassword">Wrong username or password. Try Again!</div>}
 
                 <Link className="anonymous" onClick={() => {
@@ -63,9 +64,7 @@ class Authentication extends Component {
                         anonymousLogin()
                     )
                 }} to='/introduction'>Anonymous</Link>
-
             </div>
-
         );
     }
 }

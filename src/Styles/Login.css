@@ -2,18 +2,13 @@
     position: relative;
     background-color: transparent;
     text-align: center;
-    /* padding: 30px 0 0 0; */
     height: 500px;
     width: 500px;
     margin: 0 auto;
     border-radius: 10px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 0, 0, 0.1) inset;
     box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
     box-shadow: 0px 0px 25px -3px rgba(0, 0, 0, 0.75);
-    /* background-color: green; */
     margin-top: 80px;
-    /* animation: slide-out-bck-center 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both; */
-
     animation: fade 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
@@ -34,11 +29,9 @@
     border: none;
     cursor: pointer;
     position: absolute;
-    /* background: linear-gradient(to right, rgb(252, 92, 125), rgb(106, 130, 251)); */
     background: transparent;
     overflow-y: hidden;
     border: 2px solid black;
-    /* opacity: 0.7; */
     left: 50%;
     transform: translateX(-50%);
     margin-top: 50px;
@@ -51,7 +44,6 @@
     font-size: 20px;
     box-shadow: 9px 9px 25px -3px rgba(0, 0, 0, 0.75);
     transition: 400ms ease box-shadow;
-    /* background-color: green; */
 }
 
 .login .loginButton:hover {
@@ -61,9 +53,7 @@
 .login h1 {
     font-size: 40px;
     color: rgb(7, 38, 39);
-    /* font-weight: bold; */
     border-bottom: 1px solid black;
-    /* background-color: green; */
     padding: 29px 0;
 }
 
@@ -75,8 +65,6 @@
 
 .login div.username input,
 .login div.password input {
-    /* background-color: linear-gradient(to right, rgb(252, 92, 125), rgb(106, 130, 251)); */
-    /* display: block; */
     background-color: transparent;
     width: 300px;
     height: 50px;
@@ -91,55 +79,27 @@
 .login div.password i {
     font-size: 25px;
     line-height: 25px;
-    /* background-color: pink; */
-    /* line-height: 20px;
-    display: inline-block;
-    position: absolute;
-    left: 0;
-    bottom: 0; */
-    /* margin: 20px 20px 0 0; */
-    /* padding: 15px 20px 0 0; */
-    /* margin-right: 50px; */
     height: 25px;
     left: 70px;
     margin-top: 12px;
-    /* background-color: green; */
     position: absolute;
-
-
 }
 
 @keyframes fade {
     0% {
-
-        scale:
+        scale: 0;
     }
 
     100% {
-
         opacity: 1;
     }
 }
 
-
-
-
-/* animations */
 .animatedLogin {
     animation: slide-out-bck-center 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
 }
 
-/* @media screen and (max-width: 504px) {
-
-
-    .login {
-        width: 100%;
-    }
-} */
-
 @media screen and (max-height: 920px) and (max-width:1275px) {
-
-
     .login {
         position: relative;
         height: 380px;
@@ -156,33 +116,19 @@
     .login div.username,
     .login div.password {
         margin-top: 15px;
-
     }
 
     .login div.username input,
     .login div.password input {
-
-
         width: 300px;
         height: 40px;
-
-
     }
 
     .login div.username i,
     .login div.password i {
         font-size: 25px;
         line-height: 15px;
-
-        /* margin-top: 12px; */
-
-
     }
-
-    .login {
-        /* margin-top: 10px; */
-    }
-
 
 }
 
@@ -194,7 +140,6 @@
     .login div.username input,
     .login div.password input {
         width: 260px;
-
     }
 
     .login .loginButton {
@@ -205,45 +150,29 @@
 
     .login h1 {
         padding: 10px 0;
-
     }
 
     .login div.username i,
     .login div.password i {
         font-size: 25px;
         line-height: 25px;
-
         left: 50px;
         margin-top: 12px;
-
         position: absolute;
-
-
     }
-
 }
 
 @media screen and (max-width:560px) and (min-height:920px) {
-
-
     div.login {
         height: 450px;
-        /* background-color: red; */
     }
-
-
-
 }
 
 @media screen and (max-width:560px) and (max-height:920px) {
     div.authentication div.accounts {
-        /* bottom: 105px; */
         margin-bottom: 61px;
-        /* position: absolute; */
-        /* background-color: red; */
     }
 }
-
 
 @media screen and (max-width: 448px) {
     .login {
@@ -256,19 +185,14 @@
     .login div.password i {
         font-size: 25px;
         line-height: 25px;
-
         left: 10px;
         margin-top: 12px;
-
         position: absolute;
         display: none;
-
     }
 
     div.authentication div.accounts {
-
         margin-bottom: 85px;
-
     }
 }
 
@@ -280,6 +204,5 @@
     .login div.username input,
     .login div.password input {
         width: 210px;
-
     }
 }

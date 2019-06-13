@@ -1,9 +1,7 @@
 .soundPlayer {
-    /* background-color: green; */
     position: relative;
     width: 100vw;
     height: 120px;
-
 }
 
 .soundPlayer .blur {
@@ -14,20 +12,14 @@
     width: 230px;
     height: 110px;
     z-index: 34213123123131232344232342311123122;
-    /* overflow: hidden; */
 }
 
 .reactPlayer {
-    /* display: none; */
-    /* overflow: hidden; */
     position: absolute;
-    /* background-color: green; */
     left: 10px;
     bottom: 10px;
     width: 1000px;
     height: 1000px;
-    /* background-color: green; */
-    /* z-index: 34213123123131232344232342312; */
 }
 
 .reactPlayer div {
@@ -40,11 +32,8 @@
     left: 250px;
     height: 23px;
     background: transparent;
-
     -webkit-appearance: none;
-
     outline: none;
-
 }
 
 input.focused::-webkit-slider-thumb {
@@ -58,8 +47,6 @@ input.focused::-webkit-slider-thumb {
     bottom: 9px;
     background-color: #1d1c25;
     cursor: pointer;
-
-    -webkit-transition: border 1000ms ease;
     transition: border 1000ms ease;
 }
 
@@ -73,9 +60,6 @@ input.range::-moz-range-thumb {
 
 input.focused::-webkit-slider-runnable-track {
     -webkit-appearance: none;
-    background: rgba(59, 173, 227, 1);
-    background: -moz-linear-gradient(45deg, rgba(59, 173, 227, 1) 0%, rgba(87, 111, 230, 1) 25%, rgba(152, 68, 183, 1) 51%, rgba(255, 53, 127, 1) 100%);
-    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(59, 173, 227, 1)), color-stop(25%, rgba(87, 111, 230, 1)), color-stop(51%, rgba(152, 68, 183, 1)), color-stop(100%, rgba(255, 53, 127, 1)));
     background: -webkit-linear-gradient(45deg, rgba(59, 173, 227, 1) 0%, rgba(87, 111, 230, 1) 25%, rgba(152, 68, 183, 1) 51%, rgba(255, 53, 127, 1) 100%);
     background: -o-linear-gradient(45deg, rgba(59, 173, 227, 1) 0%, rgba(87, 111, 230, 1) 25%, rgba(152, 68, 183, 1) 51%, rgba(255, 53, 127, 1) 100%);
     background: -ms-linear-gradient(45deg, rgba(59, 173, 227, 1) 0%, rgba(87, 111, 230, 1) 25%, rgba(152, 68, 183, 1) 51%, rgba(255, 53, 127, 1) 100%);
@@ -87,9 +71,7 @@ input.focused::-webkit-slider-runnable-track {
 
 input.focused::-moz-range-track {
     -moz-appearance: none;
-    background: rgba(59, 173, 227, 1);
     background: -moz-linear-gradient(45deg, rgba(59, 173, 227, 1) 0%, rgba(87, 111, 230, 1) 25%, rgba(152, 68, 183, 1) 51%, rgba(255, 53, 127, 1) 100%);
-    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(59, 173, 227, 1)), color-stop(25%, rgba(87, 111, 230, 1)), color-stop(51%, rgba(152, 68, 183, 1)), color-stop(100%, rgba(255, 53, 127, 1)));
     background: -webkit-linear-gradient(45deg, rgba(59, 173, 227, 1) 0%, rgba(87, 111, 230, 1) 25%, rgba(152, 68, 183, 1) 51%, rgba(255, 53, 127, 1) 100%);
     background: -o-linear-gradient(45deg, rgba(59, 173, 227, 1) 0%, rgba(87, 111, 230, 1) 25%, rgba(152, 68, 183, 1) 51%, rgba(255, 53, 127, 1) 100%);
     background: -ms-linear-gradient(45deg, rgba(59, 173, 227, 1) 0%, rgba(87, 111, 230, 1) 25%, rgba(152, 68, 183, 1) 51%, rgba(255, 53, 127, 1) 100%);
@@ -99,63 +81,52 @@ input.focused::-moz-range-track {
 }
 
 .soundPlayer .fa-play {
-    /* background-color: pink; */
     position: absolute;
     left: 290px;
     top: 30px;
     font-size: 20px;
-    /* border-radius: 50px; */
     width: 50px;
     height: 50px;
     text-align: center;
     cursor: pointer;
     line-height: 50px;
     color: lightblue;
-    /* border: 1px solid black; */
     z-index: 100000000000000000000000;
 }
 
 .soundPlayer .fa-pause {
-    /* background-color: pink; */
     position: absolute;
     left: 290px;
     top: 30px;
     font-size: 20px;
-    /* border-radius: 50px; */
     width: 50px;
     height: 50px;
     text-align: center;
     line-height: 50px;
     color: lightblue;
-    /* border: 1px solid black; */
     cursor: pointer;
     z-index: 100000000000000000000000;
 }
 
 .soundPlayer .front {
-    /* background-color: pink; */
     position: absolute;
     left: 340px;
     top: 30px;
     font-size: 20px;
-    /* border-radius: 50px; */
     width: 50px;
     height: 50px;
     text-align: center;
     line-height: 50px;
     color: lightblue;
-    /* border: 1px solid black; */
     z-index: 10;
     cursor: pointer;
 }
 
 .soundPlayer .back {
-    /* background-color: pink; */
     position: absolute;
     left: 240px;
     top: 30px;
     font-size: 20px;
-    /* border-radius: 50px; */
     z-index: 10;
     width: 50px;
     height: 50px;
@@ -163,7 +134,6 @@ input.focused::-moz-range-track {
     line-height: 50px;
     color: lightblue;
     transform: rotate(180deg);
-    /* border: 1px solid black; */
     cursor: pointer;
 }
 
@@ -198,7 +168,6 @@ input.focused::-moz-range-track {
         left: 115px;
         top: 0px;
         font-size: 18px;
-        /* background-color: green; */
         width: 30px;
         border-radius: none;
 
@@ -208,9 +177,7 @@ input.focused::-moz-range-track {
         left: 180px;
         top: 0px;
         font-size: 18px;
-        /* height: 30px; */
         width: 30px;
-        /* background-color: red; */
     }
 
     .soundPlayer .fa-play {
@@ -218,8 +185,6 @@ input.focused::-moz-range-track {
         top: 0px;
         font-size: 18px;
         width: 30px;
-        /* background-color: beige; */
-
     }
 
     .soundPlayer .fa-pause {
@@ -227,13 +192,10 @@ input.focused::-moz-range-track {
         top: 0px;
         width: 30px;
         font-size: 18px;
-        /* background-color: blue; */
     }
 }
 
 @media screen and (max-height:720px) {
-
-
     .reactPlayer {
         top: 10px;
     }
@@ -248,19 +210,15 @@ input.focused::-moz-range-track {
         left: 115px;
         top: 0px;
         font-size: 18px;
-        /* background-color: green; */
         width: 30px;
         border-radius: none;
-
     }
 
     .soundPlayer .front {
         left: 180px;
         top: 0px;
         font-size: 18px;
-        /* height: 30px; */
         width: 30px;
-        /* background-color: red; */
     }
 
     .soundPlayer .fa-play {
@@ -268,7 +226,6 @@ input.focused::-moz-range-track {
         top: 0px;
         font-size: 18px;
         width: 30px;
-        /* background-color: beige; */
     }
 
     .soundPlayer .fa-pause {
@@ -276,6 +233,5 @@ input.focused::-moz-range-track {
         top: 0px;
         width: 30px;
         font-size: 18px;
-        /* background-color: blue; */
     }
 }

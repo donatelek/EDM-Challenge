@@ -7,32 +7,40 @@ class Introduction extends Component {
         lvl: '',
     }
 
-UNSAFE_componentWillMount(){
-    this.props.pageChange('introduction')
-}
-
 componentDidMount() {
-    console.log('aaaaaaaaa')
-const { changingKej,changeDownloadLvl,userId,setUserLvl }=this.props;
- changingKej('843');
- changeDownloadLvl();
- const userLvl = userId;
- const numberLvl = parseInt(userLvl);
- fetch(`https://pure-dawn-32038.herokuapp.com/getlvl/${numberLvl}`, {
+    this.props.pageChange('introduction')
+    const { changeDownloadLvl,userId,setUserLvl }=this.props;
+    changeDownloadLvl();
+    const userLvl = userId;
+    const numberLvl = parseInt(userLvl);
+    fetch(`https://pure-dawn-32038.herokuapp.com/getlvl/${numberLvl}`, {
      headers: { 'Content-Type': 'application/json' }
- }).then(res => res.json()).then(res => {
+      }).then(res => res.json()).then(res => {
      setUserLvl(res)
- }).catch(err => console.log(err))
-        
-       
-
+      }).catch(err => console.log(err))
     }
     render() {
         const { pageChange }=this.props;
         return (
             <div className='introduction'>
-                <h1 className="rules">RULES OF GAME</h1>
-                <article className="rules">Zgadnij jaki to dj, za jeden poziom możesz zdobyć maksymalnie 6 pkt. Jedna podpowiedz -2pkt  złe trafienie -1pkt jeśli nie znasz odpowiedzi możesz ominąć pytanie nie zyskując żadnych punktów Link do playlisty: https://www.youtube.com/watch?v=AKNIO4aYAPg Dont forget to turn up the volume!</article>
+                {/* <h1 className="rules">RULES OF GAME</h1> */}
+                <article className="rules">
+                    <h1>Guess what is that DJ!</h1>
+                    <br/>
+                    <ul>
+                        <h2>You can get 6 points per Level</h2>
+                       
+                        <li>By opening a hint you lose 2 points</li>
+                        <li>By typing wrong DJ you lose 1 point</li>
+                        <li>You can also skip question but you won't get any points</li>
+                    </ul>
+                    <br/>
+                    <h2>Do not use Shazam!</h2>
+                    <br/>
+                    <h3>Link to playlist: https://bit.ly/2XFqQAg</h3>
+                    <br/>
+                    <h3>Good Luck :)</h3>
+                </article>
                 <Link onClick={() => pageChange('chooselvl')} className="ok" to='/lvl'>Let's Play</Link>
             </div>
         );

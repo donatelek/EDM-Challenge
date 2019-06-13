@@ -8,9 +8,8 @@ class ChooseLvl extends Component {
         pageChange('chooselvl')
     }
     render() {
-
         const { pageChange }=this.props;
-
+        
         return (
             <div className="chooseLvl">
                 <h1 className="lvl">Choose lvl</h1>
@@ -22,6 +21,7 @@ class ChooseLvl extends Component {
                     </Link>
                     <article onClick={() => pageChange('quiz')} className="hard">
                         <h1>Hard</h1>
+                        <h2>Not available</h2>
                     </article>
                 </section>
                 <div className="note">Next Levels will be released soon!</div>

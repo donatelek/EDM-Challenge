@@ -5,12 +5,10 @@ class Answer extends Component {
         passwordInput: '',
         user: '',
         answerInput: '',
-        arrayOfWrongAnswers:['Nope, thats not him', 'Not this time', 'Try again!','Bad answer'],
-        wrongAnswer:'Nope, thats not him',
+        arrayOfWrongAnswers:['Nope, thats not him!', 'Not this time!', 'Try again!','Bad answer!','You are so close!','Nah, dont give up!'],
+        wrongAnswer:'Bad answer!',
         isWrongAnswer:false,
     }
-
-
 
     handlePasswordChange = (e) => {
         this.setState({
@@ -18,7 +16,6 @@ class Answer extends Component {
         })
     }
     changeWrongAnswer=()=>{
-
         const index = Math.floor(Math.random()*this.state.arrayOfWrongAnswers.length);
         this.setState({
             isWrongAnswer:true,
@@ -29,34 +26,24 @@ class Answer extends Component {
                 isWrongAnswer:false
             })
         },2500)
-        
     }
+
     onchange = (e) => {
         this.setState({
             username: e.target.value
         })
     }
+
     onchange1 = (e) => {
         this.setState({
             password: e.target.value
         })
     }
-    clicky = () => {
-        fetch('http://localhost:3000/signin', {
-            method: 'post',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                username: this.state.username,
-                password: this.state.password
-            })
-        }).then(res => res.json()).then(res => {
-            this.setState({
-                user: res
-            })
-        }).catch(err => console.log(err))
-    }
-    checkAnswer = () => {
 
+    checkAnswer = () => {
+        if(this.state.answerInput.trim()===''){
+            return
+        }
         fetch('https://pure-dawn-32038.herokuapp.com/password', {
             method: 'post',
             headers: { 'Content-Type': 'application/json' },
@@ -65,21 +52,21 @@ class Answer extends Component {
                 password: this.state.answerInput.toLowerCase()
             })
         }).then(res => res.json()).then(res => {
-            const { handleUsedHints,handleNextLvl,animationOnGoodAnswer,handleUserPoints,mainmain,resetUsedHints,resetFailedAttempts,updateLocalStorage,updateFailedAttempts }=this.props;
+            const { handleUsedHints,handleNextLvl,animationOnGoodAnswer,handleUserPoints,resetUsedHints,resetFailedAttempts,updateLocalStorage,updateFailedAttempts }=this.props;
             if (res === 'true') {
                 handleUsedHints();
                 handleNextLvl();
                 animationOnGoodAnswer();
                 handleUserPoints();
-                mainmain()
                 resetUsedHints()
                 resetFailedAttempts()
+                
                 this.setState({
                     answerInput:''
                 })
                 setTimeout(() => {
                     updateLocalStorage()
-                }, 250)
+                }, 500)
             } else {
                 this.changeWrongAnswer()
                 updateFailedAttempts()
@@ -87,31 +74,29 @@ class Answer extends Component {
                     updateLocalStorage()
                 }, 250)
             }
-
         }).catch(err => console.log(err))
     }
+
     handleInputAnswer = (e) => {
         this.setState({
             answerInput: e.target.value
         })
     }
+
     render() {
 
         const { isWrongAnswer,answerInput,wrongAnswer }=this.state;
         const { animationOnGoodAnswer,handleNextLvl,resetUsedHints,resetFailedAttempts,updateLocalStorage,turnAnimation,user }=this.props;
-        const { changeWrongAnswer, checkAnswer,handleInputAnswer }=this;
+        const { checkAnswer,handleInputAnswer }=this;
 
         return (
             <>
                 <div class="answer">
-                   
                     <input onChange={handleInputAnswer} type="text" value={answerInput} className='inputAnswer' placeholder='Answer...' spellcheck="false" />
                     <br />
                     {isWrongAnswer&&<div className="wrongAnswer">{wrongAnswer}</div>}
                     <br/>
                     <button className='check' onClick={checkAnswer}>Check</button>
-                    
-                    
                     <button onClick={() => {
                         animationOnGoodAnswer();
                         handleNextLvl()
@@ -125,7 +110,6 @@ class Answer extends Component {
                     }} className="skip">SKIP</button>
                     {turnAnimation?<div className="points">Your points: <span className='fadePoints'>{user.easylvl}</span></div>:<div className="points" >Your points: <span>{user.easylvl}</span></div>}
                 </div>
-
             </>
         );
     }

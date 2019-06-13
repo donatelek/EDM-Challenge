@@ -9,7 +9,7 @@ import { BrowserRouter as Router, Link, Route, Switch} from 'react-router-dom';
 import Scoreboard from './Scoreboard';
 import Contact from './Contact';
 import Error404 from './Error404';
-
+// jak w quzie zrobimy f5 to punkty sie nie aktualizuja i aktualizuja sie dopiero po kliknieciu np w hinta
 // portfolio contact nawet jak jest puste to wysyla usunac default ostrzezenia
 // moze zmienic kolejnosci w getterze 
 // zrobic responsywne zdjecia najlepiej ten sam size jesli chodzi o wymiary 4:3 itp
@@ -19,12 +19,8 @@ class App extends Component {
     page: '/',
     downloadLvl: false,
     lvl: null,
-    userLvl: '',
-    lvlPointsCalculator: 6,
-    secondHintClicked: false,
-    thirdHintClicked: false,
+    userLvl: '', 
     user: '',
-    kej:'123',
     soundplayerPlaying:false,
     userLogged:false,
     showWrongLogin:false,
@@ -32,14 +28,13 @@ class App extends Component {
     showFooter:false,
     showSuccessRegister:false,
     showUserExist:false,
+    showWrongLength:false,
     showLoader:false,
     w:'',
-    h:'',
-    overflow:'hidden'
+    h:''
   }
 
   componentWillMount() {
-    
    if(window.innerWidth<933){
     this.setState({
       h:window.innerHeight + 100,
@@ -59,7 +54,6 @@ class App extends Component {
         })
           .then(response => response.json())
           .then(user => {
-          
             const array = user.split(",");
             const arrayToObject = {
               id: Number(array[0]),
@@ -86,16 +80,8 @@ class App extends Component {
       }
     }
    },100)
-    
-    
   }
   
-  changingKej=(kej)=>{
-    this.setState({
-      kej
-    })
-  }
-
 setUserIfUserLogged=()=>{
   this.setState({
     userLogged:true
@@ -103,31 +89,11 @@ setUserIfUserLogged=()=>{
 }
 
   resetUsers = () => {
-  
     localStorage.clear()
     this.setState({
       user: '',
       userLvl: '',
       page:'/'
-    })
-  }
-
-  lvlPointsCalculator = () => {
-    this.setState({
-      lvlPointsCalculator: this.state.lvlPointsCalculator - 2
-    })
-
-  }
-  handleBadAnswerPoints = () => {
-    this.setState({
-      lvlPointsCalculator: this.state.lvlPointsCalculator - 1
-    })
-  }
-  mainmain = () => {
-    this.setState({
-      lvlPointsCalculator: 6,
-      thirdHintClicked: false,
-      secondHintClicked: false
     })
   }
 
@@ -196,23 +162,15 @@ setUserIfUserLogged=()=>{
   doubledouble1 = () => {
     if (this.state.user.usedhints === 0 || this.state.user.usedhints === "0") {
       this.updateUsedHints()
-      this.setState({
-        secondHintClicked: true
-      })
     } 
   }
   doubledouble2 = () => {
     if (this.state.user.usedhints === 0 || this.state.user.usedhints === 1 || this.state.user.usedhints === "0") {
-      this.lvlPointsCalculator()
       this.updateUsedHints()
-      this.setState({
-        thirdHintClicked: true
-      })
     }
   }
 
   anonymousLogin = () => {
-    console.log('anonumous')
     this.setState({
       showLoader:true
     })
@@ -222,7 +180,6 @@ setUserIfUserLogged=()=>{
     })
       .then(response => response.json())
       .then(user => {
-        console.log(user)
         if (user) {
           this.setState({
             showLoader:false
@@ -235,7 +192,6 @@ setUserIfUserLogged=()=>{
             })
           }).then(res => res.json())
             .then(res => {
-              console.log(res)
               localStorage.setItem('currentUser', JSON.stringify(res))
             })
           this.setState({
@@ -287,6 +243,17 @@ setUserIfUserLogged=()=>{
   }
 
   submitRegister = (username, password) => {
+    if(username.trim()===''&&password.length<6){
+      this.setState({
+        showWrongLength:true
+      })
+      setTimeout(()=>{
+        this.setState({
+          showWrongLength:false
+        })
+      },3000)
+      return
+    }
     fetch('https://pure-dawn-32038.herokuapp.com/register', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
@@ -315,12 +282,31 @@ setUserIfUserLogged=()=>{
               showUserExist:false
             })
           },3000)
+        }else if(res==='Your password should be at least 6 characters'){
+          this.setState({
+            showWrongLength:true
+          })
+          setTimeout(()=>{
+            this.setState({
+              showWrongLength:false
+            })
+          },3000)
         }
       })
   }
 
   submitLogin = (username, password) => {
-    
+    if(username.trim()===''&&password.length<6){
+      this.setState({
+        showWrongLogin:true
+      })
+      setTimeout(()=>{
+       this.setState({
+         showWrongLogin:false
+       })
+      },2000)
+      return
+    }
     fetch('https://pure-dawn-32038.herokuapp.com/signin', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
@@ -331,8 +317,18 @@ setUserIfUserLogged=()=>{
     })
       .then(response => response.json())
       .then(user => {
+        if(user === 'Write proper credentials'){
+          this.setState({
+            showWrongLogin:true
+          })
+          setTimeout(()=>{
+           this.setState({
+             showWrongLogin:false
+           })
+          },2000)
+          return
+        }
         if (user!=='wrong password'&&user) {
-        
          this.setState({
            user,
           userLogged:true,
@@ -372,7 +368,6 @@ setUserIfUserLogged=()=>{
       this.setState({
         user: res
       })
-      console.log(res)
     }).catch(err => console.log(err))
     setTimeout(() => {
       const userLvlNumber = parseInt(this.state.user.id)
@@ -385,8 +380,8 @@ setUserIfUserLogged=()=>{
       }).catch(err => console.log(err))
     }, 2000)
   }
+
   handleTurningSoundplayer=()=>{
-    console.log('wywolanie')
     this.setState({
       soundplayerPlaying:!this.state.soundplayerPlaying
     })
@@ -434,22 +429,17 @@ showFooter=()=>{
 
   render() {
     
-    const { page,user,userLogged,showUserExist,showSuccessRegister,showWrongLogin,userLvl,secondHintClicked,thirdHintClicked,lvl,showFooter }=this.state;
-    const { handleLogOut,pageChange,setUserLvl,submitRegister,hideWrongLogin,anonymousLogin,setUserIfUserLogged,resetUsers,changingKej,submitLogin,changeDownloadLvl,mainmain,doubledouble1,doubledouble2,handleUsedHints,handleNextLvl,handleUserPoints,handleAnonymousNextLvl,updateLocalStorage,resetUsedHints,resetFailedAttempts,updateFailedAttempts,showLogInBugs }=this;
+    const { page,user,userLogged,showUserExist,showSuccessRegister,showWrongLogin,userLvl,lvl,showFooter,showWrongLength }=this.state;
+    const { handleLogOut,pageChange,setUserLvl,submitRegister,hideWrongLogin,anonymousLogin,setUserIfUserLogged,resetUsers,submitLogin,changeDownloadLvl,mainmain,doubledouble1,doubledouble2,handleUsedHints,handleNextLvl,handleUserPoints,handleAnonymousNextLvl,updateLocalStorage,resetUsedHints,resetFailedAttempts,updateFailedAttempts,showLogInBugs }=this;
+
     return (
         <Router>
           <Route render={({location})=>(
  <div id="wrapper" 
- style={{width:this.state.w,height:this.state.h
-  // ,overflow:this.state.overflow
-}}
-  >
- {/* <div className="bc">
-   <div className="bcc"></div>
- </div> */}
+ style={{width:this.state.w,height:this.state.h}}>
  <h1 className='mainTitle'><span>EDM CHALLENGE</span></h1>
- 
 
+{/* userinfo */}
  {page!=='/'&&<div className="userInfo">
  <div className="face"></div>
  {user.username && localStorage.getItem('currentUser') && user.username !== 'null' && <div className='userName'>{user.username}</div>}
@@ -467,25 +457,16 @@ showFooter=()=>{
      <ChooseLvl {...props} pageChange={pageChange} setUserLvl={setUserLvl} />
    )
  }} />
-
  {!userLogged&&<Route path='/' exact render={(props) => (
-   <Authentication {...props}  showUserExist={showUserExist} showSuccessRegister={showSuccessRegister} pageChange={pageChange} submitLogin={submitLogin} submitRegister={submitRegister} anonymousLogin={anonymousLogin} resetUsers={resetUsers} changingKej={changingKej} showWrongLogin={showWrongLogin} hideWrongLogin={hideWrongLogin} setUserIfUserLogged={setUserIfUserLogged} userLogged={userLogged} />
+   <Authentication {...props}  showUserExist={showUserExist} showSuccessRegister={showSuccessRegister} pageChange={pageChange} submitLogin={submitLogin} submitRegister={submitRegister} anonymousLogin={anonymousLogin} resetUsers={resetUsers} showWrongLogin={showWrongLogin} hideWrongLogin={hideWrongLogin} setUserIfUserLogged={setUserIfUserLogged} userLogged={userLogged} showWrongLength={showWrongLength}/>
  )} />}
-
 {userLogged&&<Route path='/' exact render={(props) => (
-  <Introduction {...props} page={page} pageChange={pageChange} changeDownloadLvl={changeDownloadLvl} setUserLvl={setUserLvl} userId={user.id} changingKej={changingKej}/>
+  <Introduction {...props} page={page} pageChange={pageChange} changeDownloadLvl={changeDownloadLvl} setUserLvl={setUserLvl} userId={user.id}/>
  )} />}
-
-
-{user && <Route path='/introduction' render={(props) => (<Introduction {...props} pageChange={pageChange} changeDownloadLvl={changeDownloadLvl} setUserLvl={setUserLvl} userId={user.id} changingKej={changingKej}/>)} />}
-
-
+{user && <Route path='/introduction' render={(props) => (<Introduction {...props} pageChange={pageChange} changeDownloadLvl={changeDownloadLvl} setUserLvl={setUserLvl} userId={user.id}/>)} />}
 {userLvl!=='END'&&<Route path='/quiz' render={(props) => (
-   <Quiz {...props} mainmain={mainmain} doubledouble1={doubledouble1} doubledouble2={doubledouble2} handleUsedHints={handleUsedHints} lvl={lvl} handleNextLvl={handleNextLvl} userLvl={userLvl} handleUserPoints={handleUserPoints} user={user} handleAnonymousNextLvl={handleAnonymousNextLvl} updateLocalStorage={updateLocalStorage} setUserLvl={setUserLvl} resetUsedHints={resetUsedHints} resetFailedAttempts={resetFailedAttempts} updateFailedAttempts={updateFailedAttempts} secondHintClicked={secondHintClicked} thirdHintClicked={thirdHintClicked} pageChange={pageChange} handleTurningSoundplayer={this.handleTurningSoundplayer} soundplayerPlaying={this.state.soundplayerPlaying} />
+   <Quiz {...props} mainmain={mainmain} doubledouble1={doubledouble1} doubledouble2={doubledouble2} handleUsedHints={handleUsedHints} lvl={lvl} handleNextLvl={handleNextLvl} userLvl={userLvl} handleUserPoints={handleUserPoints} user={user} handleAnonymousNextLvl={handleAnonymousNextLvl} updateLocalStorage={updateLocalStorage} setUserLvl={setUserLvl} resetUsedHints={resetUsedHints} resetFailedAttempts={resetFailedAttempts} updateFailedAttempts={updateFailedAttempts}  pageChange={pageChange} handleTurningSoundplayer={this.handleTurningSoundplayer} soundplayerPlaying={this.state.soundplayerPlaying} />
  )} />}
-
-
-
 <Route path='/contact' exact render={(props)=>(
    <Contact {...props} pageChange={pageChange} showLogInBugs={showLogInBugs}/>
  )}/>
@@ -494,10 +475,9 @@ showFooter=()=>{
  </Switch>
 
  {userLvl==='END' && page!=='contact'&&page!=='chooselvl'&&page!=='/'&&page!=='introduction'&&<Scoreboard pageChange={pageChange}/>}
- 
-
  {this.state.showFooter?<div className="hamburger" onClick={this.showFooter}><i class="fas fa-bars"></i></div>:<div className="hamburger" style={{bottom:'10px'}} onClick={this.showFooter}><i class="fas fa-bars"></i></div>}
 
+{/* navigation in footer */}
  {this.state.showFooter?<div className="navInFooter" style={{bottom:'80px'}}>
 {page==='contact'&&user&&<Link to='/lvl' className='goBackFooter' >Back to levels</Link>}          
 {page==='contact'&&!user&&<Link to='/' className='goBackFooter'>Log In</Link>}   
