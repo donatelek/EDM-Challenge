@@ -12,6 +12,7 @@
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
     overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
 }
 
 ::-webkit-scrollbar {

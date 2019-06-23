@@ -8,6 +8,7 @@ div.quizHints {
     width: 100%;
     margin-top: 30px;
     flex-wrap: wrap;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .quizHints .hint1 {
@@ -31,8 +32,6 @@ div.quizHints .hint {
     width: 500px;
     height: 450px;
     margin: 0 30px;
-
-
 }
 
 .quizHints div.react-card-flip {
@@ -64,24 +63,10 @@ div.quizHints .hint {
     height: 100%;
 }
 
-
-
-
-
-
-
-
-
-
-
 .quizHints .front2 {
     height: 100%;
     width: 100%;
-    /* background: url('./img/hintfront.png'); */
-    /* background-size: 150% 150%; */
-    /* background-position: center; */
     position: absolute;
-    /* height: 100px; */
     overflow-y: hidden;
     cursor: pointer;
     border: 1px solid black;
@@ -90,12 +75,7 @@ div.quizHints .hint {
 .quizHints .back2 {
     height: 100%;
     width: 100%;
-    /* background: url('chooselvl.png'); */
-    /* background-size: 100% 100%; */
-    /* background-position: center; */
     position: absolute;
-    /* height: 100px; */
-
 }
 
 .quizHints .back2 .back2img {
@@ -105,18 +85,12 @@ div.quizHints .hint {
     top: 50%;
     transform: translate(-50%, -50%);
     position: absolute;
-
-    /* background-color: green; */
 }
 
 .quizHints .front1 {
     height: 100%;
     width: 100%;
-    /* background: url('./img/hintfront.png'); */
-    /* background-size: 100% 100%; */
-    /* background-position: center; */
     position: absolute;
-    /* height: 100px; */
     overflow-y: hidden;
     cursor: pointer;
 }
@@ -124,42 +98,25 @@ div.quizHints .hint {
 .quizHints .back1 {
     height: 100%;
     width: 100%;
-    /* background: url('ffc.jpeg') center center no-repeat; */
-    /* background-size: 100% 100%; */
     background-size: cover;
-    /* background-position: center; */
     position: absolute;
-    /* height: 100px; */
-
 }
 
 .quizHints .front3 {
     height: 100%;
     width: 100%;
-    /* box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75); */
-    /* background-color: green; */
-    /* opacity: 0.7; */
     cursor: pointer;
-    /* background: url('./img/fiesta-01.jpg') center center no-repeat; */
-    /* background-size: 100% 100%; */
-    /* background-position: center; */
     position: absolute;
     background-size: cover;
     overflow-y: hidden;
-    /* height: 100px; */
-
 }
 
 .quizHints .back3 {
     height: 100%;
-
     width: 100%;
-    /* background: url('chooselvl.png'); */
     background-size: 100% 100%;
     background-position: center;
     position: absolute;
-    /* height: 100px; */
-
 }
 
 
@@ -168,55 +125,34 @@ div.quizHints .hint {
 }
 
 .soundHint {
-    /* background-color: red; */
     position: absolute;
     overflow: hidden;
     height: 100%;
     top: 0;
-
-    /* left: 50%; */
-    /* transform: translate(-50%, -50%); */
     width: 100%;
     text-align: center;
-
 }
 
 .soundHint h1.soundHintPlay {
-
     position: absolute;
     top: 20%;
     left: 50%;
     font-size: 50px;
     transform: translate(-50%, -50%);
-
 }
 
 .soundHint .backgroundImg3 {
-    /* max-width: 100%; */
     height: 110%;
     top: 50%;
     left: 50%;
-    /* margin-top: 50%; */
-    /* max-height: 100%; */
-    /* margin-left: 50%; */
     transform: translate(-50%, -50%);
-    /* margin-right: auto; */
     opacity: 0.9;
-    /* background-color: red; */
     position: absolute;
-    /* left: 0; */
-    /* bottom: 0; */
-    /* max-height: 100%; */
     width: auto;
-    /* margin: 0 auto; */
-    /* background-position: center; */
-    /* background-size: cover; */
-    /* background: 100% 100%; */
 }
 
 .soundHint .fas {
     cursor: pointer;
-    /* background-color: blue; */
     position: absolute;
     font-size: 80px;
     top: 50%;
@@ -238,7 +174,6 @@ div.quizHints .hint {
     width: 40%;
     background-color: transparent;
     -webkit-appearance: none;
-
     outline: none;
 }
 
@@ -253,7 +188,6 @@ input.volumeChanger::-webkit-slider-thumb {
     bottom: 9px;
     background-color: #1d1c25;
     cursor: pointer;
-
     -webkit-transition: border 1000ms ease;
     transition: border 1000ms ease;
 }
@@ -269,12 +203,10 @@ input.volumeChanger::-webkit-slider-runnable-track {
     background: linear-gradient(45deg, rgba(59, 173, 227, 1) 0%, rgba(87, 111, 230, 1) 25%, rgba(152, 68, 183, 1) 51%, rgba(255, 53, 127, 1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3bade3 ', endColorstr='#ff357f ', GradientType=1);
     height: 3px;
-
 }
 
 @keyframes hints {
     0% {
-
         opacity: 1;
     }
 
@@ -287,7 +219,6 @@ input.volumeChanger::-webkit-slider-runnable-track {
     }
 
     100% {
-
         opacity: 1;
     }
 }
@@ -298,13 +229,11 @@ input.volumeChanger::-webkit-slider-runnable-track {
 
 
 .tess {
-    /* background-color: green; */
     width: 500px;
     height: 500px;
     position: absolute;
     top: 0;
     left: 0;
-
 }
 
 .quizHints button {
@@ -319,11 +248,8 @@ input.volumeChanger::-webkit-slider-runnable-track {
 
 .quizHints .flip {
     border: 1px solid black;
-    /* border-radius: 50%; */
-
     width: 24%;
     height: 350px;
-    /* justify-content: space-around; */
 }
 
 @media screen and (max-width:1500px) {
@@ -373,7 +299,6 @@ input.volumeChanger::-webkit-slider-runnable-track {
 
 @media screen and (max-width:615px) {
     div.quizHints {
-        /* background-color: green; */
         height: 310px;
         margin-top: 5px;
     }
@@ -402,9 +327,7 @@ input.volumeChanger::-webkit-slider-runnable-track {
     }
 
     div.quizHints {
-        /* background-color: green; */
         height: 280px;
-
         justify-content: space-around;
     }
 

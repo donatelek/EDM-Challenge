@@ -44,6 +44,7 @@ div.register button.loginButton {
     font-size: 20px;
     box-shadow: 9px 9px 25px -3px rgba(0, 0, 0, 0.75);
     transition: 400ms ease box-shadow;
+    -webkit-tap-highlight-color: transparent;
 }
 
 div.register button.loginButton:hover {

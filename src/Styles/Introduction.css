@@ -110,21 +110,29 @@
 
 @media screen and (max-width: 560px) {
     .introduction {
-        height: 50vh;
+        height: 58vh;
         position: absolute;
         top: 50vh;
         left: 50%;
-
         transform: translate(-50%, -50%);
     }
 
-    .introduction h1.rules {
-        font-size: 30px;
-        top: 50%;
+    .introduction article.rules {
+        font-size: 15px;
+        margin-bottom: 15px;
     }
 
-    .introduction article.rules {
-        font-size: 16px;
+    .introduction article.rules h1 {
+        font-size: 25px;
+
+    }
+
+    .introduction article.rules h2 {
+        font-size: 20px;
+    }
+
+    .introduction article.rules h3 {
+        font-size: 14px;
     }
 
     .introduction {
@@ -133,9 +141,9 @@
 
     .introduction .ok {
         width: 180px;
-        height: 35px;
-        line-height: 35px;
-        font-size: 20px;
+        height: 30px;
+        line-height: 30px;
+        font-size: 18px;
     }
 }
 

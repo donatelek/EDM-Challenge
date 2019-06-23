@@ -99,7 +99,7 @@ div.chooseLvl .lvls .hard h2 {
 div.chooseLvl .lvls .hard::before {
     font-weight: bold;
     color: rgb(106, 131, 201);
-    content: 'hard';
+    content: 'Hard';
 }
 
 div.chooseLvl .lvls .hard:hover {
@@ -108,7 +108,6 @@ div.chooseLvl .lvls .hard:hover {
 
 div.chooseLvl .lvls .easy:hover {
     width: 45%;
-
 }
 
 .chooseLvl .note {
@@ -127,6 +126,11 @@ div.chooseLvl .lvls .easy:hover {
         width: 100%;
         text-align: center;
         bottom: 200px;
+    }
+
+    div.chooseLvl h1.lvl {
+        font-size: 30px;
+        margin-bottom: 30px;
     }
 }
 

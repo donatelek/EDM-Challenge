@@ -3,6 +3,7 @@ div.answer {
     margin-top: 20px;
     height: 135px;
     position: relative;
+    -webkit-tap-highlight-color: transparent;
 }
 
 div.answer input.inputAnswer {
