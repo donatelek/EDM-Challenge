@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import '../Styles/Quiz.css'
 import Hints from './Hints';
 import Answer from './Answer';
+import { connect } from 'react-redux'
+import * as actionTypes from '../store/actions'
 class Quiz extends Component {
     state = {
         turnAnimation:false
     }
 
     componentWillMount(){
-        this.props.pageChange('/quiz')
+        this.props.handlePageChange('/quiz')
     }
 
     animationOnGoodAnswer=()=>{
@@ -24,18 +26,24 @@ class Quiz extends Component {
 
     render() {
 
-        const { turnAnimation, restartHintsPoints,questions} = this.state;
-        const { userLvl,doubledouble1,doubledouble2,lvl,updateLocalStorage,user,handleUsedHints,handleAnonymousNextLvl,resetFailedAttempts,updateFailedAttempts,mainmain,handleNextLvl,resetUsedHints,handleUserPoints, } = this.props;
-        const { resetHintsPointsOnLvlChange,handleIncrementQuestion,animationOnGoodAnswer, }= this;
+        const { turnAnimation} = this.state;
+        const { userLvl,doubledouble1,doubledouble2,updateLocalStorage,resetFailedAttempts,updateFailedAttempts } = this.props;
+        const { animationOnGoodAnswer, }= this;
+       console.log('eee')
+        if(userLvl==='END'&&this.props.page!=='scoreboard'){
+            console.log('jestem')
+            this.props.handlePageChange('scoreboard')
+            this.props.history.push('/scoreboard')
+          }
         return (
             <div className="quiz">
 
                 <h1 className="questionNumber">Question number: {turnAnimation?<span className='fadeNumber'>{userLvl.lvlnumber}</span>:<span>{userLvl.lvlnumber}</span>}</h1>
                 {turnAnimation?<h2 className="category fadeNumber">{userLvl.category}</h2>:<h2 className="category">{userLvl.category}</h2>}
 
-                <Hints turnAnimation={turnAnimation} doubledouble2={doubledouble2} doubledouble1={doubledouble1} restartHintsPoints={restartHintsPoints} resetHintsPointsOnLvlChange={resetHintsPointsOnLvlChange} questions={questions} lvl={lvl}  updateLocalStorage={updateLocalStorage} user={user} userLvl={userLvl} handleTurningSoundplayer={this.props.handleTurningSoundplayer}  soundplayerPlaying={this.props.soundplayerPlaying} />
+                <Hints turnAnimation={turnAnimation} doubledouble2={doubledouble2} doubledouble1={doubledouble1} updateLocalStorage={updateLocalStorage}/>
 
-                <Answer turnAnimation={turnAnimation} animationOnGoodAnswer={animationOnGoodAnswer} doubledouble1={doubledouble1} handleUsedHints={handleUsedHints} mainmain={mainmain} resetHintsPointsOnLvlChange={resetHintsPointsOnLvlChange} handleIncrementQuestion={handleIncrementQuestion} handleNextLvl={handleNextLvl} userLvl={userLvl} handleUserPoints={handleUserPoints} user={user} handleAnonymousNextLvl={handleAnonymousNextLvl} updateLocalStorage={updateLocalStorage} resetUsedHints={resetUsedHints} resetFailedAttempts={resetFailedAttempts} updateFailedAttempts={updateFailedAttempts} />
+                <Answer turnAnimation={turnAnimation} animationOnGoodAnswer={animationOnGoodAnswer} doubledouble1={doubledouble1} updateLocalStorage={updateLocalStorage} resetFailedAttempts={resetFailedAttempts} updateFailedAttempts={updateFailedAttempts}/>
 
             </div>
 
@@ -44,4 +52,18 @@ class Quiz extends Component {
 
 }
 
-export default Quiz;
+const mapStateToProps=(state)=>{
+    return{
+        userLvl:state.userLvl,
+        page:state.page
+
+    }   
+}
+const mapDispatchToProps=dispatch=>{
+    return{
+        handlePageChange:(page)=>dispatch({type:actionTypes.SAVE_PAGE_URL,page}),
+        handlePageChange:(page)=>dispatch({type:actionTypes.SAVE_PAGE_URL,page}),
+    }
+  }
+
+export default connect(mapStateToProps,mapDispatchToProps)(Quiz);

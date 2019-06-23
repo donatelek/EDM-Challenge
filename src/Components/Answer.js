@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import '../Styles/Answer.css';
+import { connect } from 'react-redux'
+import * as actionCreators from '../store/actions'
+
 class Answer extends Component {
     state = {
         passwordInput: '',
@@ -52,13 +55,12 @@ class Answer extends Component {
                 password: this.state.answerInput.toLowerCase()
             })
         }).then(res => res.json()).then(res => {
-            const { handleUsedHints,handleNextLvl,animationOnGoodAnswer,handleUserPoints,resetUsedHints,resetFailedAttempts,updateLocalStorage,updateFailedAttempts }=this.props;
+            const { handleNextLvl,animationOnGoodAnswer,handleUserPoints,resetUsedHints,resetFailedAttempts,updateLocalStorage,updateFailedAttempts,user }=this.props;
             if (res === 'true') {
-                handleUsedHints();
-                handleNextLvl();
+                handleNextLvl(user.id);
                 animationOnGoodAnswer();
-                handleUserPoints();
-                resetUsedHints()
+                handleUserPoints(user.id);
+                resetUsedHints(user.id)
                 resetFailedAttempts()
                 
                 this.setState({
@@ -99,8 +101,8 @@ class Answer extends Component {
                     <button className='check' onClick={checkAnswer}>Check</button>
                     <button onClick={() => {
                         animationOnGoodAnswer();
-                        handleNextLvl()
-                        resetUsedHints()
+                        handleNextLvl(user.id)
+                        resetUsedHints(user.id)
                         setTimeout(() => {
                             resetFailedAttempts()
                         }, 100)
@@ -115,4 +117,20 @@ class Answer extends Component {
     }
 }
 
-export default Answer;
+const mapStateToProps = state =>{
+    return{
+        userLvl:state.userLvl,
+        user:state.user,
+    }
+  }
+
+const mapDispatchToProps=dispatch=>{
+    return{
+        handleUserPoints:(id)=>dispatch(actionCreators.handleUserPoints(id)),
+        handleNextLvl:(id)=>dispatch(actionCreators.handleNextLvl(id)),
+        resetUsedHints:(id)=>dispatch(actionCreators.resetUsedHints(id)),
+    }
+}
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(Answer);

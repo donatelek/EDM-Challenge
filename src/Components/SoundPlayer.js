@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import ReactPlayer from 'react-player';
 import '../Styles/SoundPlayer.css';
+import { connect } from 'react-redux'
+import * as actionTypes from '../store/actions'
 class SoundPlayer extends Component {
     state = {
         playing:this.props.soundplayerPlaying, 
@@ -53,7 +55,7 @@ class SoundPlayer extends Component {
         })
     }
     changePlaying = () => {
-      this.props.handleTurningSoundplayer()
+      // this.props.handleTurningSoundplayer()
         this.setState({
             playing: !this.state.playing
         })
@@ -121,7 +123,7 @@ class SoundPlayer extends Component {
     render() {
       const {  heightOfPlayer, widthOfPlayer, url, volume } = this.state
       const { ref, nextSong, onProgress, onDuration, changeVolume, changePlaying, previousSong, skipMusic } = this;
-      const {soundplayerPlaying} = this.props;
+      const {soundplayerPlaying,handleTurningSoundplayer} = this.props;
 
         return (
             <div className="soundPlayer">
@@ -129,8 +131,14 @@ class SoundPlayer extends Component {
                 <ReactPlayer ref={ref} className='reactPlayer'  url={url} onEnded={nextSong} width={widthOfPlayer} height={heightOfPlayer} onProgress={onProgress}
               onDuration={onDuration} playing={soundplayerPlaying} volume={Number(volume)} />
                 <input type="range" step="any" min="0" max="1" value={volume} onChange={changeVolume} className='focused range' />
-                {!soundplayerPlaying&&<i className="fas fa-play" onClick={changePlaying}></i>}
-                {soundplayerPlaying&&<i className="fas fa-pause" onClick={changePlaying}></i>}
+                {!soundplayerPlaying&&<i className="fas fa-play" onClick={()=>{
+                  changePlaying()
+                  handleTurningSoundplayer()
+                  }}></i>}
+                {soundplayerPlaying&&<i className="fas fa-pause" onClick={()=>{
+                  changePlaying()
+                  handleTurningSoundplayer()
+                  }}></i>}
                 <i className="fas fa-forward front" onClick={skipMusic}></i>
                <i className="fas fa-forward back" onClick={previousSong}></i>
             </div >
@@ -138,4 +146,16 @@ class SoundPlayer extends Component {
     }
 }
 
-export default SoundPlayer;
+const mapStateToProps=state=>{
+  return{
+      soundplayerPlaying:state.soundplayerPlaying
+  }
+}
+
+const mapDispatchToProps=dispatch=>{
+  return{
+    handleTurningSoundplayer:()=>dispatch({type:actionTypes.SOUNDPLAYER_PLAYING})
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(SoundPlayer);

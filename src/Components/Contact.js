@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import '../Styles/Contact.css';
+import * as actionTypes from '../store/actions'
+import { connect } from 'react-redux'
 class Contact extends Component {
     state = {
         feedback: '',
@@ -10,7 +12,7 @@ class Contact extends Component {
     }
 
     componentWillMount(){
-        this.props.pageChange('contact')
+        this.props.handlePageChange('contact')
     }
 
     static sender = 'sender@example.com';
@@ -134,4 +136,10 @@ class Contact extends Component {
     }
 }
 
-export default Contact;
+const mapDispatchToProps=dispatch=>{
+  return{
+      handlePageChange:(page)=>dispatch({type:actionTypes.SAVE_PAGE_URL,page}),
+  }
+}
+
+export default connect(null,mapDispatchToProps)(Contact);

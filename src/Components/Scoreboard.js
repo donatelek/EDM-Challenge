@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import '../Styles/Scoreboard.css';
+import { connect } from 'react-redux';
+import * as actionTypes from '../store/actions'
+import * as actionCreators from '../store/actions'
 class Scoreboard extends Component {
     state = {
         top10: ''
     }
 
     UNSAFE_componentWillMount() {
+        this.props.handlePageChange('scoreboard')
         fetch('https://pure-dawn-32038.herokuapp.com/scoreboard', {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
@@ -62,4 +66,18 @@ class Scoreboard extends Component {
     }
 }
 
-export default Scoreboard;
+const mapStateToProps=(state)=>{
+    return{
+        userLvl:state.userLvl,
+        page:state.page
+
+    }   
+}
+const mapDispatchToProps=dispatch=>{
+    return{
+        handlePageChange:(page)=>dispatch({type:actionTypes.SAVE_PAGE_URL,page}),
+        
+    }
+  }
+
+export default connect(mapStateToProps,mapDispatchToProps)(Scoreboard);

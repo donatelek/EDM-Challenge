@@ -1,26 +1,22 @@
 import React, { Component } from 'react';
 import '../Styles/Introduction.css';
 import { Link } from 'react-router-dom';
-
+import { connect } from 'react-redux'
+import * as actionTypes from '../store/actions'
+import * as actionCreators from '../store/actions'
 class Introduction extends Component {
     state = {
         lvl: '',
     }
 
 componentDidMount() {
-    this.props.pageChange('introduction')
-    const { changeDownloadLvl,userId,setUserLvl }=this.props;
-    changeDownloadLvl();
-    const userLvl = userId;
+    this.props.handlePageChange('introduction')
+    const userLvl = this.props.user.id;
     const numberLvl = parseInt(userLvl);
-    fetch(`https://pure-dawn-32038.herokuapp.com/getlvl/${numberLvl}`, {
-     headers: { 'Content-Type': 'application/json' }
-      }).then(res => res.json()).then(res => {
-     setUserLvl(res)
-      }).catch(err => console.log(err))
+    this.props.fetchUserLvl(numberLvl)
     }
     render() {
-        const { pageChange }=this.props;
+        const { handlePageChange }=this.props;
         return (
             <div className='introduction'>
                 {/* <h1 className="rules">RULES OF GAME</h1> */}
@@ -41,10 +37,21 @@ componentDidMount() {
                     <br/>
                     <h3>Good Luck :)</h3>
                 </article>
-                <Link onClick={() => pageChange('chooselvl')} className="ok" to='/lvl'>Let's Play</Link>
+                <Link onClick={() => handlePageChange('chooselvl')} className="ok" to='/lvl'>Let's Play</Link>
             </div>
         );
     }
 }
+const mapStateToProps = state=>{
+   return{
+    user:state.user,
+   }
+}
+const mapDispatchToProps=dispatch=>{
+    return{
+        fetchUserLvl:(numberLvl)=>dispatch(actionCreators.fetchUserLvl(numberLvl)),
+        handlePageChange:(page)=>dispatch({type:actionTypes.SAVE_PAGE_URL,page}),
+    }
+}
 
-export default Introduction;
+export default connect(mapStateToProps,mapDispatchToProps)(Introduction);
