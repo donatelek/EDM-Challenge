@@ -4,21 +4,21 @@
 ## Table of contents
 
 * [Screenshots](#screenshots)
-* [Demo](#demo)
+* [Project Demo](#project-demo)
 * [Technologies](#technologies)
 * [Setup](#setup)
 * [Usage](#usage)
-* [To-do-list](#todolist)
-* [Bug / Feature Request](#bug)
+* [To-do list](#to-do-list)
+* [Bug or Feature Request](#bug-or-feature-request)
 * [Status](#status)
 * [Contact](#contact)
 * [License](#license)
 
 ## Screenshots
 
-![Example screenshot](./img/screenshot.png)
+![Example screenshot](https://github.com/donatelek/EDM-Challenge-Frontend/blob/master/src/img/screenshot.png)
 
-## Demo
+## Project Demo
 
 Here is a working live demo :  https://edmchallenge.herokuapp.com/
 
@@ -77,7 +77,7 @@ To run this application you also need to install [Backend](https://github.com/do
 * User dashboard with all statistics
 * New difficulty levels
 
-## Bug / Feature Request
+## Bug or Feature Request
 
 If you find a bug, kindly open an issue [here](https://github.com/donatelek/EDM-Challenge-Frontend/issues/new).
 
