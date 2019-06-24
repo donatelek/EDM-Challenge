@@ -1,193 +1,93 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# EDM Challenge
+> Quiz site for electronic dance music fans
 
-## Available Scripts
+## Table of contents
 
-{/* <Particles
-          params={{
+* [Screenshots](#screenshots)
+* [Demo](#demo)
+* [Technologies](#technologies)
+* [Setup](#setup)
+* [Usage](#usage)
+* [To-do-list](#todolist)
+* [Bug / Feature Request](#bug)
+* [Status](#status)
+* [Contact](#contact)
+* [License](#license)
 
-            particles: {
-              number: {
-                value: 40,
-                density: {
-                  enable: !1,
-                  value_area: 1200
-                }
-              },
-              color: {
-                value: "#008000"
-              },
-              shape: {
-                type: "circle",
-                stroke: {
-                  width: 0,
-                  color: "#000000"
-                },
-                polygon: {
-                  nb_sides: 5
-                },
-                image: {
-                  src: "img/github.svg",
-                  width: 100,
-                  height: 100
-                }
-              },
-              opacity: {
-                value: 0.5,
-                random: !1,
-                anim: {
-                  enable: true,
-                  speed: 1,
-                  opacity_min: 0.1,
-                  sync: false
-                }
-              },
-              size: {
-                value: 1,
-                random: false,
-                anim: {
-                  enable: false,
-                  speed: 40,
-                  size_min: 0,
-                  sync: false
-                }
-              },
-              line_linked: {
-                enable: true,
-                distance: 150,
-                color: "#FFFFFF",
-                opacity: 0.6,
-                width: 1,
-                shadow: {
-                  enable: false,
-                  blur: 5,
-                  color: "lime"
-                }
-              },
-              move: {
-                enable: true,
-                speed: 3,
-                direction: "none",
-                random: false,
-                straight: false,
-                out_mode: "bounce",
-                bounce: true,
-                attract: {
-                  enable: false,
-                  rotateX: 3e3,
-                  rotateY: 3e3
-                }
-              },
+## Screenshots
 
-              array: []
-            },
-            interactivity: {
-              detect_on: "canvas",  //dsa
-              events: {
-                onhover: {
-                  enable: false,
-                  mode: "grab"
-                },
-                onclick: {
-                  enable: false,
-                  mode: "repulse"
-                },
-                resize: true
-              },
-              modes: {
-                grab: {
-                  distance: 180,
-                  line_linked: {
-                    opacity: 0.35
-                  }
-                },
-                bubble: {
-                  distance: 200,
-                  size: 80,
-                  duration: 0.4
-                },
-                repulse: {
-                  distance: 100,
-                  duration: 5
-                },
-                push: {
-                  particles_nb: 4
-                },
-                remove: {
-                  particles_nb: 2
-                }
-              }
+![Example screenshot](./img/screenshot.png)
 
-            },
+## Demo
+
+Here is a working live demo :  https://edmchallenge.herokuapp.com/
+
+Answers for questions to test application you can find below
+<details>
+<summary>Level answers:</summary>
+<br>
+Level 1 - Alan Walker
+<br>
+Level 2 - Oliver Heldens
+<br>
+Level 3 - Marshmello
+<br>
+Level 4 - DJ BL3ND
+<br>
+Level 5 - Bassjackers
+<br>
+Level 6 - Jay Hardway
+<br>
+Level 7 - Dropgun
+<br>
+Level 8 - SAYMYNAME
+<br>
+Level 9 - Tom Swoon
+<br>
+Level 10 - DJ Snake
+<br>
+Level 11 - Mike Candys
+<br>
+Level 12 - Getter
+<br>
+Level 13 - Galantis
+<br>
+</details>
 
 
-            retina_detect: !0
-          }}
-        />
-      </> */}
+## Technologies
 
+* React - version 16.8
+* Redux - version 4.0
 
+## Setup
 
-In the project directory, you can run:
+Clone this repo to your desktop and run `npm install` to install all the dependencies.
 
-### `npm start`
+## Usage
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+After you clone this repo to your desktop, go to its root directory and run `npm install` to install its dependencies.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Once the dependencies are installed, you can run  `npm start` to start the application. You will then be able to access it at localhost:3000
 
-### `npm test`
+To run this application you also need to install [Backend](https://github.com/donatelek/EDM-Challenge-Backend) of application.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## To-do list
 
-### `npm run build`
+* User dashboard with all statistics
+* New difficulty levels
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Bug / Feature Request
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+If you find a bug, kindly open an issue [here](https://github.com/donatelek/EDM-Challenge-Frontend/issues/new).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+If you'd like to request a new function, feel free to do so by opening an issue [here](https://github.com/donatelek/EDM-Challenge-Frontend/issues/new).
 
-### `npm run eject`
+## Status
+Project is: _in progress_.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## License
+This project is licensed under the MIT License.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Contact
+Created by [@donatelek](https://donatelek.github.io/Portfolio/) - if you have any ideas for new levels or new features feel free to contact me!
