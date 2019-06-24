@@ -14,6 +14,7 @@ export const SAVE_SHOW_SUCCESS_REGISTER = 'SAVE_SHOW_SUCCESS_REGISTER';
 export const SAVE_SHOW_WRONG_LENGTH = 'SAVE_SHOW_WRONG_LENGTH';
 export const SAVE_SHOW_USER_EXIST = 'SAVE_SHOW_USER_EXIST';
 
+
 export const saveShowUserExist = (showUserExist) => {
     return {
         type: SAVE_SHOW_USER_EXIST,
@@ -153,7 +154,7 @@ export const fetchLocalStorage = (user, page) => {
                             lvl: array[4],
                             easylvl: array[5],
                             usedhints: Number(array[6]),
-                            failedAttempts: Number(array[7])
+                            failedattempts: Number(array[7])
                         }
                         const userId = arrayToObject.id;
                         dispatch(saveUserFromLocalStorage(arrayToObject))

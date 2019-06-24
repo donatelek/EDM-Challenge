@@ -55,14 +55,15 @@ class Answer extends Component {
                 password: this.state.answerInput.toLowerCase()
             })
         }).then(res => res.json()).then(res => {
-            const { handleNextLvl,animationOnGoodAnswer,handleUserPoints,resetUsedHints,resetFailedAttempts,updateLocalStorage,updateFailedAttempts,user }=this.props;
+            const { handleNextLvl,animationOnGoodAnswer,handleUserPoints,resetUsedHints,resetFailedAttempts,updateLocalStorage,updateFailedAttempts,user,handleGainedPoints }=this.props;
             if (res === 'true') {
                 handleNextLvl(user.id);
                 animationOnGoodAnswer();
+                handleGainedPoints(user.failedattempts,user.usedhints)
                 handleUserPoints(user.id);
-                resetUsedHints(user.id)
-                resetFailedAttempts()
-                
+                resetUsedHints(user.id);
+                resetFailedAttempts();
+                // handleShowGainedPointsAnimation()
                 this.setState({
                     answerInput:''
                 })
@@ -88,7 +89,7 @@ class Answer extends Component {
     render() {
 
         const { isWrongAnswer,answerInput,wrongAnswer }=this.state;
-        const { animationOnGoodAnswer,handleNextLvl,resetUsedHints,resetFailedAttempts,updateLocalStorage,turnAnimation,user }=this.props;
+        const { animationOnGoodAnswer,handleNextLvl,resetUsedHints,resetFailedAttempts,updateLocalStorage,turnAnimation,user,userLvl, handleShowLvlPasswordAnimation }=this.props;
         const { checkAnswer,handleInputAnswer }=this;
 
         return (
@@ -100,7 +101,9 @@ class Answer extends Component {
                     <br/>
                     <button className='check' onClick={checkAnswer}>Check</button>
                     <button onClick={() => {
+                        this.props.handleShowLvlPasswordOnSkip(userLvl.lvlnumber)
                         animationOnGoodAnswer();
+                        handleShowLvlPasswordAnimation();
                         handleNextLvl(user.id)
                         resetUsedHints(user.id)
                         setTimeout(() => {

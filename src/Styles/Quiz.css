@@ -16,6 +16,40 @@ div.quiz {
     }
 }
 
+div.quiz .popupAnswer {
+    font-weight: bold;
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0px;
+    z-index: 9999999999999999999999999999999999999999;
+    animation: fadeZoom 1.8s ease;
+    color: rgb(38, 52, 82);
+}
+
+@keyframes fadeZoom {
+    0% {
+        opacity: 0;
+        font-size: 0px;
+    }
+
+    30% {
+        opacity: 1;
+        font-size: 70px;
+    }
+
+    70% {
+        opacity: 1;
+        font-size: 70px;
+    }
+
+    100% {
+        opacity: 0;
+        font-size: 0px;
+    }
+}
+
 div.quiz .questionNumber {
     text-align: center;
     font-size: 40px;
