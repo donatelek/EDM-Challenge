@@ -70,8 +70,6 @@ After you clone this repo to your desktop, go to its root directory and run `npm
 
 Once the dependencies are installed, you can run  `npm start` to start the application. You will then be able to access it at localhost:3000
 
-To run this application you also need to install [Backend](https://github.com/donatelek/EDM-Challenge-Backend) of application.
-
 ## To-do list
 
 * User dashboard with all statistics
