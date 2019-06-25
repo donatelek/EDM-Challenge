@@ -59,6 +59,10 @@ Level 13 - Galantis
 
 * React - version 16.8
 * Redux - version 4.0
+* Node - version 12.4
+* Express - version 4.16
+* PostgreSQL - version 11
+
 
 ## Setup
 
