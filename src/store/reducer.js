@@ -87,6 +87,13 @@ const reducer = (state = initialState, action) => {
                                 }
                             }
                         }
+                        if (state.soundplayerPlaying) {
+                            return {
+                                ...state,
+                                questionHintPlaying2: !state.questionHintPlaying2,
+                                soundplayerPlaying: !state.soundplayerPlaying
+                            }
+                        }
                         return {
                             ...state,
                             questionHintPlaying2: !state.questionHintPlaying2
@@ -111,6 +118,13 @@ const reducer = (state = initialState, action) => {
                                         ...state,
                                         questionHintPlaying3: true,
                                     }
+                                }
+                            }
+                            if (state.soundplayerPlaying) {
+                                return {
+                                    ...state,
+                                    questionHintPlaying3: !state.questionHintPlaying3,
+                                    soundplayerPlaying: !state.soundplayerPlaying
                                 }
                             }
                             return {

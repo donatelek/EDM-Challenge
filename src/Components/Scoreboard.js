@@ -10,7 +10,7 @@ class Scoreboard extends Component {
 
     UNSAFE_componentWillMount() {
         this.props.handlePageChange('scoreboard')
-        fetch('https://pure-dawn-32038.herokuapp.com/scoreboard', {
+        fetch('http://localhost:3000/scoreboard', {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
         }).then(res => res.json()).then(res => {
