@@ -90,4 +90,4 @@ Project is: _in progress_.
 This project is licensed under the MIT License.
 
 ## Contact
-Created by [@donatelek](https://donatelek.github.io/Portfolio/) - if you have any ideas for new levels or new features feel free to contact me!
+Created by [@donatelek](https://jakub-sznajder.herokuapp.com) - if you have any ideas for new levels or new features feel free to contact me!
