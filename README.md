@@ -59,6 +59,10 @@ Level 13 - Galantis
 
 * React - version 16.8
 * Redux - version 4.0
+* Node - version 12.4
+* Express - version 4.16
+* PostgreSQL - version 11
+
 
 ## Setup
 
@@ -69,8 +73,6 @@ Clone this repo to your desktop and run `npm install` to install all the depende
 After you clone this repo to your desktop, go to its root directory and run `npm install` to install its dependencies.
 
 Once the dependencies are installed, you can run  `npm start` to start the application. You will then be able to access it at localhost:3000
-
-To run this application you also need to install [Backend](https://github.com/donatelek/EDM-Challenge-Backend) of application.
 
 ## To-do list
 
