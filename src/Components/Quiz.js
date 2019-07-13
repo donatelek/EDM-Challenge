@@ -32,7 +32,7 @@ class Quiz extends Component {
         })
     }
     handleShowLvlPasswordOnSkip=(lvl)=>{
-        fetch(`http://localhost:3000/getlvlpassword/${lvl}`).then(res=>{
+        fetch(`https://pure-dawn-32038.herokuapp.com/getlvlpassword/${lvl}`).then(res=>{
             return res.json()
         }).then(lvlPassword=>{
             this.setState({

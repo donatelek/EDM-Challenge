@@ -47,7 +47,7 @@ class Answer extends Component {
         if(this.state.answerInput.trim()===''){
             return
         }
-        fetch('http://localhost:3000/password', {
+        fetch('https://pure-dawn-32038.herokuapp.com/password', {
             method: 'post',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
