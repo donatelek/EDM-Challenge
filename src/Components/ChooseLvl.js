@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import '../Styles/ChooseLvl.css';
 import { Link } from 'react-router-dom';
-import { connect }from 'react-redux'
+import { connect } from 'react-redux'
 import * as actionTypes from '../store/actions'
 class ChooseLvl extends Component {
     state = {}
-    componentWillMount(){
-        const { handlePageChange }=this.props;
+    componentWillMount() {
+        const { handlePageChange } = this.props;
         handlePageChange('chooselvl')
     }
     render() {
-        const { handlePageChange }=this.props;
-        
+        const { handlePageChange } = this.props;
+
         return (
             <div className="chooseLvl">
                 <h1 className="lvl">Choose lvl</h1>
@@ -32,10 +32,10 @@ class ChooseLvl extends Component {
     }
 }
 
-const mapDispatchToProps=dispatch=>{
-    return{
-        handlePageChange:(page)=>dispatch({type:actionTypes.SAVE_PAGE_URL,page}),
+const mapDispatchToProps = dispatch => {
+    return {
+        handlePageChange: (page) => dispatch({ type: actionTypes.SAVE_PAGE_URL, page }),
     }
-  }
+}
 
-export default connect(null,mapDispatchToProps)(ChooseLvl);
+export default connect(null, mapDispatchToProps)(ChooseLvl);

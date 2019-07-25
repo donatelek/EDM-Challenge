@@ -66,18 +66,18 @@ class Scoreboard extends Component {
     }
 }
 
-const mapStateToProps=(state)=>{
-    return{
-        userLvl:state.userLvl,
-        page:state.page
+const mapStateToProps = (state) => {
+    return {
+        userLvl: state.userLvl,
+        page: state.page
 
-    }   
-}
-const mapDispatchToProps=dispatch=>{
-    return{
-        handlePageChange:(page)=>dispatch({type:actionTypes.SAVE_PAGE_URL,page}),
-        
     }
-  }
+}
+const mapDispatchToProps = dispatch => {
+    return {
+        handlePageChange: (page) => dispatch({ type: actionTypes.SAVE_PAGE_URL, page }),
 
-export default connect(mapStateToProps,mapDispatchToProps)(Scoreboard);
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Scoreboard);

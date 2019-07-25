@@ -95,25 +95,25 @@ export const fetchAnonymousLogin = () => {
     return dispatch => {
         dispatch(showLoaderIntroduction(true))
         fetch('https://pure-dawn-32038.herokuapp.com/anonymous', {
-                method: 'post',
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
             .then(response => response.json())
             .then(user => {
                 if (user) {
                     console.log(user)
                     dispatch(showLoaderIntroduction(false))
                     fetch('https://pure-dawn-32038.herokuapp.com/saveLocalStorage', {
-                            method: 'post',
-                            headers: {
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify({
-                                id: user.id
-                            })
-                        }).then(res => res.json())
+                        method: 'post',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            id: user.id
+                        })
+                    }).then(res => res.json())
                         .then(res => {
                             localStorage.setItem('currentUser', JSON.stringify(res))
                         })
@@ -135,14 +135,14 @@ export const fetchLocalStorage = (user, page) => {
             if (!user && storage) {
                 console.log('wykon')
                 fetch('https://pure-dawn-32038.herokuapp.com/getLocalStorage', {
-                        method: 'post',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            hash: storage
-                        })
+                    method: 'post',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        hash: storage
                     })
+                })
                     .then(response => response.json())
                     .then(user => {
                         const array = user.split(",");
@@ -239,14 +239,14 @@ export const updateUsedHints = (id) => {
 export const handleUserPoints = (id) => {
     return dispatch => {
         fetch('https://pure-dawn-32038.herokuapp.com/easymodePoints', {
-                method: 'post',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    id
-                })
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                id
             })
+        })
             .then(response => response.json())
             .then(user => {
                 dispatch(saveAnonymousLogin(user))
@@ -310,15 +310,15 @@ export const submitLogin = (username, password, historyPush) => {
             return
         }
         fetch('https://pure-dawn-32038.herokuapp.com/signin', {
-                method: 'post',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    username,
-                    password
-                })
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                username,
+                password
             })
+        })
             .then(response => response.json())
             .then(user => {
                 if (user === 'Write proper credentials') {
@@ -345,14 +345,14 @@ export const submitLogin = (username, password, historyPush) => {
                     }).catch(err => console.log(err))
 
                     fetch('https://pure-dawn-32038.herokuapp.com/saveLocalStorage', {
-                            method: 'post',
-                            headers: {
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify({
-                                id: user.id
-                            })
-                        }).then(res => res.json())
+                        method: 'post',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            id: user.id
+                        })
+                    }).then(res => res.json())
                         .then(res => {
                             localStorage.setItem('currentUser', JSON.stringify(res))
                         })
@@ -376,15 +376,15 @@ export const submitRegister = (username, password) => {
             return
         }
         fetch('https://pure-dawn-32038.herokuapp.com/register', {
-                method: 'post',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    username,
-                    password
-                })
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                username,
+                password
             })
+        })
             .then(response => response.json())
             .then(res => {
                 if (res === 'success') {

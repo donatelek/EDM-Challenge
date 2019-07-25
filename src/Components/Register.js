@@ -7,10 +7,10 @@ class Register extends Component {
         username: '',
         password: ''
     }
-    handleKeyPress=e=>{
-        const { username,password } = this.state;
-        if(e.key==='Enter'){
-            this.props.submitRegister(username, password,this.props.history)
+    handleKeyPress = e => {
+        const { username, password } = this.state;
+        if (e.key === 'Enter') {
+            this.props.submitRegister(username, password, this.props.history)
         }
     }
     handleRegister = (e) => {
@@ -51,10 +51,10 @@ class Register extends Component {
     }
 }
 
-const mapDispatchToProps=dispatch=>{
-    return{
-        submitRegister:(username,password)=>dispatch(actionCreators.submitRegister(username,password)),
+const mapDispatchToProps = dispatch => {
+    return {
+        submitRegister: (username, password) => dispatch(actionCreators.submitRegister(username, password)),
     }
-  }
+}
 
-export default connect(null,mapDispatchToProps)(Register);
+export default connect(null, mapDispatchToProps)(Register);

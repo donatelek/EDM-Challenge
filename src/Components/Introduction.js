@@ -9,32 +9,32 @@ class Introduction extends Component {
         lvl: '',
     }
 
-componentDidMount() {
-    this.props.handlePageChange('introduction')
-    const userLvl = this.props.user.id;
-    const numberLvl = parseInt(userLvl);
-    this.props.fetchUserLvl(numberLvl)
+    componentDidMount() {
+        this.props.handlePageChange('introduction')
+        const userLvl = this.props.user.id;
+        const numberLvl = parseInt(userLvl);
+        this.props.fetchUserLvl(numberLvl)
     }
     render() {
-        const { handlePageChange }=this.props;
+        const { handlePageChange } = this.props;
         return (
             <div className='introduction'>
                 {/* <h1 className="rules">RULES OF GAME</h1> */}
                 <article className="rules">
                     <h1>Guess what is that DJ!</h1>
-                    <br/>
+                    <br />
                     <ul>
                         <h2>You can get 6 points per Level</h2>
-                       
+
                         <li>By opening a hint you lose 2 points</li>
                         <li>By typing wrong DJ you lose 1 point</li>
                         <li>You can also skip question but you won't get any points</li>
                     </ul>
-                    <br/>
+                    <br />
                     <h2>Do not use Shazam!</h2>
-                    <br/>
+                    <br />
                     <h3>Link to playlist: https://bit.ly/2XFqQAg</h3>
-                    <br/>
+                    <br />
                     <h3>Good Luck :)</h3>
                 </article>
                 <Link onClick={() => handlePageChange('chooselvl')} className="ok" to='/lvl'>Let's Play</Link>
@@ -42,16 +42,16 @@ componentDidMount() {
         );
     }
 }
-const mapStateToProps = state=>{
-   return{
-    user:state.user,
-   }
+const mapStateToProps = state => {
+    return {
+        user: state.user,
+    }
 }
-const mapDispatchToProps=dispatch=>{
-    return{
-        fetchUserLvl:(numberLvl)=>dispatch(actionCreators.fetchUserLvl(numberLvl)),
-        handlePageChange:(page)=>dispatch({type:actionTypes.SAVE_PAGE_URL,page}),
+const mapDispatchToProps = dispatch => {
+    return {
+        fetchUserLvl: (numberLvl) => dispatch(actionCreators.fetchUserLvl(numberLvl)),
+        handlePageChange: (page) => dispatch({ type: actionTypes.SAVE_PAGE_URL, page }),
     }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(Introduction);
+export default connect(mapStateToProps, mapDispatchToProps)(Introduction);

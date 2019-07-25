@@ -5,7 +5,7 @@ import Quiz from './Quiz';
 import ChooseLvl from './ChooseLvl';
 import Authentication from './Authentication';
 import Footer from './Footer';
-import { BrowserRouter as Router, Link, Route, Switch, Redirect,withRouter} from 'react-router-dom';
+import { BrowserRouter as Router, Link, Route, Switch, Redirect, withRouter } from 'react-router-dom';
 import Scoreboard from './Scoreboard';
 import Contact from './Contact';
 import Error404 from './Error404';
@@ -20,45 +20,45 @@ import * as actionCreators from '../store/actions'
 class App extends Component {
   state = {
     sound: '0.3',
-    w:'',
-    h:''
+    w: '',
+    h: ''
   }
 
   componentWillMount() {
-   if(window.innerWidth<933){
-    this.setState({
-      h:window.innerHeight + 100,
-      overflow:'hidden'
-    })
-   }
+    if (window.innerWidth < 933) {
+      this.setState({
+        h: window.innerHeight + 100,
+        overflow: 'hidden'
+      })
+    }
   }
-  componentDidMount(){
-    this.props.fetchLocalStorage(this.props.user,this.state.page)
+  componentDidMount() {
+    this.props.fetchLocalStorage(this.props.user, this.state.page)
     console.log(this.props.history)
   }
 
-componentDidUpdate(){
-  // console.log(this.props.history)
-  if(this.props.user&&this.props.userLvl&&this.props.page!=='introduction'){
-    // this.props.history.push('/introduction')
+  componentDidUpdate() {
     // console.log(this.props.history)
+    if (this.props.user && this.props.userLvl && this.props.page !== 'introduction') {
+      // this.props.history.push('/introduction')
+      // console.log(this.props.history)
+    }
   }
-}
 
 
 
-setUserIfUserLogged=()=>{
-  this.props.saveUserLogged(true)
-}
+  setUserIfUserLogged = () => {
+    this.props.saveUserLogged(true)
+  }
 
-// pominąłem
+  // pominąłem
   resetUsers = () => {
     this.props.resetUsers()
   }
 
-    hideWrongLogin=()=>{
-      this.props.saveShowWrongLogin(false)
-    }
+  hideWrongLogin = () => {
+    this.props.saveShowWrongLogin(false)
+  }
 
   resetUsedHints = () => {
     this.props.resetUsedHints(this.props.user.id)
@@ -79,7 +79,7 @@ setUserIfUserLogged=()=>{
   doubledouble1 = () => {
     if (this.props.user.usedhints === 0 || this.props.user.usedhints === "0") {
       this.updateUsedHints()
-    } 
+    }
   }
   doubledouble2 = () => {
     if (this.props.user.usedhints === 0 || this.props.user.usedhints === 1 || this.props.user.usedhints === "0") {
@@ -111,11 +111,11 @@ setUserIfUserLogged=()=>{
 
 
   submitRegister = (username, password) => {
-    this.props.submitRegister(username,password)
+    this.props.submitRegister(username, password)
   }
 
   submitLogin = (username, password) => {
-this.props.submitLogin(username,password)
+    this.props.submitLogin(username, password)
   }
 
   handleNextLvl = () => {
@@ -132,7 +132,7 @@ this.props.submitLogin(username,password)
     this.props.handlePageChange(page)
 
   }
-// to jest nie potrzebne ale zrobie narazie
+  // to jest nie potrzebne ale zrobie narazie
   handleLogOut = () => {
     this.props.resetUsers()
   }
@@ -141,113 +141,113 @@ this.props.submitLogin(username,password)
 
 
   render() {
-    
-    const { handleLogOut,pageChange,setUserLvl,submitLogin,doubledouble1,doubledouble2,updateLocalStorage,resetFailedAttempts,updateFailedAttempts, }=this;
-    const { user,page,userLogged } = this.props;
+
+    const { handleLogOut, pageChange, setUserLvl, submitLogin, doubledouble1, doubledouble2, updateLocalStorage, resetFailedAttempts, updateFailedAttempts, } = this;
+    const { user, page, userLogged } = this.props;
 
     return (
-        <>
-          <Route render={({location})=>(
- <div id="wrapper" 
- style={{width:this.state.w,height:this.state.h}}>
- <h1 className='mainTitle'><span>EDM CHALLENGE</span></h1>
+      <>
+        <Route render={({ location }) => (
+          <div id="wrapper"
+            style={{ width: this.state.w, height: this.state.h }}>
+            <h1 className='mainTitle'><span>EDM CHALLENGE</span></h1>
 
-{/* userinfo */}
- {page!=='/'&&<div className="userInfo">
- <div className="face"></div>
- {user.username && localStorage.getItem('currentUser') && user.username !== 'null' && <div className='userName'>{user.username}</div>}
- {(user.username==='null'||user.username===null)&&user.id?<div className='userName'>Anonymous{user.id}</div>:null}
- {user&&<Link className='logOut'  exact='true' to='/'  onClick={handleLogOut}>LOG OUT</Link>}
- <br/>
- {page==='contact'&&!user?<Link to='/' className='backToLogIn' >Back to log in</Link>:null}
- {page==='contact'&&user?<Link to='/lvl' className='goBack'>Back to levels</Link>:null}
- {page==='/quiz'||page==='scoreboard'?<Link className='goBack' to='/lvl'>GO BACK</Link>:null}
- </div>}
+            {/* userinfo */}
+            {page !== '/' && <div className="userInfo">
+              <div className="face"></div>
+              {user.username && localStorage.getItem('currentUser') && user.username !== 'null' && <div className='userName'>{user.username}</div>}
+              {(user.username === 'null' || user.username === null) && user.id ? <div className='userName'>Anonymous{user.id}</div> : null}
+              {user && <Link className='logOut' exact='true' to='/' onClick={handleLogOut}>LOG OUT</Link>}
+              <br />
+              {page === 'contact' && !user ? <Link to='/' className='backToLogIn' >Back to log in</Link> : null}
+              {page === 'contact' && user ? <Link to='/lvl' className='goBack'>Back to levels</Link> : null}
+              {page === '/quiz' || page === 'scoreboard' ? <Link className='goBack' to='/lvl'>GO BACK</Link> : null}
+            </div>}
 
-<Switch location={location}>
- <Route path='/lvl' render={(props) => {
-   return (
-     <ChooseLvl {...props} />
-   )
- }} />
- {!userLogged&&<Route path='/' exact='true' render={(props) => (
-   <Authentication {...props}  />
- )} />}
- 
-{user && <Route path='/introduction' render={(props) => (<Introduction {...props} pageChange={pageChange} setUserLvl={setUserLvl} userId={user.id}/>)} />}
+            <Switch location={location}>
+              <Route path='/lvl' render={(props) => {
+                return (
+                  <ChooseLvl {...props} />
+                )
+              }} />
+              {!userLogged && <Route path='/' exact='true' render={(props) => (
+                <Authentication {...props} />
+              )} />}
 
-{user && <Route path='/quiz' render={(props) => (
-   <Quiz {...props} doubledouble1={doubledouble1} doubledouble2={doubledouble2} updateLocalStorage={updateLocalStorage} resetFailedAttempts={resetFailedAttempts} updateFailedAttempts={updateFailedAttempts}/>
- )} />}
-<Route path='/contact' exact='true' render={(props)=>(
-   <Contact {...props}/>
- )}/>
- {user && <Route path='/scoreboard' exact='true' render={(props)=>(
-   <Scoreboard {...props} pageChange={pageChange}/>
- )}/>}
- {this.props.page!=='introduction'&&user?<Route component={Error404} />:null}
- {submitLogin}
- </Switch>
+              {user && <Route path='/introduction' render={(props) => (<Introduction {...props} pageChange={pageChange} setUserLvl={setUserLvl} userId={user.id} />)} />}
 
- {this.props.showFooter?<div className="hamburger" onClick={this.props.handleShowFooter}><i className="fas fa-bars"></i></div>:<div className="hamburger" style={{bottom:'10px'}} onClick={this.props.handleShowFooter}><i className="fas fa-bars"></i></div>}
+              {user && <Route path='/quiz' render={(props) => (
+                <Quiz {...props} doubledouble1={doubledouble1} doubledouble2={doubledouble2} updateLocalStorage={updateLocalStorage} resetFailedAttempts={resetFailedAttempts} updateFailedAttempts={updateFailedAttempts} />
+              )} />}
+              <Route path='/contact' exact='true' render={(props) => (
+                <Contact {...props} />
+              )} />
+              {user && <Route path='/scoreboard' exact='true' render={(props) => (
+                <Scoreboard {...props} pageChange={pageChange} />
+              )} />}
+              {this.props.page !== 'introduction' && user ? <Route component={Error404} /> : null}
+              {submitLogin}
+            </Switch>
 
-{/* navigation in footer */}
- {this.props.showFooter?<div className="navInFooter" style={{bottom:'80px'}}>
-{page==='contact'&&user&&<Link to='/lvl' className='goBackFooter' >Back to levels</Link>}          
-{page==='contact'&&!user&&<Link to='/' className='goBackFooter'>Log In</Link>}   
- {page==='/quiz'||page==='scoreboard'?<Link className='goBackFooter' to='/lvl'>GO Back</Link>:null}
- {this.props.user&&<Link className='logOutFooter' to='/' exact='true' onClick={handleLogOut}>LOG OUT</Link>}
- </div>:<div className="navInFooter" >
-{page==='contact'&&user&&<Link to='/lvl' className='goBackFooter'>Back To levels</Link>}    
-{page==='contact'&&!user&&<Link to='/' className='goBackFooter'>Log In</Link>}         
- {page==='/quiz'||page==='scoreboard'?<Link className='goBackFooter' to='/lvl'>Go Back</Link>:null}
- {this.props.user&&<Link className='logOutFooter' to='/' exact='true' onClick={handleLogOut}>LOG OUT</Link>}
- </div>}
+            {this.props.showFooter ? <div className="hamburger" onClick={this.props.handleShowFooter}><i className="fas fa-bars"></i></div> : <div className="hamburger" style={{ bottom: '10px' }} onClick={this.props.handleShowFooter}><i className="fas fa-bars"></i></div>}
 
- {this.props.showLoaderIntroduction&&this.props.page==='introduction'?<div className="loader"></div>:null}
- <Footer />
-</div>
-          )}/>
-        </>
+            {/* navigation in footer */}
+            {this.props.showFooter ? <div className="navInFooter" style={{ bottom: '80px' }}>
+              {page === 'contact' && user && <Link to='/lvl' className='goBackFooter' >Back to levels</Link>}
+              {page === 'contact' && !user && <Link to='/' className='goBackFooter'>Log In</Link>}
+              {page === '/quiz' || page === 'scoreboard' ? <Link className='goBackFooter' to='/lvl'>GO Back</Link> : null}
+              {this.props.user && <Link className='logOutFooter' to='/' exact='true' onClick={handleLogOut}>LOG OUT</Link>}
+            </div> : <div className="navInFooter" >
+                {page === 'contact' && user && <Link to='/lvl' className='goBackFooter'>Back To levels</Link>}
+                {page === 'contact' && !user && <Link to='/' className='goBackFooter'>Log In</Link>}
+                {page === '/quiz' || page === 'scoreboard' ? <Link className='goBackFooter' to='/lvl'>Go Back</Link> : null}
+                {this.props.user && <Link className='logOutFooter' to='/' exact='true' onClick={handleLogOut}>LOG OUT</Link>}
+              </div>}
+
+            {this.props.showLoaderIntroduction && this.props.page === 'introduction' ? <div className="loader"></div> : null}
+            <Footer />
+          </div>
+        )} />
+      </>
     );
   }
 }
 
-const mapStateToProps = state =>{
-  return{
-      showFooter:state.showFooter,
-      soundplayerPlaying:state.soundplayerPlaying,
-      showLoaderIntroduction:state.showLoaderIntroduction,
-      user:state.user,
-      page:state.page,
-      showWrongLength:state.showWrongLength,
-      showSuccessRegister:state.showSuccessRegister,
-      showUserExist:state.showUserExist,
-      showWrongLogin:state.showWrongLogin,
-      userLogged:state.userLogged,
-      userLvl:state.userLvl
+const mapStateToProps = state => {
+  return {
+    showFooter: state.showFooter,
+    soundplayerPlaying: state.soundplayerPlaying,
+    showLoaderIntroduction: state.showLoaderIntroduction,
+    user: state.user,
+    page: state.page,
+    showWrongLength: state.showWrongLength,
+    showSuccessRegister: state.showSuccessRegister,
+    showUserExist: state.showUserExist,
+    showWrongLogin: state.showWrongLogin,
+    userLogged: state.userLogged,
+    userLvl: state.userLvl
   }
 }
-const mapDispatchToProps=dispatch=>{
-  return{
-      handleShowFooter:()=>dispatch({type:actionTypes.SHOW_FOOTER}),
-      handlePageChange:(page)=>dispatch({type:actionTypes.SAVE_PAGE_URL,page}),
-      anonymousLogin:()=>dispatch(actionCreators.fetchAnonymousLogin()),
-      fetchLocalStorage:(user,page)=>dispatch(actionCreators.fetchLocalStorage(user,page)),
-      resetUsedHints:(id)=>dispatch(actionCreators.resetUsedHints(id)),
-      resetFailedAttempts:(id)=>dispatch(actionCreators.resetFailedAttempts(id)),
-      updateFailedAttempts:(id)=>dispatch(actionCreators.updateFailedAttempts(id)),
-      updateUsedHints:(id)=>dispatch(actionCreators.updateUsedHints(id)),
-      handleUserPoints:(id)=>dispatch(actionCreators.handleUserPoints(id)),
-      handleNextLvl:(id)=>dispatch(actionCreators.handleNextLvl(id)),
-      resetUsers:()=>dispatch(actionCreators.resetUsers()),
-      setUserLvl:(user)=>dispatch(actionCreators.setUserLvl(user)),
-      submitLogin:(username,password)=>dispatch(actionCreators.submitLogin(username,password)),
-      submitRegister:(username,password)=>dispatch(actionCreators.submitRegister(username,password)),
-      saveUserLogged:(userLogged)=>dispatch({type:actionTypes.SAVE_USER_LOGGED,userLogged}),
-      saveShowWrongLogin:(showWrongLogin)=>dispatch({type:actionTypes.SAVE_SHOW_WRONG_LOGIN,showWrongLogin})
+const mapDispatchToProps = dispatch => {
+  return {
+    handleShowFooter: () => dispatch({ type: actionTypes.SHOW_FOOTER }),
+    handlePageChange: (page) => dispatch({ type: actionTypes.SAVE_PAGE_URL, page }),
+    anonymousLogin: () => dispatch(actionCreators.fetchAnonymousLogin()),
+    fetchLocalStorage: (user, page) => dispatch(actionCreators.fetchLocalStorage(user, page)),
+    resetUsedHints: (id) => dispatch(actionCreators.resetUsedHints(id)),
+    resetFailedAttempts: (id) => dispatch(actionCreators.resetFailedAttempts(id)),
+    updateFailedAttempts: (id) => dispatch(actionCreators.updateFailedAttempts(id)),
+    updateUsedHints: (id) => dispatch(actionCreators.updateUsedHints(id)),
+    handleUserPoints: (id) => dispatch(actionCreators.handleUserPoints(id)),
+    handleNextLvl: (id) => dispatch(actionCreators.handleNextLvl(id)),
+    resetUsers: () => dispatch(actionCreators.resetUsers()),
+    setUserLvl: (user) => dispatch(actionCreators.setUserLvl(user)),
+    submitLogin: (username, password) => dispatch(actionCreators.submitLogin(username, password)),
+    submitRegister: (username, password) => dispatch(actionCreators.submitRegister(username, password)),
+    saveUserLogged: (userLogged) => dispatch({ type: actionTypes.SAVE_USER_LOGGED, userLogged }),
+    saveShowWrongLogin: (showWrongLogin) => dispatch({ type: actionTypes.SAVE_SHOW_WRONG_LOGIN, showWrongLogin })
   }
 }
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(withRouter(App));
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(App));

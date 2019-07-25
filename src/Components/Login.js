@@ -9,10 +9,10 @@ class Login extends Component {
         username: '',
         password: ''
     }
-    handleKeyPress=e=>{
-        const { username,password } = this.state;
-        if(e.key==='Enter'){
-            this.props.submitLogin(username, password,this.props.history)
+    handleKeyPress = e => {
+        const { username, password } = this.state;
+        if (e.key === 'Enter') {
+            this.props.submitLogin(username, password, this.props.history)
         }
     }
     handleUsername = (e) => {
@@ -26,11 +26,11 @@ class Login extends Component {
             password: e.target.value
         })
     }
- 
+
     render() {
-        const { username,password } = this.state;
-        const { handleUsername,handlePassword }=this;
-       
+        const { username, password } = this.state;
+        const { handleUsername, handlePassword } = this;
+
 
         return (
             <div className="login">
@@ -47,29 +47,29 @@ class Login extends Component {
                     <i className="zmdi zmdi-lock-outline"></i>
                     <input value={password} onChange={handlePassword} type="password" onKeyPress={this.handleKeyPress} />
                 </div>
-                <button className='loginButton'  onClick={()=>{
-                    this.props.submitLogin(username, password,this.props.history)
-                    }} >Login</button>
+                <button className='loginButton' onClick={() => {
+                    this.props.submitLogin(username, password, this.props.history)
+                }} >Login</button>
             </div>
         );
     }
 }
 
-const mapStateToProps = state =>{
-    return{
-        user:state.user,
-        page:state.page,
-        userLvl:state.userLvl
+const mapStateToProps = state => {
+    return {
+        user: state.user,
+        page: state.page,
+        userLvl: state.userLvl
     }
-  }
+}
 
 
-const mapDispatchToProps=dispatch=>{
-    return{
-        submitLogin:(username,password,historyPush)=>dispatch(actionCreators.submitLogin(username,password,historyPush)),
-        handlePageChange:(page)=>dispatch({type:actionTypes.SAVE_PAGE_URL,page}),
+const mapDispatchToProps = dispatch => {
+    return {
+        submitLogin: (username, password, historyPush) => dispatch(actionCreators.submitLogin(username, password, historyPush)),
+        handlePageChange: (page) => dispatch({ type: actionTypes.SAVE_PAGE_URL, page }),
     }
-  }
+}
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(withRouter(Login));
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Login));

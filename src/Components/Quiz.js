@@ -6,95 +6,95 @@ import { connect } from 'react-redux'
 import * as actionTypes from '../store/actions'
 class Quiz extends Component {
     state = {
-        turnAnimation:false,
-        lvlPassword:'',
-        showLvlPasswordAnimation:false,
-        gainedPoints:null,
-        showGainedPointsAnimation:false
+        turnAnimation: false,
+        lvlPassword: '',
+        showLvlPasswordAnimation: false,
+        gainedPoints: null,
+        showGainedPointsAnimation: false
     }
 
-    componentWillMount(){
+    componentWillMount() {
         this.props.handlePageChange('/quiz')
     }
-    handleGainedPoints=(failedAttempts,usedHints)=>{
+    handleGainedPoints = (failedAttempts, usedHints) => {
         this.handleShowGainedPointsAnimation()
         const numberFailedAttempts = Number(failedAttempts)
         const numberUsedHints = Number(usedHints)
         let gainedPoints = 6 - numberUsedHints * 2 - numberFailedAttempts
-        if(isNaN(gainedPoints)){
-            gainedPoints='Error'
+        if (isNaN(gainedPoints)) {
+            gainedPoints = 'Error'
         }
-        if(gainedPoints<1){
+        if (gainedPoints < 1) {
             gainedPoints = 0
         }
         this.setState({
             gainedPoints
         })
     }
-    handleShowLvlPasswordOnSkip=(lvl)=>{
-        fetch(`https://pure-dawn-32038.herokuapp.com/getlvlpassword/${lvl}`).then(res=>{
+    handleShowLvlPasswordOnSkip = (lvl) => {
+        fetch(`https://pure-dawn-32038.herokuapp.com/getlvlpassword/${lvl}`).then(res => {
             return res.json()
-        }).then(lvlPassword=>{
+        }).then(lvlPassword => {
             this.setState({
-                lvlPassword:lvlPassword.toUpperCase()
+                lvlPassword: lvlPassword.toUpperCase()
             })
         })
     }
-    handleShowLvlPasswordAnimation=()=>{
-        setTimeout(()=>{
+    handleShowLvlPasswordAnimation = () => {
+        setTimeout(() => {
             this.setState({
-                showLvlPasswordAnimation:true
+                showLvlPasswordAnimation: true
             })
-        },900)
-        setTimeout(()=>{
+        }, 900)
+        setTimeout(() => {
             this.setState({
-                showLvlPasswordAnimation:false
+                showLvlPasswordAnimation: false
             })
-        },2700)
+        }, 2700)
     }
-    handleShowGainedPointsAnimation=()=>{
-        setTimeout(()=>{
+    handleShowGainedPointsAnimation = () => {
+        setTimeout(() => {
             this.setState({
-                showGainedPointsAnimation:true
+                showGainedPointsAnimation: true
             })
-        },900)
-        setTimeout(()=>{
+        }, 900)
+        setTimeout(() => {
             this.setState({
-                showGainedPointsAnimation:false
+                showGainedPointsAnimation: false
             })
-        },2700)
+        }, 2700)
     }
 
-    animationOnGoodAnswer=()=>{
+    animationOnGoodAnswer = () => {
         this.setState({
-                turnAnimation:true
+            turnAnimation: true
         })
-        setTimeout(()=>{
+        setTimeout(() => {
             this.setState({
-                turnAnimation:false
+                turnAnimation: false
             })
-        },4100)
+        }, 4100)
     }
 
     render() {
 
-        const { turnAnimation,showLvlPasswordAnimation,showGainedPointsAnimation} = this.state;
-        const { userLvl,doubledouble1,doubledouble2,updateLocalStorage,resetFailedAttempts,updateFailedAttempts } = this.props;
-        const { animationOnGoodAnswer }= this;
-        if(userLvl==='END'&&this.props.page!=='scoreboard'){
+        const { turnAnimation, showLvlPasswordAnimation, showGainedPointsAnimation } = this.state;
+        const { userLvl, doubledouble1, doubledouble2, updateLocalStorage, resetFailedAttempts, updateFailedAttempts } = this.props;
+        const { animationOnGoodAnswer } = this;
+        if (userLvl === 'END' && this.props.page !== 'scoreboard') {
             this.props.handlePageChange('scoreboard')
             this.props.history.push('/scoreboard')
-          }
+        }
         return (
             <div className="quiz">
 
-                <h1 className="questionNumber">Question number: {turnAnimation?<span className='fadeNumber'>{userLvl.lvlnumber}</span>:<span>{userLvl.lvlnumber}</span>}</h1>
-                {turnAnimation?<h2 className="category fadeNumber">{userLvl.category}</h2>:<h2 className="category">{userLvl.category}</h2>}
-                {showLvlPasswordAnimation&&<div className="popupAnswer">{this.state.lvlPassword}</div>}
-                {showGainedPointsAnimation&&<div className="popupAnswer">+ {this.state.gainedPoints}</div>}
-                <Hints turnAnimation={turnAnimation} doubledouble2={doubledouble2} doubledouble1={doubledouble1} updateLocalStorage={updateLocalStorage}/>
+                <h1 className="questionNumber">Question number: {turnAnimation ? <span className='fadeNumber'>{userLvl.lvlnumber}</span> : <span>{userLvl.lvlnumber}</span>}</h1>
+                {turnAnimation ? <h2 className="category fadeNumber">{userLvl.category}</h2> : <h2 className="category">{userLvl.category}</h2>}
+                {showLvlPasswordAnimation && <div className="popupAnswer">{this.state.lvlPassword}</div>}
+                {showGainedPointsAnimation && <div className="popupAnswer">+ {this.state.gainedPoints}</div>}
+                <Hints turnAnimation={turnAnimation} doubledouble2={doubledouble2} doubledouble1={doubledouble1} updateLocalStorage={updateLocalStorage} />
 
-                <Answer turnAnimation={turnAnimation} animationOnGoodAnswer={animationOnGoodAnswer} doubledouble1={doubledouble1} updateLocalStorage={updateLocalStorage} resetFailedAttempts={resetFailedAttempts} updateFailedAttempts={updateFailedAttempts} handleShowLvlPasswordOnSkip={this.handleShowLvlPasswordOnSkip} handleShowLvlPasswordAnimation={this.handleShowLvlPasswordAnimation} handleGainedPoints={this.handleGainedPoints} handleShowGainedPointsAnimation={this.handleShowGainedPointsAnimation}/>
+                <Answer turnAnimation={turnAnimation} animationOnGoodAnswer={animationOnGoodAnswer} doubledouble1={doubledouble1} updateLocalStorage={updateLocalStorage} resetFailedAttempts={resetFailedAttempts} updateFailedAttempts={updateFailedAttempts} handleShowLvlPasswordOnSkip={this.handleShowLvlPasswordOnSkip} handleShowLvlPasswordAnimation={this.handleShowLvlPasswordAnimation} handleGainedPoints={this.handleGainedPoints} handleShowGainedPointsAnimation={this.handleShowGainedPointsAnimation} />
 
             </div>
 
@@ -103,18 +103,18 @@ class Quiz extends Component {
 
 }
 
-const mapStateToProps=(state)=>{
-    return{
-        userLvl:state.userLvl,
-        page:state.page
+const mapStateToProps = (state) => {
+    return {
+        userLvl: state.userLvl,
+        page: state.page
 
-    }   
-}
-const mapDispatchToProps=dispatch=>{
-    return{
-        handlePageChange:(page)=>dispatch({type:actionTypes.SAVE_PAGE_URL,page}),
-        handlePageChange:(page)=>dispatch({type:actionTypes.SAVE_PAGE_URL,page}),
     }
-  }
+}
+const mapDispatchToProps = dispatch => {
+    return {
+        handlePageChange: (page) => dispatch({ type: actionTypes.SAVE_PAGE_URL, page }),
+        handlePageChange: (page) => dispatch({ type: actionTypes.SAVE_PAGE_URL, page }),
+    }
+}
 
-export default connect(mapStateToProps,mapDispatchToProps)(Quiz);
+export default connect(mapStateToProps, mapDispatchToProps)(Quiz);

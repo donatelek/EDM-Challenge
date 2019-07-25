@@ -8,9 +8,9 @@ class Answer extends Component {
         passwordInput: '',
         user: '',
         answerInput: '',
-        arrayOfWrongAnswers:['Nope, thats not him!', 'Not this time!', 'Try again!','Bad answer!','You are so close!','Nah, dont give up!'],
-        wrongAnswer:'Bad answer!',
-        isWrongAnswer:false,
+        arrayOfWrongAnswers: ['Nope, thats not him!', 'Not this time!', 'Try again!', 'Bad answer!', 'You are so close!', 'Nah, dont give up!'],
+        wrongAnswer: 'Bad answer!',
+        isWrongAnswer: false,
     }
 
     handlePasswordChange = (e) => {
@@ -18,17 +18,17 @@ class Answer extends Component {
             passwordInput: e.target.value
         })
     }
-    changeWrongAnswer=()=>{
-        const index = Math.floor(Math.random()*this.state.arrayOfWrongAnswers.length);
+    changeWrongAnswer = () => {
+        const index = Math.floor(Math.random() * this.state.arrayOfWrongAnswers.length);
         this.setState({
-            isWrongAnswer:true,
-            wrongAnswer:this.state.arrayOfWrongAnswers[index]
+            isWrongAnswer: true,
+            wrongAnswer: this.state.arrayOfWrongAnswers[index]
         })
-        setTimeout(()=>{
+        setTimeout(() => {
             this.setState({
-                isWrongAnswer:false
+                isWrongAnswer: false
             })
-        },2500)
+        }, 2500)
     }
 
     onchange = (e) => {
@@ -44,7 +44,7 @@ class Answer extends Component {
     }
 
     checkAnswer = () => {
-        if(this.state.answerInput.trim()===''){
+        if (this.state.answerInput.trim() === '') {
             return
         }
         fetch('https://pure-dawn-32038.herokuapp.com/password', {
@@ -55,17 +55,17 @@ class Answer extends Component {
                 password: this.state.answerInput.toLowerCase()
             })
         }).then(res => res.json()).then(res => {
-            const { handleNextLvl,animationOnGoodAnswer,handleUserPoints,resetUsedHints,resetFailedAttempts,updateLocalStorage,updateFailedAttempts,user,handleGainedPoints }=this.props;
+            const { handleNextLvl, animationOnGoodAnswer, handleUserPoints, resetUsedHints, resetFailedAttempts, updateLocalStorage, updateFailedAttempts, user, handleGainedPoints } = this.props;
             if (res === 'true') {
                 handleNextLvl(user.id);
                 animationOnGoodAnswer();
-                handleGainedPoints(user.failedattempts,user.usedhints)
+                handleGainedPoints(user.failedattempts, user.usedhints)
                 handleUserPoints(user.id);
                 resetUsedHints(user.id);
                 resetFailedAttempts();
                 // handleShowGainedPointsAnimation()
                 this.setState({
-                    answerInput:''
+                    answerInput: ''
                 })
                 setTimeout(() => {
                     updateLocalStorage()
@@ -88,17 +88,17 @@ class Answer extends Component {
 
     render() {
 
-        const { isWrongAnswer,answerInput,wrongAnswer }=this.state;
-        const { animationOnGoodAnswer,handleNextLvl,resetUsedHints,resetFailedAttempts,updateLocalStorage,turnAnimation,user,userLvl, handleShowLvlPasswordAnimation }=this.props;
-        const { checkAnswer,handleInputAnswer }=this;
+        const { isWrongAnswer, answerInput, wrongAnswer } = this.state;
+        const { animationOnGoodAnswer, handleNextLvl, resetUsedHints, resetFailedAttempts, updateLocalStorage, turnAnimation, user, userLvl, handleShowLvlPasswordAnimation } = this.props;
+        const { checkAnswer, handleInputAnswer } = this;
 
         return (
             <>
                 <div className="answer">
                     <input onChange={handleInputAnswer} type="text" value={answerInput} className='inputAnswer' placeholder='Answer...' spellCheck="false" />
                     <br />
-                    {isWrongAnswer&&<div className="wrongAnswer">{wrongAnswer}</div>}
-                    <br/>
+                    {isWrongAnswer && <div className="wrongAnswer">{wrongAnswer}</div>}
+                    <br />
                     <button className='check' onClick={checkAnswer}>Check</button>
                     <button onClick={() => {
                         this.props.handleShowLvlPasswordOnSkip(userLvl.lvlnumber)
@@ -113,27 +113,27 @@ class Answer extends Component {
                             updateLocalStorage()
                         }, 250)
                     }} className="skip">SKIP</button>
-                    {turnAnimation?<div className="points">Your points: <span className='fadePoints'>{user.easylvl}</span></div>:<div className="points" >Your points: <span>{user.easylvl}</span></div>}
+                    {turnAnimation ? <div className="points">Your points: <span className='fadePoints'>{user.easylvl}</span></div> : <div className="points" >Your points: <span>{user.easylvl}</span></div>}
                 </div>
             </>
         );
     }
 }
 
-const mapStateToProps = state =>{
-    return{
-        userLvl:state.userLvl,
-        user:state.user,
+const mapStateToProps = state => {
+    return {
+        userLvl: state.userLvl,
+        user: state.user,
     }
-  }
+}
 
-const mapDispatchToProps=dispatch=>{
-    return{
-        handleUserPoints:(id)=>dispatch(actionCreators.handleUserPoints(id)),
-        handleNextLvl:(id)=>dispatch(actionCreators.handleNextLvl(id)),
-        resetUsedHints:(id)=>dispatch(actionCreators.resetUsedHints(id)),
+const mapDispatchToProps = dispatch => {
+    return {
+        handleUserPoints: (id) => dispatch(actionCreators.handleUserPoints(id)),
+        handleNextLvl: (id) => dispatch(actionCreators.handleNextLvl(id)),
+        resetUsedHints: (id) => dispatch(actionCreators.resetUsedHints(id)),
     }
 }
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(Answer);
+export default connect(mapStateToProps, mapDispatchToProps)(Answer);

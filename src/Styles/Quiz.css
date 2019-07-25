@@ -121,7 +121,34 @@ div.quiz .category {
     font-size: 30px;
     margin-top: 20px;
 }
+@media screen and (max-width:1000px) {
+    div.quiz .popupAnswer{
+        animation: fadeZoomSmaller 1.8s ease;
+        width: 100vw;
+        text-align: center;
+    }
+}
+@keyframes fadeZoomSmaller {
+    0% {
+        opacity: 0;
+        font-size: 0px;
+    }
 
+    30% {
+        opacity: 1;
+        font-size: 40px;
+    }
+
+    70% {
+        opacity: 1;
+        font-size: 40px;
+    }
+
+    100% {
+        opacity: 0;
+        font-size: 0px;
+    }
+}
 @media screen and (max-width:635px) {
     div.quiz .questionNumber {
         font-size: 27px;
@@ -131,8 +158,34 @@ div.quiz .category {
         margin-top: 5px;
         font-size: 22px;
     }
+    div.quiz .popupAnswer{
+        animation: fadeZoomSmallest 1.8s ease;
+        width: 100vw;
+        text-align: center;
+    }
+    
 }
+@keyframes fadeZoomSmallest {
+    0% {
+        opacity: 0;
+        font-size: 0px;
+    }
 
+    30% {
+        opacity: 1;
+        font-size: 25px;
+    }
+
+    70% {
+        opacity: 1;
+        font-size: 25px;
+    }
+
+    100% {
+        opacity: 0;
+        font-size: 0px;
+    }
+}
 @media screen and (max-width: 374px) {
     div.quiz .questionNumber {
         font-size: 20px;

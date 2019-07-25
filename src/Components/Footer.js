@@ -9,32 +9,32 @@ class Footer extends Component {
     render() {
 
         const { showFooter } = this.props
-        
+
         return (
             <>
-            {showFooter?<footer style={{display:'block'}}>
-                <SoundPlayer />
-                <Link to='/contact' className="contact" >Report bug</Link>
-            </footer>:<footer>
-                <SoundPlayer />
-                <Link to='/contact' className="contact" >Report bug</Link>
-            </footer>}
+                {showFooter ? <footer style={{ display: 'block' }}>
+                    <SoundPlayer />
+                    <Link to='/contact' className="contact" >Report bug</Link>
+                </footer> : <footer>
+                        <SoundPlayer />
+                        <Link to='/contact' className="contact" >Report bug</Link>
+                    </footer>}
             </>
         );
     }
 }
 
-const mapStateToProps = state =>{
-    return{
-        showFooter:state.showFooter,
-        soundplayerPlaying:state.soundplayerPlaying
+const mapStateToProps = state => {
+    return {
+        showFooter: state.showFooter,
+        soundplayerPlaying: state.soundplayerPlaying
     }
-  }
-  const mapDispatchToProps=dispatch=>{
-        return{
-            handleTurningSoundplayer:()=>dispatch({type:actionTypes.SOUNDPLAYER_PLAYING}),
-        }
-   
-  }
+}
+const mapDispatchToProps = dispatch => {
+    return {
+        handleTurningSoundplayer: () => dispatch({ type: actionTypes.SOUNDPLAYER_PLAYING }),
+    }
 
-export default connect(mapStateToProps,mapDispatchToProps)(Footer);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Footer);
