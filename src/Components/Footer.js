@@ -7,9 +7,7 @@ import * as actionTypes from '../store/actions'
 class Footer extends Component {
     state = {}
     render() {
-
         const { showFooter } = this.props
-
         return (
             <>
                 {showFooter ? <footer style={{ display: 'block' }}>
@@ -34,7 +32,6 @@ const mapDispatchToProps = dispatch => {
     return {
         handleTurningSoundplayer: () => dispatch({ type: actionTypes.SOUNDPLAYER_PLAYING }),
     }
-
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Footer);

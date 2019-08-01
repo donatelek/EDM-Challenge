@@ -79,7 +79,6 @@ class Contact extends Component {
   sendFeedback(templateId, senderEmail, name, feedback) {
     const receiv = 'donatelek92@gmail.com'
     const temp = 'contact_template'
-    console.log(feedback)
     window.emailjs
       .send('mailgun', temp, {
         senderEmail,

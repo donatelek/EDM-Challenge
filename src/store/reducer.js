@@ -174,8 +174,8 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 showSuccessRegister: action.showSuccessRegister
             }
+        default: return state;
     }
-    return state
 }
 
 export default reducer;

@@ -5,7 +5,7 @@ import Quiz from './Quiz';
 import ChooseLvl from './ChooseLvl';
 import Authentication from './Authentication';
 import Footer from './Footer';
-import { BrowserRouter as Router, Link, Route, Switch, Redirect, withRouter } from 'react-router-dom';
+import { Link, Route, Switch, withRouter } from 'react-router-dom';
 import Scoreboard from './Scoreboard';
 import Contact from './Contact';
 import Error404 from './Error404';
@@ -13,10 +13,6 @@ import Error404 from './Error404';
 import * as actionTypes from '../store/actions'
 import { connect } from 'react-redux'
 import * as actionCreators from '../store/actions'
-// jak w quzie zrobimy f5 to punkty sie nie aktualizuja i aktualizuja sie dopiero po kliknieciu np w hinta
-// portfolio contact nawet jak jest puste to wysyla usunac default ostrzezenia
-// moze zmienic kolejnosci w getterze 
-// zrobic responsywne zdjecia najlepiej ten sam size jesli chodzi o wymiary 4:3 itp
 class App extends Component {
   state = {
     sound: '0.3',
@@ -34,24 +30,17 @@ class App extends Component {
   }
   componentDidMount() {
     this.props.fetchLocalStorage(this.props.user, this.state.page)
-    console.log(this.props.history)
   }
 
   componentDidUpdate() {
-    // console.log(this.props.history)
     if (this.props.user && this.props.userLvl && this.props.page !== 'introduction') {
-      // this.props.history.push('/introduction')
-      // console.log(this.props.history)
     }
   }
-
-
 
   setUserIfUserLogged = () => {
     this.props.saveUserLogged(true)
   }
 
-  // pominąłem
   resetUsers = () => {
     this.props.resetUsers()
   }
@@ -132,13 +121,9 @@ class App extends Component {
     this.props.handlePageChange(page)
 
   }
-  // to jest nie potrzebne ale zrobie narazie
   handleLogOut = () => {
     this.props.resetUsers()
   }
-
-
-
 
   render() {
 
@@ -152,7 +137,6 @@ class App extends Component {
             style={{ width: this.state.w, height: this.state.h }}>
             <h1 className='mainTitle'><span>EDM CHALLENGE</span></h1>
 
-            {/* userinfo */}
             {page !== '/' && <div className="userInfo">
               <div className="face"></div>
               {user.username && localStorage.getItem('currentUser') && user.username !== 'null' && <div className='userName'>{user.username}</div>}
@@ -170,7 +154,7 @@ class App extends Component {
                   <ChooseLvl {...props} />
                 )
               }} />
-              {!userLogged && <Route path='/' exact='true' render={(props) => (
+              {!userLogged && <Route path='/' exact={true} render={(props) => (
                 <Authentication {...props} />
               )} />}
 
@@ -179,10 +163,10 @@ class App extends Component {
               {user && <Route path='/quiz' render={(props) => (
                 <Quiz {...props} doubledouble1={doubledouble1} doubledouble2={doubledouble2} updateLocalStorage={updateLocalStorage} resetFailedAttempts={resetFailedAttempts} updateFailedAttempts={updateFailedAttempts} />
               )} />}
-              <Route path='/contact' exact='true' render={(props) => (
+              <Route path='/contact' exact={true} render={(props) => (
                 <Contact {...props} />
               )} />
-              {user && <Route path='/scoreboard' exact='true' render={(props) => (
+              {user && <Route path='/scoreboard' exact={true} render={(props) => (
                 <Scoreboard {...props} pageChange={pageChange} />
               )} />}
               {this.props.page !== 'introduction' && user ? <Route component={Error404} /> : null}
@@ -191,12 +175,11 @@ class App extends Component {
 
             {this.props.showFooter ? <div className="hamburger" onClick={this.props.handleShowFooter}><i className="fas fa-bars"></i></div> : <div className="hamburger" style={{ bottom: '10px' }} onClick={this.props.handleShowFooter}><i className="fas fa-bars"></i></div>}
 
-            {/* navigation in footer */}
             {this.props.showFooter ? <div className="navInFooter" style={{ bottom: '80px' }}>
               {page === 'contact' && user && <Link to='/lvl' className='goBackFooter' >Back to levels</Link>}
               {page === 'contact' && !user && <Link to='/' className='goBackFooter'>Log In</Link>}
               {page === '/quiz' || page === 'scoreboard' ? <Link className='goBackFooter' to='/lvl'>GO Back</Link> : null}
-              {this.props.user && <Link className='logOutFooter' to='/' exact='true' onClick={handleLogOut}>LOG OUT</Link>}
+              {this.props.user && <Link className='logOutFooter' to='/' exact={true} onClick={handleLogOut}>LOG OUT</Link>}
             </div> : <div className="navInFooter" >
                 {page === 'contact' && user && <Link to='/lvl' className='goBackFooter'>Back To levels</Link>}
                 {page === 'contact' && !user && <Link to='/' className='goBackFooter'>Log In</Link>}

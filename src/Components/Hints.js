@@ -87,33 +87,6 @@ class Hints extends Component {
         })
     }
 
-    // changePlaying = () => {
-    //     if(this.props.soundplayerPlaying&&!this.state.playing){
-    //         this.props.handleTurningSoundplayer()
-    //     }
-    //     this.setState({
-    //         playing: !this.state.playing
-    //     })
-    // }
-
-    // changePlaying2 = () => {
-    //     if(this.props.soundplayerPlaying&&!this.state.playing2){
-    //         this.props.handleTurningSoundplayer()
-    //     }
-    //     this.setState({
-    //         playing2: !this.state.playing2
-    //     })
-    // }
-
-    // changePlaying3 = () => {
-    //     if(this.props.soundplayerPlaying&&!this.state.playing3){
-    //         this.props.handleTurningSoundplayer()
-    //     }
-    //     this.setState({
-    //         playing3: !this.state.playing2
-    //     })
-    // }
-
     handleClick2 = () => {
         this.setState({
             isFlipped2: !this.state.isFlipped2
@@ -126,28 +99,9 @@ class Hints extends Component {
         })
     }
 
-    //   onEnded=()=>{
-    //       this.setState({
-    //           playing:false
-    //       })
-    //   }
-
-    //   onEnded2=()=>{
-    //     this.setState({
-    //         playing2:false
-    //     })
-    // }
-
-    // onEnded3=()=>{
-    //     this.setState({
-    //         playing3:false
-    //     })
-    // }
-
     render() {
         const { isFlipped1, isFlipped2, isFlipped3 } = this.state;
         const { doubledouble1, updateLocalStorage, turnAnimation, doubledouble2, user } = this.props;
-
         let boxClass = ["quizHints"];
         if (turnAnimation) {
             boxClass.push('addAnimation');

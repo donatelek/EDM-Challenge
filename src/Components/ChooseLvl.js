@@ -22,7 +22,6 @@ class ChooseLvl extends Component {
                         <h1>Easy</h1>
                     </Link>
                     <article onClick={() => handlePageChange('quiz')} className="hard">
-                        {/* <h1>Hard</h1> */}
                         <h2>Not available</h2>
                     </article>
                 </section>

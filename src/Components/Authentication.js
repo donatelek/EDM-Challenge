@@ -12,20 +12,22 @@ class Authentication extends Component {
         isWrongLogin: false,
         allUsers: null
     }
-    UNSAFE_componentWillMount() {
-        fetch('https://pure-dawn-32038.herokuapp.com/scoreboard', {
-            method: 'GET',
-            headers: { 'Content-Type': 'application/json' },
-        }).then(res => res.json()).then(res => {
-            this.setState({
-                allUsers: res.length
-            })
-        }).catch(err => console.log(err))
-        const { resetUsers, handlePageChange } = this.props;
-        localStorage.clear()
-        resetUsers()
-        handlePageChange('/')
-    }
+
+    //GETTING NUMBER OF USERS
+    // UNSAFE_componentWillMount() {
+    //     fetch('https://pure-dawn-32038.herokuapp.com/scoreboard', {
+    //         method: 'GET',
+    //         headers: { 'Content-Type': 'application/json' },
+    //     }).then(res => res.json()).then(res => {
+    //         this.setState({
+    //             allUsers: res.length
+    //         })
+    //     }).catch(err => console.log(err))
+    //     const { resetUsers, handlePageChange } = this.props;
+    //     localStorage.clear()
+    //     resetUsers()
+    //     handlePageChange('/')
+    // }
 
     handleAuthChange = (page) => {
         const { saveShowWrongLogin } = this.props;
@@ -42,26 +44,22 @@ class Authentication extends Component {
     render() {
 
         const { render } = this.state;
-        const { showWrongLogin, submitLogin, submitRegister, showUserExist, showSuccessRegister, handlePageChange, anonymousLogin, user, showWrongLength } = this.props;
+        const { showWrongLogin, showUserExist, showSuccessRegister, handlePageChange, anonymousLogin, showWrongLength } = this.props;
         const { handleAuthChange } = this;
 
         return (
             <div className="authentication">
-                <div className="accounts">Users: {this.state.allUsers}</div>
+                {/* <div className="accounts">Users: {this.state.allUsers}</div> */}
                 <nav>
                     <div onClick={() => handleAuthChange('login')}>Sign In</div>
                     <div onClick={() => handleAuthChange('register')}>Sign Up</div>
                 </nav>
-
                 {render === 'login' && <Login handleChangeUserLoginRoute={this.handleChangeUserLoginRoute} />}
-
                 {render === 'register' && <Register handleAuthChange={handleAuthChange} />}
-
                 {showWrongLength && render === 'register' && <div className="wrongPassword">Your password should be at least 6 characters</div>}
                 {showUserExist && render === 'register' && <div className="wrongPassword">User with this username already exist</div>}
                 {showSuccessRegister && render === 'register' && <div className="wrongPassword">Successfull register. Now log in</div>}
                 {showWrongLogin && render === 'login' && <div className="wrongPassword">Wrong username or password. Try Again!</div>}
-
                 <Link className="anonymous" onClick={() => {
                     return (
                         handlePageChange('introduction'),

@@ -16,6 +16,7 @@ class Quiz extends Component {
     componentWillMount() {
         this.props.handlePageChange('/quiz')
     }
+
     handleGainedPoints = (failedAttempts, usedHints) => {
         this.handleShowGainedPointsAnimation()
         const numberFailedAttempts = Number(failedAttempts)
@@ -77,7 +78,6 @@ class Quiz extends Component {
     }
 
     render() {
-
         const { turnAnimation, showLvlPasswordAnimation, showGainedPointsAnimation } = this.state;
         const { userLvl, doubledouble1, doubledouble2, updateLocalStorage, resetFailedAttempts, updateFailedAttempts } = this.props;
         const { animationOnGoodAnswer } = this;
@@ -87,20 +87,16 @@ class Quiz extends Component {
         }
         return (
             <div className="quiz">
-
                 <h1 className="questionNumber">Question number: {turnAnimation ? <span className='fadeNumber'>{userLvl.lvlnumber}</span> : <span>{userLvl.lvlnumber}</span>}</h1>
                 {turnAnimation ? <h2 className="category fadeNumber">{userLvl.category}</h2> : <h2 className="category">{userLvl.category}</h2>}
                 {showLvlPasswordAnimation && <div className="popupAnswer">{this.state.lvlPassword}</div>}
                 {showGainedPointsAnimation && <div className="popupAnswer">+ {this.state.gainedPoints}</div>}
                 <Hints turnAnimation={turnAnimation} doubledouble2={doubledouble2} doubledouble1={doubledouble1} updateLocalStorage={updateLocalStorage} />
-
                 <Answer turnAnimation={turnAnimation} animationOnGoodAnswer={animationOnGoodAnswer} doubledouble1={doubledouble1} updateLocalStorage={updateLocalStorage} resetFailedAttempts={resetFailedAttempts} updateFailedAttempts={updateFailedAttempts} handleShowLvlPasswordOnSkip={this.handleShowLvlPasswordOnSkip} handleShowLvlPasswordAnimation={this.handleShowLvlPasswordAnimation} handleGainedPoints={this.handleGainedPoints} handleShowGainedPointsAnimation={this.handleShowGainedPointsAnimation} />
-
             </div>
 
         );
     }
-
 }
 
 const mapStateToProps = (state) => {
@@ -112,7 +108,6 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = dispatch => {
     return {
-        handlePageChange: (page) => dispatch({ type: actionTypes.SAVE_PAGE_URL, page }),
         handlePageChange: (page) => dispatch({ type: actionTypes.SAVE_PAGE_URL, page }),
     }
 }

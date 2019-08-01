@@ -19,13 +19,11 @@ class Introduction extends Component {
         const { handlePageChange } = this.props;
         return (
             <div className='introduction'>
-                {/* <h1 className="rules">RULES OF GAME</h1> */}
                 <article className="rules">
                     <h1>Guess what is that DJ!</h1>
                     <br />
                     <ul>
                         <h2>You can get 6 points per Level</h2>
-
                         <li>By opening a hint you lose 2 points</li>
                         <li>By typing wrong DJ you lose 1 point</li>
                         <li>You can also skip question but you won't get any points</li>

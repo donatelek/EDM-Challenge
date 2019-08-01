@@ -31,18 +31,6 @@ class Answer extends Component {
         }, 2500)
     }
 
-    onchange = (e) => {
-        this.setState({
-            username: e.target.value
-        })
-    }
-
-    onchange1 = (e) => {
-        this.setState({
-            password: e.target.value
-        })
-    }
-
     checkAnswer = () => {
         if (this.state.answerInput.trim() === '') {
             return
@@ -63,7 +51,6 @@ class Answer extends Component {
                 handleUserPoints(user.id);
                 resetUsedHints(user.id);
                 resetFailedAttempts();
-                // handleShowGainedPointsAnimation()
                 this.setState({
                     answerInput: ''
                 })

@@ -55,7 +55,6 @@ class SoundPlayer extends Component {
     })
   }
   changePlaying = () => {
-    // this.props.handleTurningSoundplayer()
     this.setState({
       playing: !this.state.playing
     })

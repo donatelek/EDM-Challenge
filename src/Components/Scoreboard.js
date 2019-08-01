@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import '../Styles/Scoreboard.css';
 import { connect } from 'react-redux';
 import * as actionTypes from '../store/actions'
-import * as actionCreators from '../store/actions'
 class Scoreboard extends Component {
     state = {
         top10: ''

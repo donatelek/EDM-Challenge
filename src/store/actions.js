@@ -103,7 +103,6 @@ export const fetchAnonymousLogin = () => {
             .then(response => response.json())
             .then(user => {
                 if (user) {
-                    console.log(user)
                     dispatch(showLoaderIntroduction(false))
                     fetch('https://pure-dawn-32038.herokuapp.com/saveLocalStorage', {
                         method: 'post',
@@ -124,16 +123,10 @@ export const fetchAnonymousLogin = () => {
 }
 
 export const fetchLocalStorage = (user, page) => {
-    console.log('aaa')
-    console.log(user)
-    console.log(page)
     return dispatch => {
         setTimeout(() => {
-            // wywalilem warunek z page bo wczytuje sie zawsze slesz
             const storage = localStorage.getItem('currentUser')
-            console.log(storage)
             if (!user && storage) {
-                console.log('wykon')
                 fetch('https://pure-dawn-32038.herokuapp.com/getLocalStorage', {
                     method: 'post',
                     headers: {
