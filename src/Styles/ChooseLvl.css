@@ -84,6 +84,7 @@ div.chooseLvl .lvls .hard {
     font-size: 100px;
     line-height: 300px;
     text-shadow: 2px 2px 4px #000000;
+    text-decoration: none;
 }
 
 div.chooseLvl .lvls .hard h2 {

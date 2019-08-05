@@ -109,7 +109,7 @@ export const fetchAnonymousLogin = () => {
 
     return dispatch => {
         dispatch(showLoaderIntroduction(true))
-        fetch('http://localhost:3000/anonymous', {
+        fetch('https://pure-dawn-32038.herokuapp.com/anonymous', {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json'
@@ -119,7 +119,7 @@ export const fetchAnonymousLogin = () => {
             .then(user => {
                 if (user) {
                     dispatch(showLoaderIntroduction(false))
-                    fetch('http://localhost:3000/saveLocalStorage', {
+                    fetch('https://pure-dawn-32038.herokuapp.com/saveLocalStorage', {
                         method: 'post',
                         headers: {
                             'Content-Type': 'application/json'
@@ -142,7 +142,7 @@ export const fetchLocalStorage = (user, page, lvl) => {
         setTimeout(() => {
             const storage = localStorage.getItem('currentUser')
             if (!user && storage) {
-                fetch('http://localhost:3000/getLocalStorage', {
+                fetch('https://pure-dawn-32038.herokuapp.com/getLocalStorage', {
                     method: 'post',
                     headers: {
                         'Content-Type': 'application/json'
@@ -171,7 +171,7 @@ export const fetchLocalStorage = (user, page, lvl) => {
                         const userId = arrayToObject.id;
                         dispatch(saveUserFromLocalStorage(arrayToObject))
                         if (lvl === 'easy') {
-                            fetch(`http://localhost:3000/geteasylvl/${userId}`, {
+                            fetch(`https://pure-dawn-32038.herokuapp.com/geteasylvl/${userId}`, {
                                 headers: {
                                     'Content-Type': 'application/json'
                                 }
@@ -179,7 +179,7 @@ export const fetchLocalStorage = (user, page, lvl) => {
                                 dispatch(saveUserLvl(res))
                             }).catch(err => console.log(err))
                         } else if (lvl === 'hard') {
-                            fetch(`http://localhost:3000/gethardlvl/${userId}`, {
+                            fetch(`https://pure-dawn-32038.herokuapp.com/gethardlvl/${userId}`, {
                                 headers: {
                                     'Content-Type': 'application/json'
                                 }
@@ -197,7 +197,7 @@ export const fetchLocalStorage = (user, page, lvl) => {
 
 export const resetUsedHints = (id, lvl) => {
     return dispatch => {
-        fetch('http://localhost:3000/resethints', {
+        fetch('https://pure-dawn-32038.herokuapp.com/resethints', {
             method: 'put',
             headers: {
                 'Content-Type': 'application/json'
@@ -214,7 +214,7 @@ export const resetUsedHints = (id, lvl) => {
 
 export const resetFailedAttempts = (id, lvl) => {
     return dispatch => {
-        fetch('http://localhost:3000/resetattempts', {
+        fetch('https://pure-dawn-32038.herokuapp.com/resetattempts', {
             method: 'put',
             headers: {
                 'Content-Type': 'application/json'
@@ -231,7 +231,7 @@ export const resetFailedAttempts = (id, lvl) => {
 
 export const updateFailedAttempts = (id, lvl) => {
     return dispatch => {
-        fetch('http://localhost:3000/updatefailedattempts', {
+        fetch('https://pure-dawn-32038.herokuapp.com/updatefailedattempts', {
             method: 'put',
             headers: {
                 'Content-Type': 'application/json'
@@ -248,7 +248,7 @@ export const updateFailedAttempts = (id, lvl) => {
 
 export const updateUsedHints = (id, lvl) => {
     return dispatch => {
-        fetch('http://localhost:3000/updatehints', {
+        fetch('https://pure-dawn-32038.herokuapp.com/updatehints', {
             method: 'put',
             headers: {
                 'Content-Type': 'application/json'
@@ -265,7 +265,7 @@ export const updateUsedHints = (id, lvl) => {
 
 export const handleUserPoints = (id, lvl) => {
     return dispatch => {
-        fetch('http://localhost:3000/easymodePoints', {
+        fetch('https://pure-dawn-32038.herokuapp.com/easymodePoints', {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json'
@@ -282,10 +282,9 @@ export const handleUserPoints = (id, lvl) => {
     }
 }
 export const handleNextLvl = (id, lvl) => {
-    console.log(lvl)
     if (lvl === 'easy') {
         return dispatch => {
-            fetch('http://localhost:3000/lvleasy', {
+            fetch('https://pure-dawn-32038.herokuapp.com/lvleasy', {
                 method: 'put',
                 headers: {
                     'Content-Type': 'application/json'
@@ -298,7 +297,7 @@ export const handleNextLvl = (id, lvl) => {
             }).catch(err => console.log(err))
             setTimeout(() => {
                 const userLvlNumber = parseInt(id)
-                fetch(`http://localhost:3000/geteasylvl/${userLvlNumber}`, {
+                fetch(`https://pure-dawn-32038.herokuapp.com/geteasylvl/${userLvlNumber}`, {
                     headers: {
                         'Content-Type': 'application/json'
                     }
@@ -309,7 +308,7 @@ export const handleNextLvl = (id, lvl) => {
         }
     } else if (lvl === 'hard') {
         return dispatch => {
-            fetch('http://localhost:3000/lvlhard', {
+            fetch('https://pure-dawn-32038.herokuapp.com/lvlhard', {
                 method: 'put',
                 headers: {
                     'Content-Type': 'application/json'
@@ -324,7 +323,7 @@ export const handleNextLvl = (id, lvl) => {
 
             setTimeout(() => {
                 const userLvlNumber = parseInt(id)
-                fetch(`http://localhost:3000/gethardlvl/${userLvlNumber}`, {
+                fetch(`https://pure-dawn-32038.herokuapp.com/gethardlvl/${userLvlNumber}`, {
                     headers: {
                         'Content-Type': 'application/json'
                     }
@@ -367,7 +366,7 @@ export const submitLogin = (username, password, historyPush) => {
             }, 2000)
             return
         }
-        fetch('http://localhost:3000/signin', {
+        fetch('https://pure-dawn-32038.herokuapp.com/signin', {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json'
@@ -394,7 +393,7 @@ export const submitLogin = (username, password, historyPush) => {
                     dispatch(saveAnonymousLogin(user))
                     dispatch(saveShowWrongLogin(false))
                     historyPush.push('/introduction')
-                    fetch(`http://localhost:3000/getlvl/${user.id}`, {
+                    fetch(`https://pure-dawn-32038.herokuapp.com/getlvl/${user.id}`, {
                         headers: {
                             'Content-Type': 'application/json'
                         }
@@ -402,7 +401,7 @@ export const submitLogin = (username, password, historyPush) => {
                         dispatch(saveUserLvl(res))
                     }).catch(err => console.log(err))
 
-                    fetch('http://localhost:3000/saveLocalStorage', {
+                    fetch('https://pure-dawn-32038.herokuapp.com/saveLocalStorage', {
                         method: 'post',
                         headers: {
                             'Content-Type': 'application/json'
@@ -433,7 +432,7 @@ export const submitRegister = (username, password) => {
             }, 3000)
             return
         }
-        fetch('http://localhost:3000/register', {
+        fetch('https://pure-dawn-32038.herokuapp.com/register', {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json'
@@ -465,10 +464,9 @@ export const submitRegister = (username, password) => {
     }
 }
 export const fetchUserLvl = (numberLvl, lvl) => {
-    console.log(lvl)
     return dispatch => {
         if (lvl === 'hard') {
-            return (fetch(`http://localhost:3000/gethardlvl/${numberLvl}`, {
+            return (fetch(`https://pure-dawn-32038.herokuapp.com/gethardlvl/${numberLvl}`, {
                 headers: {
                     'Content-Type': 'application/json'
                 }
@@ -477,7 +475,7 @@ export const fetchUserLvl = (numberLvl, lvl) => {
             }).catch(err => console.log(err)))
         }
         if (lvl === 'easy') {
-            return (fetch(`http://localhost:3000/geteasylvl/${numberLvl}`, {
+            return (fetch(`https://pure-dawn-32038.herokuapp.com/geteasylvl/${numberLvl}`, {
                 headers: {
                     'Content-Type': 'application/json'
                 }

@@ -37,7 +37,7 @@ class Quiz extends Component {
     }
     handleShowLvlPasswordOnSkip = (lvl) => {
         if (this.props.lvlDifficulty === 'easy') {
-            fetch(`http://localhost:3000/getlvlpassword/${lvl}`).then(res => {
+            fetch(`https://pure-dawn-32038.herokuapp.com/getlvlpassword/${lvl}`).then(res => {
                 return res.json()
             }).then(lvlPassword => {
                 this.setState({
@@ -45,7 +45,7 @@ class Quiz extends Component {
                 })
             })
         } else if (this.props.lvlDifficulty === 'hard') {
-            fetch(`http://localhost:3000/getlvlpasswordhard/${lvl}`).then(res => {
+            fetch(`https://pure-dawn-32038.herokuapp.com/getlvlpasswordhard/${lvl}`).then(res => {
                 return res.json()
             }).then(lvlPassword => {
                 this.setState({

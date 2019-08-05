@@ -97,8 +97,7 @@ class App extends Component {
 
 
   updateLocalStorage = () => {
-
-    fetch('http://localhost:3000/saveLocalStorage', {
+    fetch('https://pure-dawn-32038.herokuapp.com/saveLocalStorage', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

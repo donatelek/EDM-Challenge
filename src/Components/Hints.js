@@ -140,7 +140,6 @@ class Hints extends Component {
     }
 
     handleClick3 = () => {
-        console.log('asd')
         this.setState({
             isFlipped3: !this.state.isFlipped3
         })
