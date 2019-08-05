@@ -26,6 +26,7 @@ div.chooseLvl h1.lvl {
     margin-bottom: 50px;
     color: rgb(12, 45, 70);
     letter-spacing: 2px;
+    text-shadow: 2px 2px 4px #000000;
 }
 
 
@@ -70,7 +71,7 @@ div.chooseLvl .lvls .easy h1 {
     text-decoration: none;
     color: rgb(106, 131, 201);
     font-weight: bold;
-
+    text-shadow: 2px 2px 4px #000000;
 }
 
 div.chooseLvl .lvls .hard {
@@ -82,6 +83,7 @@ div.chooseLvl .lvls .hard {
     text-align: center;
     font-size: 100px;
     line-height: 300px;
+    text-shadow: 2px 2px 4px #000000;
 }
 
 div.chooseLvl .lvls .hard h2 {

@@ -26,6 +26,7 @@ div.quiz .popupAnswer {
     z-index: 9999999999999999999999999999999999999999;
     animation: fadeZoom 1.8s ease;
     color: rgb(38, 52, 82);
+    text-shadow: 1px 1px 2px #000000;
 }
 
 @keyframes fadeZoom {
@@ -53,6 +54,7 @@ div.quiz .popupAnswer {
 div.quiz .questionNumber {
     text-align: center;
     font-size: 40px;
+    text-shadow: 1px 1px 2px #000000;
 }
 
 
@@ -119,15 +121,18 @@ div.quiz div.points span.fadePoints {
 div.quiz .category {
     text-align: center;
     font-size: 30px;
+    text-shadow: 1px 1px 2px #000000;
     margin-top: 20px;
 }
+
 @media screen and (max-width:1000px) {
-    div.quiz .popupAnswer{
+    div.quiz .popupAnswer {
         animation: fadeZoomSmaller 1.8s ease;
         width: 100vw;
         text-align: center;
     }
 }
+
 @keyframes fadeZoomSmaller {
     0% {
         opacity: 0;
@@ -149,6 +154,7 @@ div.quiz .category {
         font-size: 0px;
     }
 }
+
 @media screen and (max-width:635px) {
     div.quiz .questionNumber {
         font-size: 27px;
@@ -158,13 +164,15 @@ div.quiz .category {
         margin-top: 5px;
         font-size: 22px;
     }
-    div.quiz .popupAnswer{
+
+    div.quiz .popupAnswer {
         animation: fadeZoomSmallest 1.8s ease;
         width: 100vw;
         text-align: center;
     }
-    
+
 }
+
 @keyframes fadeZoomSmallest {
     0% {
         opacity: 0;
@@ -186,6 +194,7 @@ div.quiz .category {
         font-size: 0px;
     }
 }
+
 @media screen and (max-width: 374px) {
     div.quiz .questionNumber {
         font-size: 20px;

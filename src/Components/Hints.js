@@ -25,49 +25,95 @@ class Hints extends Component {
                 isFlipped1: true
             })
         }, 1250)
-        if (user.usedhints === 1) {
-            this.setState({
-                isFlipped1: true,
-                isFlipped2: true
-            })
-        } else if (user.usedhints === 2) {
-            this.setState({
-                isFlipped1: true,
-                isFlipped2: true,
-                isFlipped3: true
-            })
+        if (this.props.lvlDifficulty === 'easy') {
+            if (user.usedhints === 1) {
+                this.setState({
+                    isFlipped1: true,
+                    isFlipped2: true
+                })
+            } else if (user.usedhints === 2) {
+                this.setState({
+                    isFlipped1: true,
+                    isFlipped2: true,
+                    isFlipped3: true
+                })
+            }
+        } else if (this.props.lvlDifficulty === 'hard') {
+            if (user.usedhintshard === 1) {
+                this.setState({
+                    isFlipped1: true,
+                    isFlipped2: true
+                })
+            } else if (user.usedhintshard === 2) {
+                this.setState({
+                    isFlipped1: true,
+                    isFlipped2: true,
+                    isFlipped3: true
+                })
+            }
         }
+
     }
     componentDidUpdate() {
         const { user, turnAnimation } = this.props;
         const { isFlipped1, isFlipped2, isFlipped3 } = this.state;
 
-        if (user.usedhints === 1 && isFlipped2 === false) {
-            this.setState({
-                isFlipped1: true,
-                isFlipped2: true
-            })
-        } else if (user.usedhints === 2 && isFlipped3 === false) {
-            this.setState({
-                isFlipped1: true,
-                isFlipped2: true,
-                isFlipped3: true
-            })
-        } else if (user.usedhints === 0 && isFlipped2 === true) {
-            this.setState({
-                isFlipped1: false,
-                isFlipped2: false,
-                isFlipped3: false
-            })
-        } else if (user.usedhints === 0 && turnAnimation === true && isFlipped1 === true) {
-            this.setState({
-                isFlipped1: false
-            })
-        } else if (user.usedhints === 0 && turnAnimation === false && isFlipped1 === false) {
-            this.setState({
-                isFlipped1: true
-            })
+        if (this.props.lvlDifficulty === 'easy') {
+            if (user.usedhints === 1 && isFlipped2 === false) {
+                this.setState({
+                    isFlipped1: true,
+                    isFlipped2: true
+                })
+            } else if (user.usedhints === 2 && isFlipped3 === false) {
+                this.setState({
+                    isFlipped1: true,
+                    isFlipped2: true,
+                    isFlipped3: true
+                })
+            } else if (user.usedhints === 0 && isFlipped2 === true) {
+                this.setState({
+                    isFlipped1: false,
+                    isFlipped2: false,
+                    isFlipped3: false
+                })
+            } else if (user.usedhints === 0 && turnAnimation === true && isFlipped1 === true) {
+                this.setState({
+                    isFlipped1: false
+                })
+            } else if (user.usedhints === 0 && turnAnimation === false && isFlipped1 === false) {
+                this.setState({
+                    isFlipped1: true
+                })
+            }
+        } else if (this.props.lvlDifficulty === 'hard') {
+            if (user.usedhintshard === 1 && isFlipped2 === false) {
+                this.setState({
+                    isFlipped1: true,
+                    isFlipped2: true
+                })
+            } else if (user.usedhintshard === 2 && isFlipped3 === false) {
+                this.setState({
+                    isFlipped1: true,
+                    isFlipped2: true,
+                    isFlipped3: true
+                })
+            } else if (user.usedhintshard === 0 && isFlipped2 === true) {
+                this.setState({
+                    isFlipped1: false,
+                    isFlipped2: false,
+                    isFlipped3: false
+                })
+            } else if (user.usedhintshard === 0 && turnAnimation === true && isFlipped1 === true) {
+                this.setState({
+                    isFlipped1: false
+                })
+            } else if (user.usedhintshard === 0 && turnAnimation === false && isFlipped1 === false) {
+                this.setState({
+                    isFlipped1: true
+                })
+            }
         }
+
     }
     changeVolume = (volume) => {
         this.setState({
@@ -94,6 +140,7 @@ class Hints extends Component {
     }
 
     handleClick3 = () => {
+        console.log('asd')
         this.setState({
             isFlipped3: !this.state.isFlipped3
         })
@@ -163,13 +210,24 @@ class Hints extends Component {
                 <div className="thirdFlip flip">
                     <ReactCardFlip isFlipped={isFlipped3} flipDirection="vertical">
                         <div className='front3' key='front' onClick={() => {
-                            if (user.usedhints === 1) {
-                                this.handleClick3()
-                                doubledouble2()
-                                setTimeout(() => {
-                                    updateLocalStorage()
-                                }, 250)
+                            if (this.props.lvlDifficulty === 'easy') {
+                                if (user.usedhints === 1) {
+                                    this.handleClick3()
+                                    doubledouble2()
+                                    setTimeout(() => {
+                                        updateLocalStorage()
+                                    }, 250)
+                                }
+                            } else if (this.props.lvlDifficulty === 'hard') {
+                                if (user.usedhintshard === 1) {
+                                    this.handleClick3()
+                                    doubledouble2()
+                                    setTimeout(() => {
+                                        updateLocalStorage()
+                                    }, 250)
+                                }
                             }
+
                         }}><LazyLoadImage
                                 alt='image'
                                 src={change}
@@ -200,7 +258,8 @@ const mapStateToProps = state => {
         user: state.user,
         questionHintPlaying1: state.questionHintPlaying1,
         questionHintPlaying2: state.questionHintPlaying2,
-        questionHintPlaying3: state.questionHintPlaying3
+        questionHintPlaying3: state.questionHintPlaying3,
+        lvlDifficulty: state.lvlDifficulty
     }
 }
 
