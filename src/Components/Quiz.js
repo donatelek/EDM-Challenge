@@ -15,10 +15,13 @@ class Quiz extends Component {
 
     componentWillMount() {
         this.props.handlePageChange('/quiz')
+        const storage = localStorage.getItem('lvl')
+        this.props.handleChooseLvl(storage)
     }
 
     handleGainedPoints = (failedAttempts, usedHints) => {
         this.handleShowGainedPointsAnimation()
+
         const numberFailedAttempts = Number(failedAttempts)
         const numberUsedHints = Number(usedHints)
         let gainedPoints = 6 - numberUsedHints * 2 - numberFailedAttempts
@@ -33,13 +36,24 @@ class Quiz extends Component {
         })
     }
     handleShowLvlPasswordOnSkip = (lvl) => {
-        fetch(`https://pure-dawn-32038.herokuapp.com/getlvlpassword/${lvl}`).then(res => {
-            return res.json()
-        }).then(lvlPassword => {
-            this.setState({
-                lvlPassword: lvlPassword.toUpperCase()
+        if (this.props.lvlDifficulty === 'easy') {
+            fetch(`http://localhost:3000/getlvlpassword/${lvl}`).then(res => {
+                return res.json()
+            }).then(lvlPassword => {
+                this.setState({
+                    lvlPassword: lvlPassword.toUpperCase()
+                })
             })
-        })
+        } else if (this.props.lvlDifficulty === 'hard') {
+            fetch(`http://localhost:3000/getlvlpasswordhard/${lvl}`).then(res => {
+                return res.json()
+            }).then(lvlPassword => {
+                this.setState({
+                    lvlPassword: lvlPassword.toUpperCase()
+                })
+            })
+        }
+
     }
     handleShowLvlPasswordAnimation = () => {
         setTimeout(() => {
@@ -81,7 +95,10 @@ class Quiz extends Component {
         const { turnAnimation, showLvlPasswordAnimation, showGainedPointsAnimation } = this.state;
         const { userLvl, doubledouble1, doubledouble2, updateLocalStorage, resetFailedAttempts, updateFailedAttempts } = this.props;
         const { animationOnGoodAnswer } = this;
-        if (userLvl === 'END' && this.props.page !== 'scoreboard') {
+        if (this.props.easyLvlDone && this.props.page !== 'scoreboard' && this.props.lvlDifficulty === 'easy') {
+            this.props.handlePageChange('scoreboard')
+            this.props.history.push('/scoreboard')
+        } else if (this.props.hardLvlDone && this.props.page !== 'scoreboard' && this.props.lvlDifficulty === 'hard') {
             this.props.handlePageChange('scoreboard')
             this.props.history.push('/scoreboard')
         }
@@ -102,13 +119,16 @@ class Quiz extends Component {
 const mapStateToProps = (state) => {
     return {
         userLvl: state.userLvl,
-        page: state.page
-
+        page: state.page,
+        lvlDifficulty: state.lvlDifficulty,
+        easyLvlDone: state.easyLvlDone,
+        hardLvlDone: state.hardLvlDone
     }
 }
 const mapDispatchToProps = dispatch => {
     return {
         handlePageChange: (page) => dispatch({ type: actionTypes.SAVE_PAGE_URL, page }),
+        handleChooseLvl: (lvl) => dispatch({ type: actionTypes.SAVE_CHOOSE_LVL, lvl })
     }
 }
 

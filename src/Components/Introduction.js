@@ -11,9 +11,9 @@ class Introduction extends Component {
 
     componentDidMount() {
         this.props.handlePageChange('introduction')
-        const userLvl = this.props.user.id;
-        const numberLvl = parseInt(userLvl);
-        this.props.fetchUserLvl(numberLvl)
+        // const userLvl = this.props.user.id;
+        // const numberLvl = parseInt(userLvl);
+        // this.props.fetchUserLvl(numberLvl)
     }
     render() {
         const { handlePageChange } = this.props;

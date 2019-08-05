@@ -28,7 +28,9 @@ class Authentication extends Component {
     //     resetUsers()
     //     handlePageChange('/')
     // }
-
+    UNSAFE_componentWillMount() {
+        this.props.resetUsers()
+    }
     handleAuthChange = (page) => {
         const { saveShowWrongLogin } = this.props;
         saveShowWrongLogin(false)
