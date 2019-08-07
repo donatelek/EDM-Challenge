@@ -13,6 +13,7 @@
     font-family: 'Montserrat', sans-serif;
     overflow-x: hidden;
     -webkit-tap-highlight-color: transparent;
+    list-style-type: none;
 }
 
 ::-webkit-scrollbar {
@@ -351,7 +352,7 @@ div.userInfo {
 
 }
 
-@media screen and (max-height: 920px) and (max-width:1275px) {
+@media screen and (max-height: 920px) and (max-width:1601px) {
     h1.mainTitle {
         margin-top: 0px;
         margin-bottom: 0px;
@@ -375,7 +376,7 @@ div.userInfo {
 }
 
 
-@media screen and (max-height:720px) {
+@media screen and (max-height:735px) {
     div.hamburger {
         display: block;
         z-index: 10;

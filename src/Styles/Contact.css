@@ -96,7 +96,7 @@ div.contact button.submitContact::before {
     height: 100%;
 }
 
-@media screen and (max-height:800px) and (max-width:990px) {
+@media screen and (max-height:860px) and (max-width:1601px) {
     div.contact textarea {
         height: 180px;
     }

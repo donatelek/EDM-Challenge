@@ -36,7 +36,7 @@ class SoundPlayer extends Component {
         widthOfPlayer: '100px',
         heightOfPlayer: '60px'
       })
-    } else if (window.innerHeight <= 720) {
+    } else if (window.innerHeight <= 735) {
       this.setState({
         widthOfPlayer: '100px',
         heightOfPlayer: '60px'
