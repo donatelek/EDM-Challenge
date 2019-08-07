@@ -23,8 +23,9 @@
 Here is a working live demo :  https://edmchallenge.herokuapp.com/
 
 Answers for questions to test application you can find below
-<details>
+
 Level answers:
+<details>
 <summary>Easy</summary>
 <br>
 Level 1 - Alan Walker
@@ -49,7 +50,10 @@ Level 10 - Mike Candys
 <br>
 Level 11 - Galantis
 <br>
+<details>
 
+
+<details>
 <summary>Hard</summary>
 <br>
 Level 1 - Don Diablo
