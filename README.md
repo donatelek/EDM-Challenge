@@ -50,7 +50,7 @@ Level 10 - Mike Candys
 <br>
 Level 11 - Galantis
 <br>
-<details>
+</details>
 
 
 <details>
