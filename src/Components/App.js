@@ -13,6 +13,8 @@ import Error404 from './Error404';
 import * as actionTypes from '../store/actions'
 import { connect } from 'react-redux'
 import * as actionCreators from '../store/actions'
+import { url } from '../store/actions'
+
 class App extends Component {
   state = {
     sound: '0.3',
@@ -97,7 +99,7 @@ class App extends Component {
 
 
   updateLocalStorage = () => {
-    fetch('https://pure-dawn-32038.herokuapp.com/saveLocalStorage', {
+    fetch(`${url}saveLocalStorage`, {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -158,7 +160,7 @@ class App extends Component {
 
             {page !== '/' && <div className="userInfo">
               <div className="face"></div>
-              {user.username && localStorage.getItem('currentUser') && user.username !== 'null' && <div className='userName'>{user.username}</div>}
+              {user.username && user.username !== 'null' ? <div className='userName'>{user.username}</div> : null}
               {(user.username === 'null' || user.username === null) && user.id ? <div className='userName'>Anonymous{user.id}</div> : null}
               {user && <Link className='logOut' exact='true' to='/' onClick={handleLogOut}>LOG OUT</Link>}
               <br />

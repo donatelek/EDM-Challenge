@@ -143,7 +143,6 @@ const reducer = (state = initialState, action) => {
                 showLoaderIntroduction
             }
         case actionTypes.SAVE_USER_LVL:
-            console.log(action.userLvl)
             if (action.userLvl === 'END' && state.lvlDifficulty === 'easy') {
                 return {
                     ...state,

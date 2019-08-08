@@ -61,6 +61,7 @@ div.chooseLvl .lvls .easy {
     text-decoration: none;
     transition: .5s all ease;
     box-shadow: 0 10px 26px -6px black;
+    opacity: 0.9;
 }
 
 div.chooseLvl .lvls .easy h1 {
@@ -70,8 +71,9 @@ div.chooseLvl .lvls .easy h1 {
     line-height: 300px;
     text-decoration: none;
     color: rgb(106, 131, 201);
+    /* color: rgb(38, 49, 61); */
     font-weight: bold;
-    text-shadow: 2px 2px 4px #000000;
+    text-shadow: 4px 4px 4px #000000;
 }
 
 div.chooseLvl .lvls .hard {
@@ -83,8 +85,9 @@ div.chooseLvl .lvls .hard {
     text-align: center;
     font-size: 100px;
     line-height: 300px;
-    text-shadow: 2px 2px 4px #000000;
+    text-shadow: 4px 4px 4px #000000;
     text-decoration: none;
+    opacity: 0.9;
 }
 
 div.chooseLvl .lvls .hard h2 {

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import '../Styles/Scoreboard.css';
 import { connect } from 'react-redux';
 import * as actionTypes from '../store/actions'
+import { url } from '../store/actions'
+
 class Scoreboard extends Component {
     state = {
         top10: ''
@@ -10,7 +12,7 @@ class Scoreboard extends Component {
     UNSAFE_componentWillMount() {
         this.props.handlePageChange('scoreboard')
 
-        fetch('https://pure-dawn-32038.herokuapp.com/scoreboard', {
+        fetch(`${url}scoreboard`, {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
         }).then(res => res.json()).then(res => {

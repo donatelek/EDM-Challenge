@@ -3,6 +3,7 @@ import '../Styles/Answer.css';
 import { connect } from 'react-redux'
 import * as actionCreators from '../store/actions'
 import * as actionTypes from '../store/actions'
+import { url } from '../store/actions'
 class Answer extends Component {
     state = {
         passwordInput: '',
@@ -35,7 +36,7 @@ class Answer extends Component {
         if (this.state.answerInput.trim() === '') {
             return
         }
-        fetch('https://pure-dawn-32038.herokuapp.com/password', {
+        fetch(`${url}password`, {
             method: 'post',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
