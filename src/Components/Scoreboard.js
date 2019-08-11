@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import '../Styles/Scoreboard.css';
 import { connect } from 'react-redux';
 import * as actionTypes from '../store/actions'
+import { url } from '../store/actions'
+
 class Scoreboard extends Component {
     state = {
         top10: ''
@@ -9,15 +11,25 @@ class Scoreboard extends Component {
 
     UNSAFE_componentWillMount() {
         this.props.handlePageChange('scoreboard')
-        fetch('https://pure-dawn-32038.herokuapp.com/scoreboard', {
+
+        fetch(`${url}scoreboard`, {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
         }).then(res => res.json()).then(res => {
-            const sorting = res.sort((a, b) => {
-                const A = a.easylvl;
-                const B = b.easylvl;
-                return B - A;
-            })
+            let sorting
+            if (this.props.lvlDifficulty === 'easy') {
+                sorting = res.sort((a, b) => {
+                    const A = a.easylvl;
+                    const B = b.easylvl;
+                    return B - A;
+                })
+            } else if (this.props.lvlDifficulty === 'hard') {
+                sorting = res.sort((a, b) => {
+                    const A = a.hardmode;
+                    const B = b.hardmode;
+                    return B - A;
+                })
+            }
             this.setState({
                 top10: sorting
             })
@@ -35,7 +47,8 @@ class Scoreboard extends Component {
                     return (
                         <React.Fragment key={index}>
                             <li className='username' >{user.username}</li>
-                            <li className='points'>{user.easylvl}</li>
+                            {this.props.lvlDifficulty === 'easy' && <li className='points'>{user.easylvl}</li>}
+                            {this.props.lvlDifficulty === 'hard' && <li className='points'>{user.hardmode}</li>}
                         </React.Fragment>
                     )
                 }
@@ -68,14 +81,14 @@ class Scoreboard extends Component {
 const mapStateToProps = (state) => {
     return {
         userLvl: state.userLvl,
-        page: state.page
-
+        page: state.page,
+        lvlDifficulty: state.lvlDifficulty
     }
 }
 const mapDispatchToProps = dispatch => {
     return {
         handlePageChange: (page) => dispatch({ type: actionTypes.SAVE_PAGE_URL, page }),
-
+        handleChooseLvl: (lvl) => dispatch({ type: actionTypes.SAVE_CHOOSE_LVL, lvl })
     }
 }
 

@@ -91,6 +91,29 @@ div.answer div.wrongAnswer {
     }
 }
 
+@media screen and (max-width:1601px) and (max-height:870px) {
+    div.answer input.inputAnswer {
+        width: 250px;
+        height: 25px;
+        font-size: 18px;
+        padding-bottom: 5px;
+    }
+
+    div.answer .check {
+        top: 40px;
+        width: 140px;
+        font-size: 20px;
+        height: 30px;
+    }
+
+    div.answer div.wrongAnswer {
+        margin-right: 300px;
+        margin-top: 20px;
+        z-index: 123123312;
+        font-size: 14px;
+    }
+}
+
 @media screen and (max-width:790px) {
     div.answer input.inputAnswer {
         width: 250px;

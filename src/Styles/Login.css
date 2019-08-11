@@ -84,6 +84,7 @@
     left: 70px;
     margin-top: 12px;
     position: absolute;
+    overflow: hidden;
 }
 
 @keyframes fade {
@@ -100,7 +101,7 @@
     animation: slide-out-bck-center 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
 }
 
-@media screen and (max-height: 920px) and (max-width:1275px) {
+@media screen and (max-height: 920px) and (max-width:1601px) {
     .login {
         position: relative;
         height: 380px;
