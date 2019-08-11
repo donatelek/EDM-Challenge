@@ -8,7 +8,7 @@ class Contact extends Component {
     formSubmitted: false,
     name: '',
     showMessageSent: false,
-    buttonDisabled: false
+    showMessageError: false
   }
 
   componentWillMount() {
@@ -17,53 +17,35 @@ class Contact extends Component {
 
   static sender = 'sender@example.com';
 
-  handleNameChange = (e) => {
-    this.setState({
-      name: e.target.value
-    })
-  }
 
-  handleCancel = () => {
-    this.setState({
-      feedback: ''
-    });
-  }
 
-  handleChange = (event) => {
-    this.setState({
-      feedback: event.target.value
-    });
-  }
-
-  handleShowMessageSent = () => {
-    if (!this.state.buttonDisabled) {
+  handleInputChange = (e) => {
+    const name = e.target.name
+    const value = e.target.value
+    if (name === 'feedback') {
       this.setState({
-        buttonDisabled: true
+        feedback: value
       })
-      setTimeout(() => {
-        this.setState({
-          showMessageSent: true
-        })
-      }, 200)
-      setTimeout(() => {
-        this.setState({
-          showMessageSent: false
-        })
-      }, 6000)
+    } else if (name === 'name') {
+      this.setState({
+        name: value
+      })
     }
   }
 
   handleSubmit = (event) => {
     event.preventDefault();
     if (!this.state.feedback && !this.state.name) {
+      this.setState({
+        showMessageError: true
+      })
+      setTimeout(() => {
+        this.setState({
+          showMessageError: false
+        })
+      }, 3000)
       return
     }
-    if (this.state.buttonDisabled) {
-      return
-    }
-    this.setState({
-      buttonDisabled: true
-    })
     const temp = 'contact_template'
     this.sendFeedback(
       temp,
@@ -87,19 +69,16 @@ class Contact extends Component {
         feedback
       })
       .then(res => {
-        this.setState({
-          formEmailSent: true
-        });
-        setTimeout(() => {
+        if (res.status === 200) {
           this.setState({
             showMessageSent: true
           })
-        }, 200)
-        setTimeout(() => {
-          this.setState({
-            showMessageSent: false
-          })
-        }, 2000)
+          setTimeout(() => {
+            this.setState({
+              showMessageSent: false
+            })
+          }, 3000)
+        }
       })
       .catch(err => console.error('Failed to send feedback. Error: ', err));
   }
@@ -113,7 +92,7 @@ class Contact extends Component {
           <div className="name">
             <span>Name</span>
             <br />
-            <input type="text" onChange={this.handleNameChange} value={this.state.name} placeholder="Your name" />
+            <input type="text" onChange={this.handleInputChange} value={this.state.name} name='name' placeholder="Your name" />
           </div>
           <div className="message">
             <span>Message</span>
@@ -121,13 +100,14 @@ class Contact extends Component {
             <textarea
               className="text-input"
               id="feedback-entry"
-              name="feedback-entry"
-              onChange={this.handleChange}
+              name="feedback"
+              onChange={this.handleInputChange}
               placeholder="Enter your message here"
               value={this.state.feedback}
             />
           </div>
           {this.state.showMessageSent && <div className="messageSent">Message has been sent</div>}
+          {this.state.showMessageError && <div className="contactSentError">Please fill all form fields!</div>}
           <input type='submit' value='Send' className="submitContact" />
         </form>
       </div>
