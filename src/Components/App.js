@@ -72,7 +72,7 @@ class App extends Component {
     this.props.updateUsedHints(this.props.user.id, this.props.lvlDifficulty)
   }
 
-  doubledouble1 = () => {
+  handleShowHint1 = () => {
     if (this.props.lvlDifficulty === 'easy') {
       if (this.props.user.usedhints === 0 || this.props.user.usedhints === "0") {
         this.updateUsedHints()
@@ -84,7 +84,7 @@ class App extends Component {
     }
 
   }
-  doubledouble2 = () => {
+  handleShowHint2 = () => {
     if (this.props.lvlDifficulty === 'easy') {
       if (this.props.user.usedhints === 0 || this.props.user.usedhints === 1 || this.props.user.usedhints === "0") {
         this.updateUsedHints()
@@ -148,7 +148,7 @@ class App extends Component {
 
   render() {
 
-    const { handleLogOut, pageChange, setUserLvl, submitLogin, doubledouble1, doubledouble2, updateLocalStorage, resetFailedAttempts, updateFailedAttempts, } = this;
+    const { handleLogOut, pageChange, setUserLvl, submitLogin, handleShowHint1, handleShowHint2, updateLocalStorage, resetFailedAttempts, updateFailedAttempts, } = this;
     const { user, page, userLogged } = this.props;
 
     return (
@@ -182,7 +182,7 @@ class App extends Component {
               {user && <Route path='/introduction' render={(props) => (<Introduction {...props} pageChange={pageChange} setUserLvl={setUserLvl} userId={user.id} />)} />}
 
               {user && <Route path='/quiz' render={(props) => (
-                <Quiz {...props} doubledouble1={doubledouble1} doubledouble2={doubledouble2} updateLocalStorage={updateLocalStorage} resetFailedAttempts={resetFailedAttempts} updateFailedAttempts={updateFailedAttempts} />
+                <Quiz {...props} handleShowHint1={handleShowHint1} handleShowHint2={handleShowHint2} updateLocalStorage={updateLocalStorage} resetFailedAttempts={resetFailedAttempts} updateFailedAttempts={updateFailedAttempts} />
               )} />}
               <Route path='/contact' exact={true} render={(props) => (
                 <Contact {...props} />
@@ -197,13 +197,13 @@ class App extends Component {
             {this.props.showFooter ? <div className="hamburger" onClick={this.props.handleShowFooter}><i className="fas fa-bars"></i></div> : <div className="hamburger" style={{ bottom: '10px' }} onClick={this.props.handleShowFooter}><i className="fas fa-bars"></i></div>}
 
             {this.props.showFooter ? <div className="navInFooter" style={{ bottom: '80px' }}>
-              {page === 'contact' && user && <Link to='/lvl' className='goBackFooter' >Back to levels</Link>}
-              {page === 'contact' && !user && <Link onClick={() => this.pageChange('/')} to='/' className='goBackFooter'>Log In</Link>}
+              {(page === 'contact' && user) && <Link to='/lvl' className='goBackFooter' >Back to levels</Link>}
+              {(page === 'contact' && !user) && <Link onClick={() => this.pageChange('/')} to='/' className='goBackFooter'>Log In</Link>}
               {page === '/quiz' || page === 'scoreboard' ? <Link className='goBackFooter' to='/lvl'>GO Back</Link> : null}
               {this.props.user && <Link className='logOutFooter' to='/' exact={true} onClick={handleLogOut}>LOG OUT</Link>}
             </div> : <div className="navInFooter" >
-                {page === 'contact' && user && <Link to='/lvl' className='goBackFooter'>Back To levels</Link>}
-                {page === 'contact' && !user && <Link onClick={() => this.pageChange('/')} to='/' className='goBackFooter'>Log In</Link>}
+                {(page === 'contact' && user) && <Link to='/lvl' className='goBackFooter'>Back To levels</Link>}
+                {(page === 'contact' && !user) && <Link onClick={() => this.pageChange('/')} to='/' className='goBackFooter'>Log In</Link>}
                 {page === '/quiz' || page === 'scoreboard' ? <Link className='goBackFooter' to='/lvl'>Go Back</Link> : null}
                 {this.props.user && <Link className='logOutFooter' to='/' exact='true' onClick={handleLogOut}>LOG OUT</Link>}
               </div>}

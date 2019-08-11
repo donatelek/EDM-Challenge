@@ -95,7 +95,7 @@ class Quiz extends Component {
 
     render() {
         const { turnAnimation, showLvlPasswordAnimation, showGainedPointsAnimation } = this.state;
-        const { userLvl, doubledouble1, doubledouble2, updateLocalStorage, resetFailedAttempts, updateFailedAttempts } = this.props;
+        const { userLvl, handleShowHint1, handleShowHint2, updateLocalStorage, resetFailedAttempts, updateFailedAttempts } = this.props;
         const { animationOnGoodAnswer } = this;
         if (this.props.easyLvlDone && this.props.page !== 'scoreboard' && this.props.lvlDifficulty === 'easy') {
             this.props.handlePageChange('scoreboard')
@@ -110,8 +110,8 @@ class Quiz extends Component {
                 {turnAnimation ? <h2 className="category fadeNumber">{userLvl.category}</h2> : <h2 className="category">{userLvl.category}</h2>}
                 {showLvlPasswordAnimation && <div className="popupAnswer">{this.state.lvlPassword}</div>}
                 {showGainedPointsAnimation && <div className="popupAnswer">+ {this.state.gainedPoints}</div>}
-                <Hints turnAnimation={turnAnimation} doubledouble2={doubledouble2} doubledouble1={doubledouble1} updateLocalStorage={updateLocalStorage} />
-                <Answer turnAnimation={turnAnimation} animationOnGoodAnswer={animationOnGoodAnswer} doubledouble1={doubledouble1} updateLocalStorage={updateLocalStorage} resetFailedAttempts={resetFailedAttempts} updateFailedAttempts={updateFailedAttempts} handleShowLvlPasswordOnSkip={this.handleShowLvlPasswordOnSkip} handleShowLvlPasswordAnimation={this.handleShowLvlPasswordAnimation} handleGainedPoints={this.handleGainedPoints} handleShowGainedPointsAnimation={this.handleShowGainedPointsAnimation} />
+                <Hints turnAnimation={turnAnimation} handleShowHint2={handleShowHint2} handleShowHint1={handleShowHint1} updateLocalStorage={updateLocalStorage} />
+                <Answer turnAnimation={turnAnimation} animationOnGoodAnswer={animationOnGoodAnswer} updateLocalStorage={updateLocalStorage} resetFailedAttempts={resetFailedAttempts} updateFailedAttempts={updateFailedAttempts} handleShowLvlPasswordOnSkip={this.handleShowLvlPasswordOnSkip} handleShowLvlPasswordAnimation={this.handleShowLvlPasswordAnimation} handleGainedPoints={this.handleGainedPoints} handleShowGainedPointsAnimation={this.handleShowGainedPointsAnimation} />
             </div>
 
         );

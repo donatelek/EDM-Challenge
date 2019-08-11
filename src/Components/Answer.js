@@ -140,8 +140,6 @@ class Answer extends Component {
                             updateLocalStorage()
                         }, 250)
                     }} className="skip">SKIP</button>
-                    {/* {turnAnimation && this.props.lvlDifficulty === 'easy' ? <div className="points">Your points: <span className='fadePoints'>{user.easylvl}</span></div> : <div className="points" >Your points: <span>{user.easylvl}</span></div>}
-                    {turnAnimation && this.props.lvlDifficulty === 'hard' ? <div className="points">Your points: <span className='fadePoints'>{user.hardmode}</span></div> : <div className="points" >Your points: <span>{user.hardmode}</span></div>} */}
                     {this.showPoints()}
                 </div>
             </>
