@@ -244,7 +244,7 @@ div.hamburger {
 .goBackFooter {
     overflow-y: hidden;
     line-height: 18px;
-    color: black;
+    color: rgb(37, 30, 30);
     width: 100%;
     height: 48%;
     font-weight: bold;
@@ -255,6 +255,7 @@ div.hamburger {
     border: 1px solid black;
     border-radius: 50px;
     margin-right: 5px;
+    box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.6);
 }
 
 div.userInfo {
@@ -267,17 +268,18 @@ div.userInfo {
     text-align: center;
     text-decoration: none;
     font-weight: bold;
-    line-height: 9px;
+    line-height: 8px;
     height: 48%;
     font-weight: bold;
     font-size: 12px;
     cursor: pointer;
     border-radius: 40px;
     border: 1px solid black;
-    color: rgb(0, 0, 0);
+    color: rgb(37, 30, 30);
     padding: 5px;
     margin-right: 5px;
     overflow: hidden;
+    box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.6);
 }
 
 
@@ -418,6 +420,4 @@ div.userInfo {
     .navInFooter .logOutFooter {
         font-size: 11px;
     }
-
-
 }
