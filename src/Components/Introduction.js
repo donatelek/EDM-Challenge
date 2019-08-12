@@ -30,7 +30,7 @@ class Introduction extends Component {
                     <br />
                     <h3>Link to playlist: https://bit.ly/2XFqQAg</h3>
                     <br />
-                    <h3>Good Luck :)</h3>
+                    <h3>Good Luck <i class="far fa-smile-wink"></i></h3>
                 </article>
                 <Link onClick={() => handlePageChange('chooselvl')} className="ok" to='/lvl'>Let's Play</Link>
             </div>

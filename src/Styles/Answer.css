@@ -160,19 +160,29 @@ div.answer div.wrongAnswer {
     }
 }
 
+@media screen and (max-width: 376px) {
+    div.answer {
+        margin-top: 5px;
+    }
+
+    div.answer div.wrongAnswer {
+        z-index: 123123312;
+        font-size: 11px;
+        width: 150px;
+        position: absolute;
+        font-weight: bold;
+        color: rgba(209, 8, 8, 0.685);
+        bottom: 5px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
 @media screen and (max-width: 358px) {
     div.answer div.points {
         font-size: 11px;
         right: -20px;
         width: 130px;
         top: 48px;
-    }
-
-    div.answer div.wrongAnswer {
-        margin-right: 260px;
-        margin-top: 20px;
-        z-index: 123123312;
-        font-size: 11px;
-        width: 90px;
     }
 }

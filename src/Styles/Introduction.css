@@ -68,6 +68,11 @@
     transition: .3s ease background-color;
 }
 
+.introduction .fa-smile-wink {
+    font-size: 20px;
+    line-height: 20px
+}
+
 .introduction .ok::before {
     content: '';
     background-color: black;
