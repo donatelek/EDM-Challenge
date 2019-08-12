@@ -89,7 +89,7 @@ div.authentication .anonymous:hover {
     font-weight: bold;
 }
 
-@media screen and (max-height: 920px) and (max-width:1275px) {
+@media screen and (max-height: 920px) and (max-width:1601px) {
     div.authentication .anonymous {
         bottom: 175px;
     }

@@ -159,6 +159,7 @@ div.quizHints .hint {
     left: 50%;
     transform: translate(-50%, -50%);
     transition: .2s ease font-size;
+    overflow: hidden;
 }
 
 .soundHint .fas:hover {
@@ -192,6 +193,43 @@ input.volumeChanger::-webkit-slider-thumb {
     transition: border 1000ms ease;
 }
 
+input.volumeChanger::-moz-range-thumb {
+    -moz-appearance: none;
+    border: 2px solid;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    max-width: 80px;
+    position: relative;
+    bottom: 11px;
+    background-color: #1d1c25;
+    cursor: -moz-grab;
+    -moz-transition: border 1000ms ease;
+    transition: border 1000ms ease;
+}
+
+input.volumeChanger::-moz-range-thumb {
+    border-color: rgb(59, 173, 227);
+}
+
+input.volumeChanger::-webkit-slider-thumb {
+    border-color: rgb(59, 173, 227);
+}
+
+input.volumeChanger::-moz-range-track {
+    -moz-appearance: none;
+    background: rgba(59, 173, 227, 1);
+    background: -moz-linear-gradient(45deg, rgba(59, 173, 227, 1) 0%, rgba(87, 111, 230, 1) 25%, rgba(152, 68, 183, 1) 51%, rgba(255, 53, 127, 1) 100%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(59, 173, 227, 1)), color-stop(25%, rgba(87, 111, 230, 1)), color-stop(51%, rgba(152, 68, 183, 1)), color-stop(100%, rgba(255, 53, 127, 1)));
+    background: -webkit-linear-gradient(45deg, rgba(59, 173, 227, 1) 0%, rgba(87, 111, 230, 1) 25%, rgba(152, 68, 183, 1) 51%, rgba(255, 53, 127, 1) 100%);
+    background: -o-linear-gradient(45deg, rgba(59, 173, 227, 1) 0%, rgba(87, 111, 230, 1) 25%, rgba(152, 68, 183, 1) 51%, rgba(255, 53, 127, 1) 100%);
+    background: -ms-linear-gradient(45deg, rgba(59, 173, 227, 1) 0%, rgba(87, 111, 230, 1) 25%, rgba(152, 68, 183, 1) 51%, rgba(255, 53, 127, 1) 100%);
+    background: linear-gradient(45deg, rgba(59, 173, 227, 1) 0%, rgba(87, 111, 230, 1) 25%, rgba(152, 68, 183, 1) 51%, rgba(255, 53, 127, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3bade3 ', endColorstr='#ff357f ', GradientType=1);
+    height: 2px;
+    /* width: 130px; */
+}
+
 input.volumeChanger::-webkit-slider-runnable-track {
     -webkit-appearance: none;
     background: rgba(59, 173, 227, 1);
@@ -203,6 +241,19 @@ input.volumeChanger::-webkit-slider-runnable-track {
     background: linear-gradient(45deg, rgba(59, 173, 227, 1) 0%, rgba(87, 111, 230, 1) 25%, rgba(152, 68, 183, 1) 51%, rgba(255, 53, 127, 1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3bade3 ', endColorstr='#ff357f ', GradientType=1);
     height: 3px;
+}
+
+input.volumeChanger::-ms-track {
+    -ms-appearance: none;
+    background: rgba(59, 173, 227, 1);
+    background: -moz-linear-gradient(45deg, rgba(59, 173, 227, 1) 0%, rgba(87, 111, 230, 1) 25%, rgba(152, 68, 183, 1) 51%, rgba(255, 53, 127, 1) 100%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(59, 173, 227, 1)), color-stop(25%, rgba(87, 111, 230, 1)), color-stop(51%, rgba(152, 68, 183, 1)), color-stop(100%, rgba(255, 53, 127, 1)));
+    background: -webkit-linear-gradient(45deg, rgba(59, 173, 227, 1) 0%, rgba(87, 111, 230, 1) 25%, rgba(152, 68, 183, 1) 51%, rgba(255, 53, 127, 1) 100%);
+    background: -o-linear-gradient(45deg, rgba(59, 173, 227, 1) 0%, rgba(87, 111, 230, 1) 25%, rgba(152, 68, 183, 1) 51%, rgba(255, 53, 127, 1) 100%);
+    background: -ms-linear-gradient(45deg, rgba(59, 173, 227, 1) 0%, rgba(87, 111, 230, 1) 25%, rgba(152, 68, 183, 1) 51%, rgba(255, 53, 127, 1) 100%);
+    background: linear-gradient(45deg, rgba(59, 173, 227, 1) 0%, rgba(87, 111, 230, 1) 25%, rgba(152, 68, 183, 1) 51%, rgba(255, 53, 127, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3bade3 ', endColorstr='#ff357f ', GradientType=1);
+    height: 2px;
 }
 
 @keyframes hints {
@@ -257,6 +308,28 @@ input.volumeChanger::-webkit-slider-runnable-track {
         width: 30%;
     }
 
+}
+
+@media screen and (max-width:1601px) and (max-height:950px) {
+    div.quizHints {
+        height: 250px;
+    }
+
+    .quizHints .flip {
+        height: 100%;
+    }
+
+    .soundHint .fas {
+        font-size: 40px;
+    }
+
+    .soundHint .fas:hover {
+        font-size: 40px;
+    }
+
+    .soundHint h1.soundHintPlay {
+        font-size: 30px;
+    }
 }
 
 @media screen and (max-width:1140px) {

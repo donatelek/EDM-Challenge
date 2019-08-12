@@ -16,7 +16,10 @@ const initialState = {
     showSuccessRegister: false,
     showWrongLength: false,
     gainedPointsForLvl: null,
-    showGainedPointsForLvl: false
+    showGainedPointsForLvl: false,
+    lvlDifficulty: '',
+    easyLvlDone: false,
+    hardLvlDone: false
 }
 
 const reducer = (state = initialState, action) => {
@@ -140,10 +143,23 @@ const reducer = (state = initialState, action) => {
                 showLoaderIntroduction
             }
         case actionTypes.SAVE_USER_LVL:
-            return {
-                ...state,
-                userLvl: action.userLvl
+            if (action.userLvl === 'END' && state.lvlDifficulty === 'easy') {
+                return {
+                    ...state,
+                    easyLvlDone: true
+                }
+            } else if (action.userLvl === 'END' && state.lvlDifficulty === 'hard') {
+                return {
+                    ...state,
+                    hardLvlDone: true
+                }
+            } else {
+                return {
+                    ...state,
+                    userLvl: action.userLvl
+                }
             }
+
         case actionTypes.SAVE_PAGE_URL:
             return {
                 ...state,
@@ -173,6 +189,17 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 showSuccessRegister: action.showSuccessRegister
+            }
+        case actionTypes.RESET_LVL_DONE:
+            return {
+                ...state,
+                easyLvlDone: false,
+                hardLvlDone: false
+            }
+        case actionTypes.SAVE_CHOOSE_LVL:
+            return {
+                ...state,
+                lvlDifficulty: action.lvl
             }
         default: return state;
     }

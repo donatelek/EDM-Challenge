@@ -13,6 +13,8 @@ import Error404 from './Error404';
 import * as actionTypes from '../store/actions'
 import { connect } from 'react-redux'
 import * as actionCreators from '../store/actions'
+import { url } from '../store/actions'
+
 class App extends Component {
   state = {
     sound: '0.3',
@@ -21,6 +23,10 @@ class App extends Component {
   }
 
   componentWillMount() {
+    const storage = localStorage.getItem('lvl')
+    if (storage) {
+      this.props.handleChooseLvl(storage)
+    }
     if (window.innerWidth < 933) {
       this.setState({
         h: window.innerHeight + 100,
@@ -29,13 +35,14 @@ class App extends Component {
     }
   }
   componentDidMount() {
-    this.props.fetchLocalStorage(this.props.user, this.state.page)
-  }
-
-  componentDidUpdate() {
-    if (this.props.user && this.props.userLvl && this.props.page !== 'introduction') {
+    const lvl = localStorage.getItem('lvl')
+    if (lvl) {
+      this.props.fetchLocalStorage(this.props.user, this.state.page, lvl)
+    } else {
+      this.props.fetchLocalStorage(this.props.user, this.state.page)
     }
   }
+
 
   setUserIfUserLogged = () => {
     this.props.saveUserLogged(true)
@@ -50,35 +57,49 @@ class App extends Component {
   }
 
   resetUsedHints = () => {
-    this.props.resetUsedHints(this.props.user.id)
+    this.props.resetUsedHints(this.props.user.id, this.props.lvlDifficulty)
   }
 
   resetFailedAttempts = () => {
-    this.props.resetFailedAttempts(this.props.user.id)
+    this.props.resetFailedAttempts(this.props.user.id, this.props.lvlDifficulty)
   }
 
   updateFailedAttempts = () => {
-    this.props.updateFailedAttempts(this.props.user.id)
+    this.props.updateFailedAttempts(this.props.user.id, this.props.lvlDifficulty)
   }
 
   updateUsedHints = () => {
-    this.props.updateUsedHints(this.props.user.id)
+    this.props.updateUsedHints(this.props.user.id, this.props.lvlDifficulty)
   }
 
-  doubledouble1 = () => {
-    if (this.props.user.usedhints === 0 || this.props.user.usedhints === "0") {
-      this.updateUsedHints()
+  handleShowHint1 = () => {
+    if (this.props.lvlDifficulty === 'easy') {
+      if (this.props.user.usedhints === 0 || this.props.user.usedhints === "0") {
+        this.updateUsedHints()
+      }
+    } else if (this.props.lvlDifficulty === 'hard') {
+      if (this.props.user.usedhintshard === 0 || this.props.user.usedhintshard === "0") {
+        this.updateUsedHints()
+      }
     }
+
   }
-  doubledouble2 = () => {
-    if (this.props.user.usedhints === 0 || this.props.user.usedhints === 1 || this.props.user.usedhints === "0") {
-      this.updateUsedHints()
+  handleShowHint2 = () => {
+    if (this.props.lvlDifficulty === 'easy') {
+      if (this.props.user.usedhints === 0 || this.props.user.usedhints === 1 || this.props.user.usedhints === "0") {
+        this.updateUsedHints()
+      }
+    } else if (this.props.lvlDifficulty === 'hard') {
+      if (this.props.user.usedhintshard === 0 || this.props.user.usedhintshard === 1 || this.props.user.usedhintshard === "0") {
+        this.updateUsedHints()
+      }
     }
+
   }
 
 
   updateLocalStorage = () => {
-    fetch('https://pure-dawn-32038.herokuapp.com/saveLocalStorage', {
+    fetch(`${url}saveLocalStorage`, {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -95,7 +116,7 @@ class App extends Component {
   }
 
   handleUserPoints = () => {
-    this.props.handleUserPoints(this.props.user.id)
+    this.props.handleUserPoints(this.props.user.id, this.props.lvlDifficulty)
   }
 
 
@@ -127,7 +148,7 @@ class App extends Component {
 
   render() {
 
-    const { handleLogOut, pageChange, setUserLvl, submitLogin, doubledouble1, doubledouble2, updateLocalStorage, resetFailedAttempts, updateFailedAttempts, } = this;
+    const { handleLogOut, pageChange, setUserLvl, submitLogin, handleShowHint1, handleShowHint2, updateLocalStorage, resetFailedAttempts, updateFailedAttempts, } = this;
     const { user, page, userLogged } = this.props;
 
     return (
@@ -139,11 +160,11 @@ class App extends Component {
 
             {page !== '/' && <div className="userInfo">
               <div className="face"></div>
-              {user.username && localStorage.getItem('currentUser') && user.username !== 'null' && <div className='userName'>{user.username}</div>}
+              {user.username && user.username !== 'null' ? <div className='userName'>{user.username}</div> : null}
               {(user.username === 'null' || user.username === null) && user.id ? <div className='userName'>Anonymous{user.id}</div> : null}
               {user && <Link className='logOut' exact='true' to='/' onClick={handleLogOut}>LOG OUT</Link>}
               <br />
-              {page === 'contact' && !user ? <Link to='/' className='backToLogIn' >Back to log in</Link> : null}
+              {page === 'contact' && !user ? <Link to='/' onClick={() => this.pageChange('/')} className='backToLogIn' >Back to log in</Link> : null}
               {page === 'contact' && user ? <Link to='/lvl' className='goBack'>Back to levels</Link> : null}
               {page === '/quiz' || page === 'scoreboard' ? <Link className='goBack' to='/lvl'>GO BACK</Link> : null}
             </div>}
@@ -161,14 +182,14 @@ class App extends Component {
               {user && <Route path='/introduction' render={(props) => (<Introduction {...props} pageChange={pageChange} setUserLvl={setUserLvl} userId={user.id} />)} />}
 
               {user && <Route path='/quiz' render={(props) => (
-                <Quiz {...props} doubledouble1={doubledouble1} doubledouble2={doubledouble2} updateLocalStorage={updateLocalStorage} resetFailedAttempts={resetFailedAttempts} updateFailedAttempts={updateFailedAttempts} />
+                <Quiz {...props} handleShowHint1={handleShowHint1} handleShowHint2={handleShowHint2} updateLocalStorage={updateLocalStorage} resetFailedAttempts={resetFailedAttempts} updateFailedAttempts={updateFailedAttempts} />
               )} />}
               <Route path='/contact' exact={true} render={(props) => (
                 <Contact {...props} />
               )} />
-              {user && <Route path='/scoreboard' exact={true} render={(props) => (
+              {user && (this.props.easyLvlDone || this.props.hardLvlDone) ? <Route path='/scoreboard' exact={true} render={(props) => (
                 <Scoreboard {...props} pageChange={pageChange} />
-              )} />}
+              )} /> : null}
               {this.props.page !== 'introduction' && user ? <Route component={Error404} /> : null}
               {submitLogin}
             </Switch>
@@ -176,13 +197,13 @@ class App extends Component {
             {this.props.showFooter ? <div className="hamburger" onClick={this.props.handleShowFooter}><i className="fas fa-bars"></i></div> : <div className="hamburger" style={{ bottom: '10px' }} onClick={this.props.handleShowFooter}><i className="fas fa-bars"></i></div>}
 
             {this.props.showFooter ? <div className="navInFooter" style={{ bottom: '80px' }}>
-              {page === 'contact' && user && <Link to='/lvl' className='goBackFooter' >Back to levels</Link>}
-              {page === 'contact' && !user && <Link to='/' className='goBackFooter'>Log In</Link>}
+              {(page === 'contact' && user) && <Link to='/lvl' className='goBackFooter' >Back to levels</Link>}
+              {(page === 'contact' && !user) && <Link onClick={() => this.pageChange('/')} to='/' className='goBackFooter'>Log In</Link>}
               {page === '/quiz' || page === 'scoreboard' ? <Link className='goBackFooter' to='/lvl'>GO Back</Link> : null}
               {this.props.user && <Link className='logOutFooter' to='/' exact={true} onClick={handleLogOut}>LOG OUT</Link>}
             </div> : <div className="navInFooter" >
-                {page === 'contact' && user && <Link to='/lvl' className='goBackFooter'>Back To levels</Link>}
-                {page === 'contact' && !user && <Link to='/' className='goBackFooter'>Log In</Link>}
+                {(page === 'contact' && user) && <Link to='/lvl' className='goBackFooter'>Back To levels</Link>}
+                {(page === 'contact' && !user) && <Link onClick={() => this.pageChange('/')} to='/' className='goBackFooter'>Log In</Link>}
                 {page === '/quiz' || page === 'scoreboard' ? <Link className='goBackFooter' to='/lvl'>Go Back</Link> : null}
                 {this.props.user && <Link className='logOutFooter' to='/' exact='true' onClick={handleLogOut}>LOG OUT</Link>}
               </div>}
@@ -208,7 +229,10 @@ const mapStateToProps = state => {
     showUserExist: state.showUserExist,
     showWrongLogin: state.showWrongLogin,
     userLogged: state.userLogged,
-    userLvl: state.userLvl
+    userLvl: state.userLvl,
+    lvlDifficulty: state.lvlDifficulty,
+    easyLvlDone: state.easyLvlDone,
+    hardLvlDone: state.hardLvlDone
   }
 }
 const mapDispatchToProps = dispatch => {
@@ -216,19 +240,20 @@ const mapDispatchToProps = dispatch => {
     handleShowFooter: () => dispatch({ type: actionTypes.SHOW_FOOTER }),
     handlePageChange: (page) => dispatch({ type: actionTypes.SAVE_PAGE_URL, page }),
     anonymousLogin: () => dispatch(actionCreators.fetchAnonymousLogin()),
-    fetchLocalStorage: (user, page) => dispatch(actionCreators.fetchLocalStorage(user, page)),
-    resetUsedHints: (id) => dispatch(actionCreators.resetUsedHints(id)),
-    resetFailedAttempts: (id) => dispatch(actionCreators.resetFailedAttempts(id)),
-    updateFailedAttempts: (id) => dispatch(actionCreators.updateFailedAttempts(id)),
-    updateUsedHints: (id) => dispatch(actionCreators.updateUsedHints(id)),
-    handleUserPoints: (id) => dispatch(actionCreators.handleUserPoints(id)),
+    fetchLocalStorage: (user, page, lvl) => dispatch(actionCreators.fetchLocalStorage(user, page, lvl)),
+    resetUsedHints: (id, lvl) => dispatch(actionCreators.resetUsedHints(id, lvl)),
+    resetFailedAttempts: (id, lvl) => dispatch(actionCreators.resetFailedAttempts(id, lvl)),
+    updateFailedAttempts: (id, lvl) => dispatch(actionCreators.updateFailedAttempts(id, lvl)),
+    updateUsedHints: (id, lvl) => dispatch(actionCreators.updateUsedHints(id, lvl)),
+    handleUserPoints: (id, lvl) => dispatch(actionCreators.handleUserPoints(id, lvl)),
     handleNextLvl: (id) => dispatch(actionCreators.handleNextLvl(id)),
     resetUsers: () => dispatch(actionCreators.resetUsers()),
     setUserLvl: (user) => dispatch(actionCreators.setUserLvl(user)),
     submitLogin: (username, password) => dispatch(actionCreators.submitLogin(username, password)),
     submitRegister: (username, password) => dispatch(actionCreators.submitRegister(username, password)),
     saveUserLogged: (userLogged) => dispatch({ type: actionTypes.SAVE_USER_LOGGED, userLogged }),
-    saveShowWrongLogin: (showWrongLogin) => dispatch({ type: actionTypes.SAVE_SHOW_WRONG_LOGIN, showWrongLogin })
+    saveShowWrongLogin: (showWrongLogin) => dispatch({ type: actionTypes.SAVE_SHOW_WRONG_LOGIN, showWrongLogin }),
+    handleChooseLvl: (lvl) => dispatch({ type: actionTypes.SAVE_CHOOSE_LVL, lvl })
   }
 }
 

@@ -23,8 +23,10 @@
 Here is a working live demo :  https://edmchallenge.herokuapp.com/
 
 Answers for questions to test application you can find below
+
+Level answers:
 <details>
-<summary>Level answers:</summary>
+<summary>Easy</summary>
 <br>
 Level 1 - Alan Walker
 <br>
@@ -32,25 +34,59 @@ Level 2 - Oliver Heldens
 <br>
 Level 3 - Marshmello
 <br>
-Level 4 - DJ BL3ND
+Level 4 - Deadmau5
 <br>
-Level 5 - Bassjackers
+Level 5 - Martin Garrix
 <br>
-Level 6 - Jay Hardway
+Level 6 - The Chainsmokers
 <br>
-Level 7 - Dropgun
+Level 7 - Avicii
 <br>
-Level 8 - SAYMYNAME
+Level 8 - Tom Swoon
 <br>
-Level 9 - Tom Swoon
+Level 9 - Dj Snake
 <br>
-Level 10 - DJ Snake
+Level 10 - Mike Candys
 <br>
-Level 11 - Mike Candys
+Level 11 - Galantis
 <br>
-Level 12 - Getter
+</details>
+
+
+<details>
+<summary>Hard</summary>
 <br>
-Level 13 - Galantis
+Level 1 - Don Diablo
+<br>
+Level 2 - Timmy Trumpet
+<br>
+Level 3 - Excision
+<br>
+Level 4 - Hardwell
+<br>
+Level 5 - WolfPack
+<br>
+Level 6 - Moti
+<br>
+Level 7 - Nicky Romero
+<br>
+Level 8 - Tiesto
+<br>
+Level 9 - Dj Bl3nd
+<br>
+Level 10 - Bassjackers
+<br>
+Level 11 - Jay Hardway
+<br>
+Level 12 - Dropgun
+<br>
+Level 13 - SAYMYNAME
+<br>
+Level 14 - Getter
+<br>
+Level 15 - Seven Lions
+<br>
+Level 16 - Illenium
 <br>
 </details>
 
