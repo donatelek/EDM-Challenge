@@ -69,7 +69,33 @@ div.quizHints .hint {
     position: absolute;
     overflow-y: hidden;
     cursor: pointer;
-    border: 1px solid black;
+}
+
+.quizHints .front2 img {
+    width: auto;
+    height: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+
+.quizHints .front1 img {
+    width: auto;
+    height: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+
+.quizHints .front3 img {
+    width: auto;
+    height: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
 }
 
 .quizHints .back2 {
@@ -227,7 +253,6 @@ input.volumeChanger::-moz-range-track {
     background: linear-gradient(45deg, rgba(59, 173, 227, 1) 0%, rgba(87, 111, 230, 1) 25%, rgba(152, 68, 183, 1) 51%, rgba(255, 53, 127, 1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3bade3 ', endColorstr='#ff357f ', GradientType=1);
     height: 2px;
-    /* width: 130px; */
 }
 
 input.volumeChanger::-webkit-slider-runnable-track {
@@ -274,19 +299,6 @@ input.volumeChanger::-ms-track {
     }
 }
 
-
-
-
-
-
-.tess {
-    width: 500px;
-    height: 500px;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
 .quizHints button {
     background-color: pink;
     z-index: 123123;
@@ -307,7 +319,6 @@ input.volumeChanger::-ms-track {
     .quizHints .flip {
         width: 30%;
     }
-
 }
 
 @media screen and (max-width:1601px) and (max-height:950px) {
