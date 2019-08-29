@@ -200,7 +200,7 @@ class App extends Component {
               {(page === 'contact' && user) && <Link to='/lvl' className='goBackFooter' >Back to levels</Link>}
               {(page === 'contact' && !user) && <Link onClick={() => this.pageChange('/')} to='/' className='goBackFooter'>Log In</Link>}
               {page === '/quiz' || page === 'scoreboard' ? <Link className='goBackFooter' to='/lvl'>GO Back</Link> : null}
-              {this.props.user && <Link className='logOutFooter' to='/' exact={true} onClick={handleLogOut}>LOG OUT</Link>}
+              {this.props.user && <Link className='logOutFooter' to='/' exact='true' onClick={handleLogOut}>LOG OUT</Link>}
             </div> : <div className="navInFooter" >
                 {(page === 'contact' && user) && <Link to='/lvl' className='goBackFooter'>Back To levels</Link>}
                 {(page === 'contact' && !user) && <Link onClick={() => this.pageChange('/')} to='/' className='goBackFooter'>Log In</Link>}
