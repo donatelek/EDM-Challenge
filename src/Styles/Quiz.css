@@ -4,6 +4,8 @@ div.quiz {
     animation: scale-in-hor-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     color: rgb(12, 45, 70);
     /* z-index: 323; */
+    /* background-color: red; */
+    /* overflow: hidden; */
 }
 
 @keyframes scale-in-hor-center {

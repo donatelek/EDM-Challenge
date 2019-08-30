@@ -4,6 +4,8 @@ div.answer {
     height: 135px;
     position: relative;
     -webkit-tap-highlight-color: transparent;
+    width: 100vw;
+    right: 0;
 }
 
 div.answer input.inputAnswer {
